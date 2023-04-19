@@ -1,0 +1,106 @@
+---
+title: Potions
+layout: "dndr-framework.njk"
+---
+
+**Potions** can be bought and bewed. How effective they are is related to the **size** and **potency** of a potion. It's potency determines rarity, while its size determines the uses before it runs out. Consuming a potion returns the bottle it was in. 
+
+A potions **potency** determines what and how many dice you roll, and its rarity. Most health potions are 1d6 per dose, but this varries based on recipie and dilution. You can dilute potions with 1/4 its weight in water to lower it a tier, but multiply its doses by 1.25 (rounding up). For standard potency, see the types section.
+
+Most potions are sold in bottles with 3 or sometimes 4 doses in them. If they were made with the same recipie, partially used potions can be combined into the same bottle without negative effects. If diffrent recipies were used, either run the potion calculations again or roll 1d4, on 4 the potion is safe, otherwise it is spoiled.
+
+In general, potions that require a roll can be drank as normal for 1 action, or with advantage for 2 actions. If drank outside of combat, always roll advantage or assume a perfect roll. 
+
+## Types
+
+*Charts will use the currency in my world, [Eytelia](../eytelia/). The currency is called Stiya and 1 stiya is roughly equivelent to 10 canadian cents, or 3 copper coins<sup>[<a href="../open-tabletop:citation-needed">Citation Needed</a>]</sup>.
+
+Potions come in many types, and you can add anything you want for your game! However, these are the default and most common types!
+
+### Healing
+
+Healing potions restore health instantly, depending on your class.
+
+| Tier | Healing | Average Cost |
+| ---- | ---- | ---- |
+| <span class="blueviolet-2">Grand</span> | 1d20 | <span class="stiya-icon">9000</span> |
+| <span class="blue-2">Greater</span> | 1d12 |  <span class="stiya-icon">3000</span> |
+| <span class="green-2">Standard</span> | 1d6 | <span class="stiya-icon">800</span> |
+| Lesser | 1d4 | <span class="stiya-icon">400</span> |
+
+### Regeneration
+
+Regeneration potions restore health over time. They do more healing per money, and are more consistant. One turn is 6 secconds, making 10 turns in a minute. If out of combat, you can calculate this in bulk if you would like.
+
+| Tier | Healing | Average Cost |
+| ---- | ---- | ---- |
+| <span class="blueviolet-2">Grand</span> | 2d4 for 2d12 turns | <span class="stiya-icon">9000</span> |
+| <span class="blue-2">Greater</span> | (1d4)-1 for 1d20 turns |  <span class="stiya-icon">3000</span> |
+| <span class="green-2">Standard</span> | (1d4)-2 for 1d12 turns | <span class="stiya-icon">800</span> |
+| Lesser | (1d4)-3 for 1d8 turns | <span class="stiya-icon">400</span> |
+
+### Mana
+
+Mana potions restore mana or spell slots instantly.
+
+| Tier | Healing | Average Cost |
+| ---- | ---- | ---- |
+| <span class="blueviolet-2">Grand</span> | 10 mana OR a tier 4 slot | <span class="stiya-icon">9000</span> |
+| <span class="blue-2">Greater</span> | 6 mana OR a tier 3 slot |  <span class="stiya-icon">3000</span> |
+| <span class="green-2">Standard</span> | 3 mana OR a tier 2 slot | <span class="stiya-icon">800</span> |
+| Lesser | 1 mana OR tier 1 slot | <span class="stiya-icon">400</span> |
+
+Maybe some classes use spell slots and some use mana??
+
+## Obtaining
+Potions can be obtained in a variety of ways, but the most common are below. 
+
+### Brewing Potions
+
+There are a few ways to brew potions, depending on the level of depth you want. Each level adds more depth and uses for every ingredient, more combinations, etc, but is often much more complecated than the previous potion.
+
+#### Simple Brewing Algorithum
+
+Every potion has a set of **pre-determined** immuteable recipies. They can be found on that potions page.
+
+#### Medium Brewing Algorithum (Reccommended)
+
+This one uses 8 elements, of which the only thing that matters is thier ratios. This allows for many combinations for the same potion. 
+
+#### Complex Brewing Algorithum
+
+Brewing potions is determined by the ingedients used (*including* its base), time brewed, and a bit more. Potions have the following stats, which are used to determine map coordinates. The potion brewing system is directly based on that found in [Potion Craft](https://store.steampowered.com/app/1210320/Potion_Craft_Alchemist_Simulator/), but highly simplified and designed to work in a TTRPG setting. I don't feel like working on it, so for now take this apprxamte map. 
+
+![A map guide for making potions. Top left: Explosions, Wrath, Top Middle: Air, Flight, Top Right: Magic, Energy, Middle left: Fire, Warmth, Middle Right, Water, Cold, Bottom Left: Poison, Death, Bottom Middle: Earth, Endurance, Bottom Right: Life, Growth](https://steamuserimages-a.akamaihd.net/ugc/1751356955877207072/67DF517B4289CC8447BEA359A35D46CECE5D7A50/)
+*Image Credit: [Potion Craft steam news post](https://store.steampowered.com/news/app/1210320/view/3195878989272230918)*
+
+The potion formula is a bit complicated, but as follows
+
+- P = Potion coordinates (lookup on map or enter into my hopefully eventually potion map finder)
+- [x, y] = x or y, do this seperately for both.
+- ing = ingredient coordinate effect for that axis
+- n = number of them
+- for: = for each of type (in this case, for every ingredient)
+
+<svg xmlns="http://www.w3.org/2000/svg" class="math-svg" viewBox="0 -1471.3888563218627 14404.666666666668 2403.501259227576"><g stroke-width="0" transform="matrix(1 0 0 -1 0 0)"><path stroke-width="10" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"/><path stroke-width="10" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z" transform="translate(1033,0)"/><g transform="translate(2214,0)"><rect x="0" y="220" width="12070" height="60" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/><g transform="translate(60,680)"><path stroke-width="10" d="M118 -250V750H255V710H158V-210H255V-250H118Z"/><path stroke-width="10" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z" transform="translate(283,0)"/><path stroke-width="10" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z" transform="translate(860,0)"/><path stroke-width="10" d="M21 287Q21 301 36 335T84 406T158 442Q199 442 224 419T250 355Q248 336 247 334Q247 331 231 288T198 191T182 105Q182 62 196 45T238 27Q261 27 281 38T312 61T339 94Q339 95 344 114T358 173T377 247Q415 397 419 404Q432 431 462 431Q475 431 483 424T494 412T496 403Q496 390 447 193T391 -23Q363 -106 294 -155T156 -205Q111 -205 77 -183T43 -117Q43 -95 50 -80T69 -58T89 -48T106 -45Q150 -45 150 -87Q150 -107 138 -122T115 -142T102 -147L99 -148Q101 -153 118 -160T152 -167H160Q177 -167 186 -165Q219 -156 247 -127T290 -65T313 -9T321 21L315 17Q309 13 296 6T270 -6Q250 -11 231 -11Q185 -11 150 11T104 82Q103 89 103 113Q103 170 138 262T173 379Q173 380 173 381Q173 390 173 393T169 400T158 404H154Q131 404 112 385T82 344T65 302T57 280Q55 278 41 278H27Q21 284 21 287Z" transform="translate(1309,0)"/><path stroke-width="10" d="M22 710V750H159V-250H22V-210H119V710H22Z" transform="translate(1811,0)"/><path stroke-width="10" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z" transform="translate(2316,0)"/><path stroke-width="10" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z" transform="translate(3322,0)"/><path stroke-width="10" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z" transform="translate(3716,0)"/><path stroke-width="10" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z" transform="translate(4271,0)"/><path stroke-width="10" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z" transform="translate(4761,0)"/><path stroke-width="10" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z" transform="translate(5494,0)"/><path stroke-width="10" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z" transform="translate(6055,0)"/><path stroke-width="10" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z" transform="translate(6405,0)"/><path stroke-width="10" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z" transform="translate(7010,0)"/><path stroke-width="10" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z" transform="translate(7495,0)"/><path stroke-width="10" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z" transform="translate(7889,0)"/><path stroke-width="10" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z" transform="translate(8283,0)"/><path stroke-width="10" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z" transform="translate(8633,0)"/><path stroke-width="10" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z" transform="translate(9238,0)"/><path stroke-width="10" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z" transform="translate(9945,0)"/><path stroke-width="10" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z" transform="translate(10951,0)"/><path stroke-width="10" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z" transform="translate(11556,0)"/></g><g transform="translate(5315,-686)"><path stroke-width="10" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"/><path stroke-width="10" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z" transform="translate(350,0)"/><path stroke-width="10" d="M311 43Q296 30 267 15T206 0Q143 0 105 45T66 160Q66 265 143 353T314 442Q361 442 401 394L404 398Q406 401 409 404T418 412T431 419T447 422Q461 422 470 413T480 394Q480 379 423 152T363 -80Q345 -134 286 -169T151 -205Q10 -205 10 -137Q10 -111 28 -91T74 -71Q89 -71 102 -80T116 -111Q116 -121 114 -130T107 -144T99 -154T92 -162L90 -164H91Q101 -167 151 -167Q189 -167 211 -155Q234 -144 254 -122T282 -75Q288 -56 298 -13Q311 35 311 43ZM384 328L380 339Q377 350 375 354T369 368T359 382T346 393T328 402T306 405Q262 405 221 352Q191 313 171 233T151 117Q151 38 213 38Q269 38 323 108L331 118L384 328Z" transform="translate(955,0)"/></g></g></g></svg>
+
+[Written with this isual MathML writer](https://visualmatheditor.equatheque.net/). For future me, the pdocution code is `P =\frac{[x, y] + (for:ing)(ing \times n)}{ing}`
+
+### Diluting and Tier Calculations
+
+If you dilute a potions volume by half its tier is one less. Potions MUST be diluted with the potions base. 
+
+Potions tiers are generally lesser, normal, greater, super. Each tier requires doubble the potency.
+
+<!-- And for potion size
+| Direction | Effect |
+| ---- | ---- |
+| Up | Potions with a lot of up tend to give effects such as jump height, speed (attack or movement), etc. |
+| Left | The more left a potion is, the hotter it is. Potions with a lot of left tend to give effects such as cold resistance and fire resistance. |
+| Right | The more right a potion is determines how cold it is, often giving effects such as increesed endurance.  |
+| Down | The more down a potion is | -->
+
+<!-- ### Buying Potions -->
+
+## Footnotes
+(1): **Overheal** any health beyond your max. 

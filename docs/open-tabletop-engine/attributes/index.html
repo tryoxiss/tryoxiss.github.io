@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DnD Remade Attributes</title>
+
+    <link rel="stylesheet" href="/resources/styles/layout.css">
+    <link rel="stylesheet" href="/resources/styles/main.css">
+</head>
+<body class="match-braces">
+    <script src="/res/prism.js"></script>
+    
+    <header>
+        <h1>DnD Remade Attributes</h1>
+
+        <p class="subtitle">
+
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>Updated Date Undefined
+        </p>
+    </header>
+    
+    <nav role="related articles" class="glossary">
+
+    <details>
+        <summary>Basics</summary>
+        <ul>
+            <li><a href="/open-tabletop-engine/basics/">Framework Basics</a></li>
+            <li><a href="/open-tabletop-engine/attributes/">Attributes</a></li>
+            <li>delor</li>
+            <li>sit</li>
+            <li>amet</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>Getting Started</summary>
+        <ul>
+            <li><a href="/open-tabletop-engine/create-a-character/">Character Creation</a></li>
+            <li><a href="/open-tabletop-engine/basic-mechanics/">Basic Mechanics</a></li>
+            <li><a href="/open-tabletop-engine/classes/">Classes</a></li>
+            <li>amet</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>Mechanics</summary>
+        <ul>
+            <li><a href="/open-tabletop-engine/basics/">Framework</a></li>
+            <li></li>
+            <li>delor</li>
+            <li>sit</li>
+            <li>amet</li>
+        </ul>
+    </details>
+
+    <details>
+        <summary>Items</summary>
+        <ul>
+            <li><a href="/open-tabletop-engine/potions/">Potions</a></li>
+            <li><a href="/open-tabletop-engine/tools/">Tools</a></li>
+            <li>delor</li>
+            <li>sit</li>
+            <li>amet</li>
+        </ul>
+
+    </details>
+
+    <details>
+        <summary>Homebrew</summary>
+        <ul>
+            <li><a href="/open-tabletop-engine/basics/">Framework</a></li>
+            <li></li>
+            <li>delor</li>
+            <li>sit</li>
+            <li>amet</li>
+        </ul>
+    </details>
+
+    </nav>
+
+    <main>
+        <p>Attributes are simple tag-based modifiers you can add to any item to modify how it works. If you are looking for stats, or these don't seem what your looking for, see <a href="../stats/">stats</a>.</p>
+<ul>
+<li><s>Mini crits can be gaurnteed. Crits are random. They do the same damage modifer. It's just to prevent cheese builds.</s></li>
+<li>Struckthrough (<s>Struckthrough</s>) items are <strong>Marked For Death</strong> and will be <strong>removed or reworked</strong> in a future revision.</li>
+<li>Some effects have paramaters, denoted with brackets <code>()</code> around them. These are additional information about it, for example, where you are burned.</li>
+<li><strong>TODO</strong>: These categories make no sense. Just... clean it up? - Mads</li>
+<li>Weapons can only strike physical enemies by defult.</li>
+<li>1 Unit is 1m centimeters.
+<ul>
+<li>We reccommend 3x3cm tiles, if using a board IRL</li>
+<li>In game, 1 square tile is 1m<sup>2</sup></li>
+<li>In game, 1 hex tile is 1x1m.</li>
+<li>It is designed to be played with either square <em>or</em> hex tiles. But hex is more fun fight me.</li>
+</ul>
+  <!-- - Convert from meters to tiles: `(tiles * 100) / 75` -->
+</li>
+<li><strong>Khaim</strong>: yeah, but i also feel like the characters get to much hp to fast, like having them start out at 8 and at max only getting to like 50 would be better than starting at 10 and getting to 300</li>
+<li>Levels run from 1 (defult) to 20 (max). Characters cannot exeed level 20, but should not <em>reach</em> level 20 in the first place.</li>
+</ul>
+<p>Basic item design:</p>
+<div class="postcard postcard-50">
+<p class="h2">Item Name</p>
+<p><span class="muted">{Rarity} {Type}</span></p>
+<p>Item description. This can be as long as you want.</p>
+<ul>
+<li>Attribute</b>: Description</li>
+</ul>
+<p class="muted" style="margin-bottom: 0px;">List, Of Attributes, In Short, form</p>
+</div>
+<p>Example:</p>
+<div class="postcard postcard-50">
+<p class="h2 pink-2">The Atomizer</p>
+<p><span class="muted">Mythical Scientific Marvel</span></p>
+<p>Destroy the essence of your foes with a single hit.</p>
+<ul>
+<li><b>While Equiped</b>: Reduce your max health to 1.</li>
+<li><b>On Use</b>: Reduce your health to 1, even when putting the weapon away. (but, you return to your old max health when putting it away, so you can heal back)</li>
+<li><b>Honor</b>: You are considered honorable while you only use it to take the lives of those who hurt you. Killing an enemy that has not attacked you (directly or indirectly (your party, village, nation, etc)) will break your honor. 
+</li>
+<li><b>On Break Honor</b>: Permanently destroy the atomizer, and give your character and party grief, and give yourself trauma (killed enemy type and faction) attributes. Give the faction that you used it on the Vengeance Attribute. (Or die, and make a new character. If you play that way)
+</li>
+</ul>
+<p class="muted" style="margin-bottom: 0px;">Honor Bound, Mythical</p>
+</div>
+<p>And a more practical example:</p>
+<div class="postcard postcard-50">
+<p class="h2 green-2">English Longbow</p>
+<p><span class="muted">Uncommon Bow</span></p>
+<p>With great range and power, comes great strength requirements.</p>
+<ul>
+    <li><b>On Use</b>: Fire an arrow</li>
+    <ul>
+        <li>Range: 60m</li>
+        <li>Damage: 3d6</li>
+        <li>Stat Check: strengh 8+</li>
+    </ul>
+</ul>
+<p class="muted" style="margin-bottom: 0px;">Two-handed, Bow, Longbow, Uncommon</p>
+</div>
+<p>And of a consumeable item:</p>
+<div class="postcard postcard-50">
+<p class="h2">Fint Arrow</p>
+<p><span class="muted">Common Ammunition (Supply: 80)</span></p>
+<p>Can be used with most bows and are easily craftable.</p>
+<p class="muted" style="margin-bottom: 0px;">Consumeable, Arrow, Not Enchantable</p>
+</div>
+<p>For ranged weapons, ammo can add or edit your main weapons stats. For example: using a feathered arrow can increese range, and using a heavy arrow can increese damage but decreese range. To do this, take the weapons base stats and modify them with the ammo. For example:</p>
+<ul>
+<li>Bow:
+<ul>
+<li>Damage: 3d6</li>
+</ul>
+</li>
+<li>Tin Feathered Arrow
+<ul>
+<li>Damage: 1d6</li>
+</ul>
+</li>
+</ul>
+<p>So to calculate your damage, roll 4d6</p>
+<h2>Baisc Attributes</h2>
+<p>These attributes do not need to be set when they are just the defult behavour.</p>
+<ul>
+<li><strong>Description</strong>: Flavour, mostly.</li>
+<li><strong>On Equip</strong>: Determines what stat changes occur when the item is equipped.</li>
+<li><strong>On Holster</strong>: Determines what stat changes occur when the item is uneqipped. (It does not need to be put into a holster)</li>
+<li><strong>When Eqipped</strong>, <strong>When On {slot}</strong>: (e.g., &quot;When On Main Hand&quot;, &quot;When On Head&quot;, &quot;When On Body&quot;) Determines what happens when the item is actively equipped.</li>
+<li><strong>On Use</strong>: Determines what happens when used.</li>
+<li><strong>On Hit</strong>:</li>
+<li><strong>On Action</strong>:</li>
+<li><strong>On Bonus Action</strong>:</li>
+<li><strong>On Crit</strong>: What happens when you roll a 20?
+<ul>
+<li>Defult: Deal a critical hit (2x damage)</li>
+</ul>
+</li>
+<li><strong>On Fumble</strong>: What happens when you roll a 1?
+<ul>
+<li>Defult: Deal 0 damage</li>
+</ul>
+</li>
+<li><strong>Consumeable</strong>: This item will be consumed on use. If you want it to return an item, add that as an on-use along with the status effect. for example: drinking a potion returns its bottle as an inventory item.</li>
+<li><strong>On Break</strong></li>
+<li><strong>On Desroy</strong></li>
+</ul>
+<h2>Debuffs</h2>
+<ul>
+<li><strong>Burning!</strong>: Quick! Put yourself out! You're on fire!</li>
+<li><strong>Grappled</strong>: You don't have free reign of movement, someone is grabbing you!</li>
+<li><strong>Nausea</strong>: Eat or drink at your own risk! Roll 1d6 each time you eat or roll an atheltics check to determine if you fumble. Fumbles from other sources also count.
+<ul>
+<li>On Fumble: Puke food and deal 1d4 poison damage. Remove the effects of all the food and drink you have had in the last hour. (Do not remove instant effects, only things with lasting effects).</li>
+</ul>
+</li>
+</ul>
+<h2>Curses</h2>
+<ul>
+<li><strong>Cursed: {Curse}</strong>: a</li>
+</ul>
+<p>(Not really a curse)</p>
+<ul>
+<li><strong>Marked For Death</strong>: Make minions, pets, and the like target that enemy. Applying marked for death to someone else will remove all other marked for death effects on thier side</li>
+</ul>
+<h2>Types:</h2>
+<ul>
+<li><strong>Gas</strong>: Made of gas!</li>
+<li><strong>Ghost</strong>: Boo!</li>
+<li><strong>Essence</strong>: <s>Religious spirits that show up from time to time.</s></li>
+<li><strong>Mirrage</strong>: Your seeing things! Can only inflict emotional side effects.</li>
+<li><strong>Hallucination</strong>: Your seeing things! Can only inflict emotional side effects.</li>
+<li><strong>Hologram</strong>: You seem unable to attack them!</li>
+<li><strong>Stone</strong>: Status effects won't work here... (I mean,  you can try, but stones aren't known for taking poison damage :P).</li>
+<li><strong>Metal</strong>: Many status effect's won't work here... maybe try splashing it?</li>
+<li><strong>Plant</strong>: Vulnerable to fire, weak to plants and water.</li>
+<li>**</li>
+</ul>
+<h2>Climate</h2>
+<ul>
+<li><strong>Hyperthermia</strong>: Take (1d4 / 2) damage a turn. If our of combat: Take (1d4 / 2) damage each ingame minute. Round down.</li>
+<li><strong>Overheating</strong>: Cool off quickly! Increesed need for water. Apply <em>thirst</em>.</li>
+<li><strong>Hot</strong>: You are uncomfortably hot!</li>
+<li><strong>Warm</strong>: You are comfortably warm.</li>
+<li><strong>Neutral</strong>: Your character is at a comfortable temputure.</li>
+<li><strong>Cool</strong>: You are comfortatably cool.</li>
+<li><strong>Cold</strong>: You are uncomfortably cold!</li>
+<li><strong>Freezing</strong>: You are uncomfortably cold!</li>
+<li><strong>Hpothermia</strong>: Take (1d4 / 2) damage a turn. If our of combat: Take (1d4 / 2) damage each ingame minute. Round down.</li>
+</ul>
+<p>And then these are not really climate but...</p>
+<ul>
+<li><strong>Burned 1 (where)</strong>: First degree burns</li>
+<li><strong>Burned 2 (where)</strong>: Seccond degree burns</li>
+<li><strong>Burned 3 (where)</strong>: Third degree burns</li>
+<li><strong>Burned 4 (where)</strong>: Fourth degree burns. (i.e., you just got turned into charcoal).</li>
+</ul>
+<!-- - Burn-out
+On Use: -2 to all stats ? idk for this one 
+
+- Useless
+On Use: Gain inability to function on charisma, intelligence, or constitution saving throws. -->
+<h2>Transfer Attributes</h2>
+<p>These attributes dictate how an item can transfer from one person to another. These probably are not what you are looking for. Not tradeable and not marketable are generally used for quest items, but its generally reccommended you avoid them. They are more a prefab than anything else to prevent players from messing up critical progression.</p>
+<ul>
+<li><strong>Not Tradeable</strong>: Prohibit this item from being traded to and from NPCs.</li>
+<li><strong>Not Marketable</strong>: Prohibit this item from being marketed (sold for gold), to any NPC or shop.</li>
+<li><strong>Not Lootable</strong>: Prohibit this item from being pick-pocketed or looted from a corpose. It is reccommended you apply this to all critical items, as it can be frustrating to have it get lost. (Good DMs shouldn't make them get lost <em>anyway</em> (unless its a quest!), but it can serve as a nice reminder to that).</li>
+<li><strong>Not Droppable</strong>: Cannot be dropped or left behind.</li>
+<li><strong>Soulbound</strong>: Not Tradeable, Not Marketable, Not Lootable, Not Dropable. This item will be with you, forever, weather you like it or not. You may be able to find a shaman who can break it, but you risk cursing it in the process!</li>
+<li><strong>Cannot Be Teleported</strong>: This item cannot go through teleporters, or be transported while having teleportation spells.</li>
+<li>**</li>
+<li><strong>Illegal</strong>: Less NPCs will want to buy it, it is harder to aquire. Don't let the city gaurds find out!</li>
+</ul>
+<h2>Misc Attributes</h2>
+<ul>
+<li><strong>Honor Bound</strong>: this item is given to you embues you with pride and honor, you may not know why, but violate its code and you may soon find out.
+<ul>
+<li><strong>Honor</strong>: This defines how honor works with that item, it could be something like not hurting a teammate, not putting it away without killing an enemy, taking a life, anything that fits in your world!</li>
+<li><strong>On Break Honor</strong>: This defines what happens when the honor code is broken. Is it a bannishment from thier village? Grief? Remorse? Get creative!</li>
+</ul>
+</li>
+</ul>
+
+    </main>
+
+    <footer>
+    <p>Footer</p>
+</footer>
+</body>
+</html>

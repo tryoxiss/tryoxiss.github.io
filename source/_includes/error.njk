@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} ★ tryoxiss</title>
+
+    <link rel="stylesheet" href="/res/css/style.css">
+    <link rel="stylesheet" href="/res/css/prism.css">
+
+</head>
+<style>
+main { 
+    background-color: transparent;
+}
+
+* { 
+    text-align: center;
+}
+
+h1 { 
+    font-size: 2rem; 
+    color: var(--text-muted);
+
+    height: 1.8rem;
+}
+
+strong { 
+    font-size: 3rem;
+}
+
+p { 
+    margin-bottom: 0px;
+}
+
+footer p { 
+    font-size: 1rem; 
+    color: var(--text-muted);
+}
+
+</style>
+{% endblock %}
+{# Need to add language- before the code language to make that work.  #}
+<body class="match-braces language-{{ code_language }}">
+    <script src="/res/prism.js"></script>
+    
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    
+    <main>
+        {% block main %}
+        {{ content | safe }}
+        {% endblock %}
+    </main>
+
+    <footer style="margin-top: 4rem;">
+    <p class="subtitle">This page is public domain. However, some content on it may be Copyright &copy; 2023 tryoxiss.</p>
+</footer>
+</body>
+</html>

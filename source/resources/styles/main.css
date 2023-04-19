@@ -1,0 +1,692 @@
+:root { 
+    /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); */
+    --html-bg: linear-gradient(to bottom right, 
+    var(--blue-4), 
+    var(--blueviolet-3), 
+    var(--violet-3), 
+    var(--pink-3));
+
+    --html-fg: ;
+
+    --body-bg: rgb(30, 30, 46, 0.7);
+    --body-fg: rgb(205, 214, 244);
+    
+    --header-bg: transparent;
+    --header-fg: rgb(205, 214, 244);
+    
+    --main-bg: rgb(17, 17, 27, 0.8);
+    --main-fg: rgb(205, 214, 244);
+
+    --main-child-bg: rgb(24, 24, 37);
+    --main-child-fg: rgb(205, 214, 244);
+
+    --footer-bg: transparent;
+    --footer-fg: rgb(205, 214, 244);
+    
+    --accent-fg: var(--violet-3);
+    --accent-bg: rgb(var(--violet-3-rgb), 0.2);
+
+    --muted-fg: rgb(166, 173, 200);
+    --muted-bg: transparent;
+
+    --main-font: 'Nunito', sans-serif;
+    --display-font: 'Mali', 'Nunito', sans-serif;
+
+    --contrast-fg: rgb(30, 30, 46);
+
+    --red-3: rgb(243, 139, 168);
+    --orange-3: rgb(250, 179, 135);
+    --yellow-3: rgb(249, 226, 175);
+    --green-3: rgb(166, 227, 161);
+    --teal-3: rgb(148, 226, 213);
+    --blue-3: rgb(137, 220, 235);
+    --blue-4: rgb(116, 199, 236);;
+    --blueviolet-3: rgb(135, 176, 249);
+    --violet-3: rgb(180, 190, 254);
+    --pink-3: rgb(245, 194, 231);
+
+    --red-3-rgb: 243, 139, 168;
+    --green-3-rgb: 166, 227, 161;
+    --violet-3-rgb: 135, 176, 249;
+
+
+
+    --border-radius: 6px;
+
+
+    --table-heading-color: rgb(17, 17, 27);
+    --table-hover-color: rgb(17, 17, 27);
+}
+
+*, *::before, *::after { /* reset ugly things */
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    -webkit-margin-collapse: collapse;
+    margin-collapse: collapse;
+}
+
+::selection { 
+    background-color: var(--accent-bg);
+}
+
+html { 
+    color-scheme: dark light;
+
+    font-family: var(--main-font);
+}
+
+html { 
+    background: var(--html-bg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+body { 
+    min-height: 100vh;
+    background: var(--body-bg);
+}
+
+body > header { 
+    background-color: var(--header-bg);
+    color: var(--header-fg);
+}
+
+main { 
+    background-color: var(--main-bg);
+    color: var(--main-fg);
+
+    border-radius: var(--border-radius);
+    padding: var(--spacing-small);
+
+    line-height: 1.6;
+}
+
+footer { 
+    background-color: var(--footer-bg);
+    color: var(--footer-fg);
+}
+
+body > header { 
+    text-align: center;
+    height: max-content;
+}
+
+.header,
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 { 
+    font-family: var(--display-font);
+    font-weight: 600;
+}
+
+a { 
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-fg);
+    color: var(--accent-fg);
+}
+a:hover { 
+    color: var(--blue-3);
+}
+
+/* ********* TABLES ******* */
+
+table { 
+    width: 100%;
+}
+
+th { 
+    text-align: left;
+
+    background-color: var(--table-heading-color);
+}
+
+th, tr, td { 
+    padding: 5px;
+}
+
+/* tr:nth-child(odd) { 
+    background-color: var(--table-even-color);
+}
+
+tr:nth-child(even) { 
+    background-color: var(--table-odd-color);
+} */
+
+tr:hover { 
+    background-color: var(--table-hover-color); 
+    color: var(--main-fg-strong); 
+}
+
+/* PRISM BLOCK */
+
+code { 
+    padding: 0px 0.25rem;
+    border-radius: var(--border-radius);
+}
+
+code,
+pre {
+    color: var(--main-child-fg);
+    background: none;
+    font-family: 'Hack', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+ 
+
+pre {
+    padding: var(--spacing-small);
+    overflow: scroll;
+    /* max-width: 34rem; */
+    border-radius: 0.3em;
+}
+
+:not(pre) > code,
+pre {
+    background: var(--main-child-bg);
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    padding: .1em;
+    border-radius: .3em;
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: var(--muted-fg);
+}
+
+.token.punctuation {
+    color: #f8f8f2;
+}
+
+.token.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: var(--green-3);
+}
+
+.token.boolean,
+.token.number {
+    color: var(--blue-3);
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: var(--violet-3);
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+    color: var(--muted-fg);
+}
+
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+    color: var(--violet-3);
+}
+
+.token.keyword {
+    color: var(--main-fg);
+}
+
+.token.regex,
+.token.important {
+    color: var(--orange-3);
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+
+.token.entity {
+    cursor: help;
+} 
+
+/* *********** */
+
+pre.line-numbers {
+    position: relative;
+    padding-left: 3.8em;
+    counter-reset: linenumber;
+}
+
+pre.line-numbers > code {
+    position: relative;
+    white-space: inherit;
+}
+
+.line-numbers .line-numbers-rows {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    font-size: 100%;
+    left: -3.8em;
+    width: 3em; /* works for line-numbers below 1000 lines */
+    letter-spacing: -1px;
+    border-right: 1px solid #999;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+}
+
+.line-numbers-rows > span {
+    display: block;
+    counter-increment: linenumber;
+}
+
+.line-numbers-rows > span:before {
+    content: counter(linenumber);
+    color: #999;
+    display: block;
+    padding-right: 0.8em;
+    text-align: right;
+}
+ 
+.token a {
+    color: inherit;
+}
+div.code-toolbar {
+    position: relative;
+}
+
+div.code-toolbar > .toolbar {
+    position: absolute;
+    z-index: 10;
+    top: .3em;
+    right: .2em;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    
+    transform: translateX(-20px)
+}
+
+div.code-toolbar:hover > .toolbar {
+    opacity: 1;
+}
+
+/* Separate line b/c rules are thrown out if selector is invalid.
+IE11 and old Edge versions don't support :focus-within. */
+div.code-toolbar:focus-within > .toolbar {
+    opacity: 1;
+    max-width: 80%;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item {
+    display: inline-block;
+    border-radius: 100vmax;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a {
+    cursor: pointer;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    background: none;
+    border: 0;
+    color: inherit;
+    font: inherit;
+    border-radius: 100vmax;
+    -webkit-user-select: none; /* for button */
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a,
+div.code-toolbar > .toolbar > .toolbar-item > button {
+    font-size: .8em;
+    padding: 0 .5em;
+    background: transparent;
+    border-radius: .5em;
+    border-radius: 100vmax;
+    margin-left: 0.5rem;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > button:hover { 
+    background-color: var(--accent-bg);
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > span {
+    color: var(--main-fg);
+    font-size: .8em;
+    background: transparent;
+    border-radius: 100vmax;
+    color: var(--muted-fg);
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a:hover,
+div.code-toolbar > .toolbar > .toolbar-item > a:focus,
+div.code-toolbar > .toolbar > .toolbar-item > button:hover,
+div.code-toolbar > .toolbar > .toolbar-item > button:focus,
+div.code-toolbar > .toolbar > .toolbar-item > span:hover,
+div.code-toolbar > .toolbar > .toolbar-item > span:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+span.inline-color-wrapper {
+    /*
+    * The background image is the following SVG inline in base 64:
+    *
+    * <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2 2">
+    *     <path fill="gray" d="M0 0h2v2H0z"/>
+    *     <path fill="white" d="M0 0h1v1H0zM1 1h1v1H1z"/>
+    * </svg>
+    *
+    * SVG-inlining explained:
+    * https://stackoverflow.com/a/21626701/7595472
+    */
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyIDIiPjxwYXRoIGZpbGw9ImdyYXkiIGQ9Ik0wIDBoMnYySDB6Ii8+PHBhdGggZmlsbD0id2hpdGUiIGQ9Ik0wIDBoMXYxSDB6TTEgMWgxdjFIMXoiLz48L3N2Zz4=");
+    /* This is to prevent visual glitches where one pixel from the repeating pattern could be seen. */
+    background-position: center;
+    background-size: 110%;
+
+    display: inline-block;
+    height: 1.333ch;
+    width: 1.333ch;
+    margin: 0 .333ch;
+    box-sizing: border-box;
+    border: 1px solid white;
+    outline: 1px solid rgba(0,0,0,.5);
+    overflow: hidden;
+}
+
+span.inline-color {
+    display: block;
+    /* To prevent visual glitches again */
+    height: 120%;
+    width: 120%;
+}
+
+.token.punctuation.brace-hover,
+.token.punctuation.brace-selected {
+    outline: solid 1px;
+}
+
+.rainbow-braces .token.punctuation.brace-level-1,
+.rainbow-braces .token.punctuation.brace-level-5,
+.rainbow-braces .token.punctuation.brace-level-9 {
+    color: #E50;
+    opacity: 1;
+}
+.rainbow-braces .token.punctuation.brace-level-2,
+.rainbow-braces .token.punctuation.brace-level-6,
+.rainbow-braces .token.punctuation.brace-level-10 {
+    color: #0B3;
+    opacity: 1;
+}
+.rainbow-braces .token.punctuation.brace-level-3,
+.rainbow-braces .token.punctuation.brace-level-7,
+.rainbow-braces .token.punctuation.brace-level-11 {
+    color: #26F;
+    opacity: 1;
+}
+.rainbow-braces .token.punctuation.brace-level-4,
+.rainbow-braces .token.punctuation.brace-level-8,
+.rainbow-braces .token.punctuation.brace-level-12 {
+    color: #E0E;
+    opacity: 1;
+}
+
+
+pre .deleted:not(.prefix) { 
+    background-color: rgb(var(--red-3-rgb), 0.2);
+}
+
+pre .inserted:not(.prefix) { 
+    background-color: rgb(var(--green-3-rgb), 0.2);
+}
+
+pre .deleted .prefix { 
+    color: var(--red-3);
+}
+
+pre .inserted .prefix { 
+    color: var(--green-3);
+}
+
+/* ENDBLOCK */
+
+
+
+.callout--info { --decals-color: var(--blue-3); }
+
+
+main aside, main details { 
+    border-left: 2px solid var(--decals-color);
+}
+
+main summary::-webkit-details-marker { 
+    display: none;
+} 
+
+main summary { 
+    list-style: none;
+}
+
+main summary svg { 
+    transform: translateY(2px)
+}
+
+main details summary::after { 
+    margin-left: 0.8rem;
+}
+
+main details[open] summary::after { 
+    content: '(less)'
+}
+
+main details:not([open]) summary::after { 
+    content: '(more)'
+}
+
+main details summary, main aside header { 
+    color: var(--decals-color);
+    margin-left: -0.8rem;
+    transform: translateY(-3px);
+    
+    font-weight: bold;
+}
+
+main details summary { 
+    cursor: pointer;
+}
+
+main details summary, main aside header {
+    background-color: var(--main-bg);
+    padding: 4px;
+}
+
+main details:not([open]) { 
+    border-left: 2px solid transparent;
+}
+
+main details p:nth-child(2), main aside p:nth-child(2) {
+    margin-top: 0;
+}
+
+ul, ol { 
+    margin-left: var(--spacing-large);
+}
+
+ol {
+    list-style: decimal-leading-zero;
+}
+
+ol ol { 
+    list-style: lower-alpha;
+}
+
+ol ol ol { 
+    list-style: decimal;
+}
+
+ol ol ol ol { 
+    list-style: lower-alpha;
+}
+
+.red-2 { 
+    color: var(--red-3)
+}
+
+.orange-2 { 
+    color: var(--orange-3)
+}
+
+.yellow-2 { 
+    color: var(--yellow-3)
+}
+
+.green-2 { 
+    color: var(--green-3)
+}
+
+.blue-2 { 
+    color: var(--blue-3)
+}
+
+.blueviolet-2 { 
+    color: var(--blueviolet-3)
+}
+
+.violet-2 { 
+    color: var(--violet-3)
+}
+
+.pink-2 { 
+    color: var(--pink-3)
+}
+
+.muted { 
+    color: var(--muted-fg);
+}
+
+.button *, .brand-icon, .button { 
+    color: var(--muted-fg); 
+}
+
+.band-icon { 
+    fill: var(--muted-fg);
+}
+
+.button, button { 
+    text-decoration: none;
+    border-bottom: 0; 
+
+    color: var(--contrast-fg); 
+    background-color: var(--violet-bg);
+    padding: .5rem 1rem ;
+
+    border-radius: 100vmax;
+
+    margin: 0.5rem 0.25rem;
+
+    display: inline-block;
+
+    /* height: 2rem; */
+    /* background-color: red !important; */
+
+    transition: 200ms ease-in-out;
+}
+
+.button svg { 
+    /* padding: .5rem 0px; */
+    margin-bottom: -0.5rem;
+    width: 1.5rem;
+
+    stroke: var(--contrast-fg)
+}
+
+.button:focus { 
+    outline-offset: 0.25rem;
+}
+
+.button:hover { 
+    color: var(--contrast-fg);
+    transform: translateY(-0.25rem);
+}
+
+.brand-icon { 
+    fill: var(--contrast-fg); 
+    stroke: var(--contrast-fg);
+    color: var(--contrast-fg);
+}
+
+.text-icon { 
+    margin-bottom: -2px;
+}
+
+.emoji { 
+    width: 1.4rem; 
+    height: 1.4rem; 
+    margin-bottom: -6px;
+
+    border-radius: 0px;
+
+    -webkit-user-drag: none;
+    cursor: text;
+}
+
+/* ********************** */
+/* JUST FOR EYTELIA BLOCK */
+/* ********************** */
+
+.stiya-icon { 
+    position: relative;
+}
+
+.stiya-icon::after { 
+    content: url('/res/svg/stiya.svg');
+
+    position: absolute;
+    width: 0.9rem;
+    height: 0.9rem;
+    bottom: 0.9rem;
+}
+
+.math-svg { 
+    stroke: var(--main-fg);
+    fill: var(--main-fg);
+}
+
+:is(ol, ul) :is(ol, ul) ul { 
+    list-style: disc;
+}

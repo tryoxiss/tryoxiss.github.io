@@ -1,0 +1,84 @@
+:root { 
+    --spacing-large: 2rem;
+    --spacing-small: 1rem;
+}
+
+body { 
+    display: grid;
+
+    grid-template-columns: 1fr 2fr 1fr;
+
+    grid-gap: var(--spacing-large);
+}
+
+@media (max-width: 600px) { 
+    body { 
+        grid-template-areas: 
+        "nav    nav    nav"
+        "outline outline outline"
+        "right-sidebar right-sidebar right-sidebar"
+        "header header header"
+        "main   main   main"
+        "footer footer footer";
+
+        padding: 0px;
+    }
+
+
+    div.code-toolbar {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 600.00000000000000000000000000000000000001px) { 
+    body { 
+        grid-template-areas: 
+        "nav    nav    nav"
+        "outline outline outline"
+        "right-sidebar right-sidebar right-sidebar"
+        "header header header"
+        "main   main   main"
+        "footer footer footer";
+
+        padding: var(--spacing-large);
+    }
+
+
+    div.code-toolbar {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1000px) { 
+    body { 
+        grid-template-areas: 
+        "nav       nav    nav"
+        ".         header ."
+        "outline   main   right-sidebar"
+        ".         footer .";
+    }
+
+    div.code-toolbar {
+        max-width: calc((100vw / 4) * 2);
+    }
+}
+
+header { grid-area: header; }
+main   { grid-area: main; }
+footer { grid-area: footer; }
+
+[role="primary navigation"] { grid-area: nav; }
+[role="Outline"] { grid-area: outline; }
+[role="Right Sidebar"] { grid-area: right-sidebar; }
+
+nav { 
+    max-height: max-content;
+}
+
+text { 
+    display: block;
+}
+
+p { 
+    margin-bottom: var(--spacing-small);
+}

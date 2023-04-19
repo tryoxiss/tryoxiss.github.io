@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" href="/resources/styles/layout.css">
+    <link rel="stylesheet" href="/resources/styles/main.css">
+</head>
+<body class="match-braces">
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+
+    <main>
+        {{ content | safe }}
+    </main>
+
+    {# FOR SOME REASON THIS ASIDE CAUSES MOBILE BUGS. FIX BEFORE MERGEING. #}
+    <aside role="Sidebar" class="sidebar postcard">
+    {% block sidebar %}
+
+    <p class="sidebar-header {{table_item_color}}">{{ table_header }}</p>
+
+    <p>{{ table_type }}</p>
+    <p>{{ table_description }}</p>
+
+    <span class="sidebar-text">{{ table_item_type }}</span>
+
+    <img src="{{ table_image }}" alt="{{ table_image_alt }}">
+
+    <ul>
+        <li>{{ table_stat_1 }}</li>
+        <ul>
+            <li>{{ table_stat_1_1 }}</li>
+            <li>{{ table_stat_1_2 }}</li>
+            <li>{{ table_stat_1_3 }}</li>
+            <li>{{ table_stat_1_4 }}</li>
+        </ul>
+
+        <li>{{ table_stat_2 }}</li>
+        <ul>
+            <li>{{ table_stat_2_1 }}</li>
+            <li>{{ table_stat_2_2 }}</li>
+            <li>{{ table_stat_2_3 }}</li>
+            <li>{{ table_stat_2_4 }}</li>
+        </ul>
+
+        <li>{{ table_stat_3 }}</li>
+        <ul>
+            <li>{{ table_stat_3_1 }}</li>
+            <li>{{ table_stat_3_2 }}</li>
+            <li>{{ table_stat_3_3 }}</li>
+            <li>{{ table_stat_3_4 }}</li>
+        </ul>
+
+        <li>{{ table_stat_4 }}</li>
+        <ul>
+            <li>{{ table_stat_4_1 }}</li>
+            <li>{{ table_stat_4_2 }}</li>
+            <li>{{ table_stat_4_3 }}</li>
+            <li>{{ table_stat_4_4 }}</li>
+        </ul>
+
+        <li>{{ table_stat_5 }}</li>
+        <ul>
+            <li>{{ table_stat_5_1 }}</li>
+            <li>{{ table_stat_5_2 }}</li>
+            <li>{{ table_stat_5_3 }}</li>
+            <li>{{ table_stat_5_4 }}</li>
+        </ul>
+
+        <li>{{ table_stat_6 }}</li>
+        <ul>
+            <li>{{ table_stat_6_1 }}</li>
+            <li>{{ table_stat_6_2 }}</li>
+            <li>{{ table_stat_6_3 }}</li>
+            <li>{{ table_stat_6_4 }}</li>
+        </ul>
+
+    </ul>
+
+    <p style="font-style: italic; margin-bottom: 0px;">{{ table_attributes }}</p>
+    {% endblock %}
+    </aside>
+
+    {% include "footer.njk" %}
+</body>
+</html>

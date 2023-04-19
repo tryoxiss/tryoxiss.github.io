@@ -8,13 +8,13 @@
 
     --html-fg: ;
 
-    --body-bg: rgb(30, 30, 46, 1);
+    --body-bg: rgb(30, 30, 46, 0.8);
     --body-fg: rgb(205, 214, 244);
     
     --header-bg: transparent;
     --header-fg: rgb(205, 214, 244);
     
-    --main-bg: rgb(17, 17, 27, 0.8);
+    --main-bg: rgb(17, 17, 27, 1);
     --main-fg: rgb(205, 214, 244);
 
     --main-child-bg: rgb(24, 24, 37);

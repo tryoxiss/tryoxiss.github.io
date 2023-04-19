@@ -665,6 +665,10 @@ ol ol ol ol {
     cursor: text;
 }
 
+details > * { 
+    margin-left: var(--spacing-small)
+}
+
 /* ********************** */
 /* JUST FOR EYTELIA BLOCK */
 /* ********************** */
@@ -690,3 +694,4 @@ ol ol ol ol {
 :is(ol, ul) :is(ol, ul) ul { 
     list-style: disc;
 }
+

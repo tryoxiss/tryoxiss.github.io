@@ -1,0 +1,326 @@
+<p>OpenChatProtocol is designed to last, and that means being extensible. All packets contain a data-header that is designed for extensions.</p>
+<p>The data header includes the core edition, the type in the standard format (<code>module:item</code>), and the modules version explictly stringed. Any paramaters off the standard list (see &quot;standard paramaters list&quot; later in this document), MUST be prefixed with the extension. For example: <code>messages:special_property: value</code>.</p>
+<pre><code class="language-yaml">core: 2021
+type: messages:message
+version: &quot;1.0.0&quot;
+
+messages:special_property: value
+</code></pre>
+<h2>Standard Property List</h2>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Required</th>
+<th>Pourpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>core</code></td>
+<td>Yes</td>
+<td>To define which version of the core sped you are using</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td>Yes</td>
+<td>To define what type of packet you are sending, and what you intend to operate on.</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td>Yes</td>
+<td>To define what version of the module you are using is</td>
+</tr>
+<tr>
+<td><code>operation</code></td>
+<td>No (default: GET)</td>
+<td>Defines what the packet intends to do.</td>
+</tr>
+<tr>
+<td><code>guid</code></td>
+<td>Sometimes</td>
+<td>Stores an objects GUID.</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>No</td>
+<td>Defines the language of the conten you are sending. This does not affect its keys.</td>
+</tr>
+<tr>
+<td><code>time</code></td>
+<td>No</td>
+<td>Defines when an operation happned. This should be a time string in the ISO format of <code>DD-MM-YYYY HH:MM:SS</code>. ms are not allowed, and the year can expand if needed (e.g., to 12020).</td>
+</tr>
+<tr>
+<td><code>content_type</code></td>
+<td>if non-text</td>
+<td>Defines the data type of the content is not text data.</td>
+</tr>
+<tr>
+<td><code>content</code></td>
+<td>Sometimes</td>
+<td>Defines the content of a message. This could be a ban message, reaction, text message, or voice packet.</td>
+</tr>
+<tr>
+<td><code>target</code></td>
+<td>Sometimes</td>
+<td>GUID of the object you want to target with this operation.</td>
+</tr>
+<tr>
+<td><code>author</code></td>
+<td>Defines WHO created the content</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3>Content Type Values</h3>
+<p>Common/Wikipedia:</p>
+<h4>binary/image</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.png</td>
+<td><code>binary/image/png</code></td>
+</tr>
+<tr>
+<td>.qoi</td>
+<td><code>binary/image/qoi</code></td>
+</tr>
+<tr>
+<td>.jpeg / .jpg</td>
+<td><code>binary/image/jpeg</code></td>
+</tr>
+<tr>
+<td>.bmp</td>
+<td><code>binary/image/bmp</code></td>
+</tr>
+<tr>
+<td>.gif</td>
+<td><code>binary/image/gif</code></td>
+</tr>
+<tr>
+<td>.tiff / .tif</td>
+<td><code>binary/image/tiff</code></td>
+</tr>
+</tbody>
+</table>
+<h4>binary/video</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.gifv</td>
+<td><code>binary/video/gifv</code></td>
+</tr>
+<tr>
+<td>.qif</td>
+<td><code>binary/video/qif</code></td>
+</tr>
+<tr>
+<td>.ogg</td>
+<td><code>binary/video/ogg</code></td>
+</tr>
+<tr>
+<td>.mp4</td>
+<td><code>binary/video/mp4</code></td>
+</tr>
+<tr>
+<td>.mp5</td>
+<td><code>binary/video/mp5</code></td>
+</tr>
+<tr>
+<td>.mov</td>
+<td><code>binary/video/mov</code></td>
+</tr>
+<tr>
+<td>.avi</td>
+<td><code>binary/video/avi</code></td>
+</tr>
+<tr>
+<td>.webm</td>
+<td><code>binary/video/webm</code></td>
+</tr>
+<tr>
+<td>.mkv</td>
+<td><code>binary/video/mkv</code></td>
+</tr>
+<tr>
+<td>.mpeg</td>
+<td><code>binary/video/mpeg</code></td>
+</tr>
+</tbody>
+</table>
+<h4>binary/audio</h4>
+<p>Often used for sending voice data in calls.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.mp1</td>
+<td><code>binary/audio/mp1</code></td>
+</tr>
+<tr>
+<td>.mp2</td>
+<td><code>binary/audio/mp2</code></td>
+</tr>
+<tr>
+<td>.mp3</td>
+<td><code>binary/audio/mp3</code></td>
+</tr>
+</tbody>
+</table>
+<h4>binary/archive</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.zip</td>
+<td><code>binary/archive/zip</code></td>
+</tr>
+<tr>
+<td>.tar</td>
+<td><code>binary/archive/tar</code></td>
+</tr>
+<tr>
+<td>.tar.xz</td>
+<td><code>binary/archive/tar.xz</code></td>
+</tr>
+<tr>
+<td>.tar.gz</td>
+<td><code>binary/archive/tar.gz</code></td>
+</tr>
+<tr>
+<td>.xz</td>
+<td><code>binary/archive/xz</code></td>
+</tr>
+<tr>
+<td>.gz</td>
+<td><code>binary/archive/gz</code></td>
+</tr>
+<tr>
+<td>.zipx</td>
+<td><code>binary/archive/zipx</code></td>
+</tr>
+<tr>
+<td>.iso</td>
+<td><code>binary/archive/iso</code></td>
+</tr>
+<tr>
+<td>.rar</td>
+<td><code>binary/archive/rar</code></td>
+</tr>
+<tr>
+<td>.bak</td>
+<td><code>text/archive/bak</code></td>
+</tr>
+<tr>
+<td>.a</td>
+<td><code>text/archive/generic</code></td>
+</tr>
+</tbody>
+</table>
+<h4>text/image</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.svg</td>
+<td><code>text/image/svg</code></td>
+</tr>
+</tbody>
+</table>
+<h4>text/rich</h4>
+<p>Likely going to be split up further.</p>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.ods</td>
+<td><code>text/rich/ods</code></td>
+</tr>
+<tr>
+<td>.odt</td>
+<td><code>text/rich/odt</code></td>
+</tr>
+<tr>
+<td>.doc</td>
+<td><code>text/rich/ms-doc</code></td>
+</tr>
+<tr>
+<td>.docx</td>
+<td><code>text/rich/ms-docx</code></td>
+</tr>
+<tr>
+<td>.ppt</td>
+<td><code>text/rich/ms-ppt</code></td>
+</tr>
+</tbody>
+</table>
+<h4>text/plain</h4>
+<table>
+<thead>
+<tr>
+<th>Extension</th>
+<th>Type Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>.txt</td>
+<td><code>text/plain/generic</code></td>
+</tr>
+<tr>
+<td>.md</td>
+<td><code>text/plain/markdown</code></td>
+</tr>
+<tr>
+<td>.yaml</td>
+<td><code>text/plain/yaml</code></td>
+</tr>
+<tr>
+<td>.json</td>
+<td><code>text/plain/json</code></td>
+</tr>
+<tr>
+<td>.csv</td>
+<td><code>text/plain/csv</code></td>
+</tr>
+</tbody>
+</table>
+<p>(Skipped binary/executeable, text/code)</p>

@@ -54,8 +54,8 @@
     --border-radius: 6px;
 
 
-    --table-heading-color: rgb(17, 17, 27);
-    --table-hover-color: rgb(17, 17, 27);
+    --table-heading-color: rgb(24, 24, 37);
+    --table-hover-color: rgb(24, 24, 37);
 }
 
 *, *::before, *::after { /* reset ugly things */
@@ -132,7 +132,11 @@ a:hover {
 /* ********* TABLES ******* */
 
 table { 
-    width: 100%;
+    max-width: 100%;
+}
+
+img { 
+    max-width: 100%;
 }
 
 th { 
@@ -673,6 +677,65 @@ details > * {
     margin-left: var(--spacing-small)
 }
 
+/* *******8 */
+
+.tab-group {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tab-group input[type="radio"] {
+    display: none;
+}
+.tab-group label {
+    font-weight: bold;
+    padding: 0.75rem; 
+    margin-left: 0.25rem;
+    border-radius: var(--border-radius) !important;
+    cursor: pointer;
+}
+
+.tab-group .tab {
+    width: 100%;
+    padding: var(--spacing-small);
+    order: 1;
+    display: none;
+
+    background-color: var(--main-child-bg);
+    margin: 0.5em 0.25em; 
+    border-radius: var(--border-radius);
+}
+.tab-group .tab h2 {
+    font-size: 2rem;
+}
+
+h2 { 
+    font-size: 1.25rem;
+}
+
+.tab-group input[type='radio']:checked + label + .tab {
+    display: block;
+}
+
+.tab-group input[type="radio"]:checked + label {
+    color: var(--main-fg);
+    background-color: var(--main-child-bg);
+
+}
+
+.tab-group input[type="radio"]:not(:checked) + label {
+    color: var(--muted-fg);
+}
+
+.tab-group input[type="radio"] + label:hover {
+    color: var(--main-fg);
+} 
+
+.tab-group label { 
+    border-radius: var(--border-subwindow-radius);
+}
+
+
 /* ********************** */
 /* JUST FOR EYTELIA BLOCK */
 /* ********************** */
@@ -682,7 +745,8 @@ details > * {
 }
 
 .stiya-icon::after { 
-    content: url('/res/svg/stiya.svg');
+    content: url('/resources/images/svg/stiya.svg');
+    fill: var(--red-3);
 
     position: absolute;
     width: 0.9rem;

@@ -335,8 +335,12 @@ div.code-toolbar > .toolbar {
     right: .2em;
     transition: opacity 0.3s ease-in-out;
     opacity: 0;
-    
-    transform: translateX(-20px)
+}
+
+@media (prefers-reduced-motion: no-prefrence) { 
+    .button:hover { 
+        transform: translateX(-20px)
+    }
 }
 
 div.code-toolbar:hover > .toolbar {

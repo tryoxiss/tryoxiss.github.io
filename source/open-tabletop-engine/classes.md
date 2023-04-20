@@ -66,7 +66,7 @@ though monk is about a individuals journey of self so it wouldnt fit there very 
 Generally less versitle, and generally weaker, but tend to be able to take advantage of enviornments more and are able to work even without mana!
 
 ### Archer
-<span class="yellow-2">Ranged</span> Something? <span class="yellow-2">(Dexterity)</span>
+<span class="yellow-2">Ranged</span> Something?
 
 ## Non-offical classes
 Untested, unbalanced so far, but fun none the less!

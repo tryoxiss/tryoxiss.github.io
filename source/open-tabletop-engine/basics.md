@@ -23,7 +23,7 @@ Dice will be defined as `d<sides>` in this document.
 
 Negative values are instead set to 0. So for example, a creature that deals 1d4-3 damage has an attack array of [0, 0, 0, 1] making it a very low threat. 
 
-With damage and ranges, if attacking closer than the specified minimum, damage is lowered by 1d4 for every tile closer than the minimum. You can attempt to atack farther aswell if using a ranged or magic weapon, but damage is also reduced by 1dN for every tile beyond its range where N is the number of tiles you are attemping to attack past, rounding up. 
+With damage and ranges, if attacking closer than the specified minimum, damage is lowered by 1d4 for every tile closer than the minimum. You can attempt to atack farther aswell if using a ranged or magic weapon, but damage is also reduced by 1dN for every tile beyond its range where N is the number of tiles you are attemping to attack past, rounding up to the nearest dice value. 
 
 For example, attempting to shoot a bow 2 tiles past its maximum range will reduce its damage by 2d4, and attempting to shoot it 5 tiles past its max range will reduce its damage by 5d6. 
 

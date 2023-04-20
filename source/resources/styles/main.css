@@ -26,8 +26,10 @@
     --accent-fg: var(--violet-3);
     --accent-bg: rgb(var(--violet-3-rgb), 0.2);
 
-    --muted-fg: rgb(166, 173, 200);
+    --muted-fg: rgb(161, 168, 201);
     --muted-bg: transparent;
+
+    --strong-fg: #dce0ee;
 
     --main-font: 'Nunito', sans-serif;
     --display-font: 'Mali', 'Nunito', sans-serif;
@@ -735,6 +737,28 @@ h2 {
     border-radius: var(--border-subwindow-radius);
 }
 
+.preview-color {
+    --preview-color: #fff;
+}
+
+.preview-color::before { 
+    content: "";
+    width: 12px !important;
+    height: 12px;
+    margin: 0px 0.5rem;
+    margin-right: 0.25rem;
+    display: inline-block;
+    background-color: var(--preview-color);
+    border: 1px solid var(--main-fg);
+}
+
+s { 
+    color: var(--muted-fg);
+}
+
+strong { 
+    color: var(--strong-fg);
+}
 
 /* ********************** */
 /* JUST FOR EYTELIA BLOCK */

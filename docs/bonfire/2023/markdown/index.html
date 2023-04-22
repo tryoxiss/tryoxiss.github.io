@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bonfire Core</title>
+    <title>Markdown</title>
 
     <link rel="stylesheet" href="/resources/styles/main.css">
     <link rel="stylesheet" href="/resources/styles/layout.css">
@@ -25,7 +25,7 @@
 
     
     <header>
-        <h1>Bonfire Core</h1>
+        <h1>Markdown</h1>
         <text class="subtitle"></text>
         <text class="subtitle">1 minute read </text>
     </header>
@@ -66,39 +66,53 @@
 
     <main>
         
-        <h2>Accounts</h2>
-<p>Transition data header</p>
-<pre><code class="language-yaml">edition: 2023
-module: accounts
+        <p>We reccommend all front ends support markdown. The specific markdown you allow may vary, but your markdown parser should be able to handle all of the following.</p>
+<pre><code class="language-markdown"># Inline
+*italics* 
+_italics_ 
+**bold**
+__underline__
+
+# Heading
+## Levels
+### One
+#### Through 
+##### Heading
+##### Level 
+###### six
+
+#tags
+:emojis: 
+\*escape sequences\*
+[inline links](LINK)
+![images](source)
+
+&gt; Blockquotes
+
+`inline code blocks`
+``inline code blocks``
+(multi line code blocks, with language support)
 </code></pre>
-<p>And an example</p>
-<pre><code class="language-yaml">edition: 2023
-module: accounts
-
-account_guid: { 
-
-    profiles: [
-        {
-            guid: guid,
-            # authorisation: token # Only needed if its NOT owned by YOUR account.
-        },
-        {
-            guid: guid,
-            authorisation: token
-        }
-    ]
-}
+<p>Additionallyt, we reccommend it supports the following:</p>
+<pre><code class="language-markdown">---
+frontmater: keys
 ---
-edition: 2023
-module: profiles
 
-profile_1_guid: {
-    display_name: &quot;String&quot;,
-    handle: &quot;String&quot;,
-    owner: &quot;account_guid&quot;,
+[id links][id]
 
-}
+[id]: URL
 </code></pre>
+<pre><code class="language-markdown">&gt; [!type] callouts
+&gt; with cudstom titles and full markdown supported inside. 
+
+horisontal rules
+---
+</code></pre>
+<p>and the abbility to add custom stuff for</p>
+<pre><code>@user@instance.tld chips 
+#channel@groupid@instance.tld chips
+</code></pre>
+<p>For messages, we reccommend you only allow inline, links, images, code, tags, and emojis, but other channel types will likely want more advanced markdown such as <a href="../wiki-channels/">wiki channels</a></p>
 
         
     </main>

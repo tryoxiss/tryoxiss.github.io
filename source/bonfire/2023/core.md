@@ -2,4 +2,44 @@
 title: Bonfire Core
 ---
 
-Bonfire core modules aim at providing the bare essentials so that pieces can be swapped in and out as desired. This also allows us to update otherwise fundemental parts of the specification with minimal disruption. 
+
+
+## Accounts
+
+Transition data header
+
+```yaml
+edition: 2023
+module: accounts
+```
+
+And an example
+
+```yaml
+edition: 2023
+module: accounts
+
+account_guid: { 
+
+    profiles: [
+        {
+            guid: guid,
+            # authorisation: token # Only needed if its NOT owned by YOUR account.
+        },
+        {
+            guid: guid,
+            authorisation: token
+        }
+    ]
+}
+---
+edition: 2023
+module: profiles
+
+profile_1_guid: {
+    display_name: "String",
+    handle: "String",
+    owner: "account_guid",
+
+}
+```

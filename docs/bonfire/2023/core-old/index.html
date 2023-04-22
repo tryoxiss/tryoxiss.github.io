@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bonfire Core</title>
+
+    <link rel="stylesheet" href="/resources/styles/main.css">
+    <link rel="stylesheet" href="/resources/styles/layout.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@600&family=Nunito:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+</head>
+<body class="match-braces diff-hilight">
+    <script src="/resources/scripts/prism.js"></script>
+    
+
+    <nav role="primary navigation">
+        
+    </nav>
+
+    
+    <header>
+        <h1>Bonfire Core</h1>
+        <text class="subtitle"></text>
+        <text class="subtitle">37 minute read </text>
+    </header>
+    
+
+    <nav role="Outline">
+        
+<details>
+    <summary>Core</summary>
+    <ul>
+        <li><a href="../core/">Core</a></li>
+        <li><a href="../protocol/">Protocol</a></li>
+        <li><a href="../extensions/">Extensions</a></li>
+        <li><a href="../extension-style/">Extension Style</a></li>
+    </ul>
+</details>
+<details>
+    <summary>Reccommended</summary>
+    <text>Not technechally required modules, but are HIGHLY reccommended.</text>
+    <ul>
+        <li><a href="../accounts/">Accounts</a></li>
+        <li><a href="../seperate-profiles/">Seperate Profiles</a></li>
+        <li><a href="../groups/">Groups</a></li>
+        <li><a href="../permissions/">Permissions</a></li>
+        <li><a href="../text-channels/">Text Channels</a></li>
+        <li><a href="../voice-channels/">Voice Channels</a></li>
+        <li><a href="../wiki-channels/">Wiki Channels</a></li>
+        <li><a href="../markdown/">Markdown</a></li>
+        <li><a href="../botting-api/">Botting API</a></li>
+        <li><a href="../extensions-api/">Extensions API</a></li>
+    </ul>
+</details>
+<details>
+    <summary>Extensions</summary>
+</details>
+
+    </nav>
+
+    <main>
+        
+        <p>Bonfire core modules aim at providing the bare essentials so that pieces can be swapped in and out as desired. This also allows us to update otherwise fundemental parts of the specification with minimal disruption.</p>
+<p>Bonfire is a working (and temporary) name for a standard to allow for community-divided federated instant messaging. In laymans terms, its federated discord.</p>
+<blockquote class="callout callout--info">
+    <!-- <svg src="/_shared-content/lucide/alert-triangle.svg" color="red"></svg> -->
+    <div class="callout__header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <p>This specification is a draft!</p>
+    </div>
+    <p>it is not finished and is due for many, many revisions down the road. </p>
+</blockquote>
+<blockquote class="callout callout--warning">
+    <!-- <svg src="/_shared-content/lucide/alert-triangle.svg" color="red"></svg> -->
+    <div class="callout__header">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path><path d="M14 2v6h6"></path><path d="m3 12.5 5 5"></path><path d="m8 12.5-5 5"></path></svg>
+        <p>Dependy Issue</p>
+    </div>
+    <p>This specification seems to refrence or cite 1 or more speicfications that appear to be missing. These issues must be resolved before 1.0. A list can be found below: </p>
+    <ul style="margin-top: -1rem;">
+        <li>Clean ID System</li>
+    </ul>
+</blockquote>
+<h2>Definitions</h2>
+<p>Let the keywords that follow be case insensitive unless otherwise specified.</p>
+<ul>
+<li>Let the keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> (and lowercase equivalents) be defined as specified in <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC:2119</a></li>
+<li>Let <code>incorrect</code> mean MUST NOT; as in, incorrect behaviour violates the standard.</li>
+<li>Let <code>i&lt;int&gt;</code> represent 2^int-1. Some examples (and the important ones) are as follows;
+<ul>
+<li><code>i6</code> equals <code>63</code></li>
+<li><code>i8</code> equals <code>255</code></li>
+<li><code>i16</code> equals <code>65,535</code></li>
+<li><code>i32</code> equals <code>2,147,483,647</code></li>
+<li><code>i64</code> equals approximately <code>1.844674407×10¹⁹</code></li>
+</ul>
+</li>
+<li>Let <code>YAML</code>, or <code>Object</code> represent one YAML file (or &quot;file&quot; part of a stream), and any nested objects. Let this not exceed the maximum status characters of an i16. I validated my YAML with <a href="https://yamlchecker.com/">This YAML validator</a></li>
+<li>Let <code>packet</code> represent one YAML Object sent between a client-server, or server-server relationship.</li>
+<li>Let <code>snake_case</code> and <code>snake case</code> mean the naming scheme where multiple words are written in all lowercase and are seperated with underscores.</li>
+<li>Let <code>GUID</code> and <code>UUID</code> represent a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally Unique Identifier</a>.</li>
+<li>Let <code>snowflake</code> represent one GUID.</li>
+<li>Let the character sets <code>reserved</code>, <code>escaped</code>, <code>delims</code>, <code>unwise</code>, <code>lowalpha</code>, <code>upalpha</code>, <code>alpha</code>, <code>digit</code>, <code>alphanum</code>, <code>mark</code> and <code>unreserved</code> are to be defined as in <a href="https://www.ietf.org/rfc/rfc2396.txt">RFC:2396</a>. This is only when these keywords are in reference to a <strong>character set</strong>.</li>
+<li>Let <code>inalpha</code> represent the character set including <code>upalpha</code> and <code>lowalpha</code>, where no distinction is made between uppercase and lowercase. (&quot;A&quot; is the same as &quot;a&quot;).</li>
+<li>Let the character set <code>safe</code> be the culmination of <code>inalpha</code> and <code>digit</code> and the characters <code>_</code> and <code>-</code>.</li>
+<li>Let <strong>Edition</strong> mean the anual revision to the specification.</li>
+</ul>
+<h2>Design Philosophy</h2>
+<p>*Some of the following definitions are from <a href="https://ariadne.space/2019/01/07/activitypub-the-worse-is-better-approach-to-federated-social-networking/">ariadne.space's post on ActivityPub's design falings</a>.</p>
+<ul>
+<li><strong>Simplicity</strong>: The standard and protocol should be simple to implement.</li>
+<li><strong>Cleanliness</strong>: The standard must be clean and easily usable from a end-user perspective. It is more important for it to be clean and simple for end-users than the backend implementation.</li>
+<li><strong>Correctness</strong>: All packets and URI's must be verifiably correct or incorrect. It is considered incorrect if it is ever unclear.</li>
+<li><strong>Safety</strong>: The standard and protocol is designed in a way that is safe, any unsafe implementations are considered incorrect.</li>
+<li><strong>Completeness</strong>: The standard and protocol must cover all expected situations, including future reivions.</li>
+<li><strong>Privacy</strong>: All content should be encrypted and sent through secure channels. It is considered incorrect to send unencrypted data with the exception of pre-written public HTML pages (which are only a should not).</li>
+<li><strong>Prevent Consolidation</strong>: We don't want this to end up like email, where you <em>can</em> self host and join a smaller provider, but good luck with all the limitations in place.</li>
+</ul>
+<p>Other, smaller goals are to make it extensible so at no point will there ever be breaking changes (No &quot;bonfire 2.0&quot;). While we cannot guarantee this, a finished 1.0 spec should be backwards compatible for at least the next 30 years, while still being able to add support for new features.</p>
+<h2>Protocol</h2>
+<p>This section defines the way bonfire protocol communicates.</p>
+<h3>Ports and process</h3>
+<p>The uri sceheme uses the ports <code>:9870</code> -- <code>:9879</code>.</p>
+<ul>
+<li>Port <code>:9870</code> is responseable for coordinating session-level things such as encryption, and automated content delivery such as &quot;there is a new message in this channel&quot;, but contains no information about the message itself.</li>
+<li>Port <code>:9871</code> through <code>:9878</code> are reserved for sending text messages in multiple channels at a time, where a single port cannot recevie enough data simulataniously.</li>
+<li>Port <code>:9879</code> is reserved for voice and video communications.</li>
+</ul>
+<p>Establishing communications, using (our current name: OpenChatProtocol) and contuning communications, follows the following steps in order.</p>
+<ol>
+<li>Complete TLS Handshake
+<ul>
+<li><strong>CLIENT:</strong> I would like an encerypted channel. Here are my TLS/SSL versions</li>
+<li><strong>SERVER:</strong> Thanks for the request, I would like to use this version of TLS, now heres my certificate with my public key.</li>
+<li><strong>CLIENT:</strong> Verifies certificate, extracts public key, and encrypts a new &quot;pre-master key&quot;</li>
+<li><strong>SERVER:</strong> Server decrypts pre-master key</li>
+<li><strong>BOTH:</strong> Computes a shared secret key, called a &quot;shared secret&quot;</li>
+<li><strong>CLIENT:</strong> Sends verification message that basically says &quot;Hey this is encrypted with our shared secret, decrypt it and let me know if its correct!&quot;</li>
+<li><strong>CLIENT:</strong> Sends verification message that basically says &quot;Hey this is encrypted with our shared secret, decrypt it and let me know if its correct!&quot;</li>
+<li><strong>BOTH:</strong> Now use shared secret to encrypt communications for the remainder of the session.</li>
+</ul>
+</li>
+<li>establish edition
+<ul>
+<li>Send a CSV document with the versions you are willing to use. See Edition Agreement in Objects for details</li>
+<li>Server confirms they are able to use one of your versions, and says which ones they are able to use.</li>
+<li>Now the client uses whatever version they want that the server can use.</li>
+</ul>
+</li>
+<li>Main Loop
+<ul>
+<li>Server/Peer sends desired data</li>
+<li>Send back data</li>
+</ul>
+</li>
+<li>Close Channel</li>
+</ol>
+<h3>URI Scheme</h3>
+<p>The <code>bonfire://</code> URI scheme is motivated by the desire to have a clean inter-instance and inter-client way to denote various locations. This does not need to denote actions as those are sent in <strong>packets</strong> instead. However, they can include links <em>to</em> actions like joining a hub or being an invite.</p>
+<p>As a general rule, it follows the sceme <code>bonfire://guid</code> scheme.</p>
+<p>Examples:</p>
+<pre><code class="language-plaintext">View a users profile: 
+bonfire://@username@instance.tld  -- Can change if they change thier username
+bonfire://d1cp:e0fg:ms56:wf2a:ygkd:fveb:82  - Cannot change
+
+View a channel: 
+bonfire://d1cp:e0fg:ms56:wf2a:ygkd:fveb:82
+
+View a specific message: 
+bonfire://d1cp:e0fg:ms56:wf2a:ygkd:fveb:82
+</code></pre>
+<h3>Response Codes</h3>
+<p>Every response code has a 3-digit number (based off <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">https response codes</a>), and a cleaner name.</p>
+<h4>Information Responses</h4>
+<p>information:information (100) - allows for returning of multiple status codes when appropriate.
+information:returning_list (101)
+information:switching_protocols (102)
+information:processing (103)</p>
+<h4>Success Responses</h4>
+<p>success:success (200) - Success with no further information given. We advise you use a more descritive response code where possible.
+success:created (201)  - A resource was created in response. This can be a message, reaction, etc.
+success:accepted (202) - The request has been accepted and is queued for action.
+success:removed (203) - The requested content was removed.
+success:deleted (204) - the requested content was deleted.</p>
+<h4>Client Error Messages</h4>
+<p>failure:bad_request (400) - The request is invalid with no further information
+failure:unauthorised (401) - You are not logged in or we cannot verify you, preventing you from accessing this content.
+failure:forbidden (402) - we have verified you, but you may not access this content
+failure:not_allowed (403) - you can access this, but you cannot do this action. For example, trying to delete someone elses message without manage messages.
+failure:not_found (404) - We cannot find the requested content.
+failure:timeout (405) - indicates the server would like to end the session, often due to being idle. It can be restarted easily at request, and if often used for server restarts.
+failure:gone (406) - the content was removed
+failure:oversized_payload (407) - we refuse to process this request because the payload exeeded the servers byte limit, often 65,535 bytes for text packets and 2,147,483,647 bytes for images.
+failure:too_many_requests (408) - you are sending too many requests so we refuse to process these. Generally this is 7200 requests over the past 60 minutes (2 requests per seccond for 1 continuous hour)
+failure:better_authentication_needed (409) - you need to authenticate yourself by additional means to access this content. That may be 2 Factor Authentication, Proxy Authentication, or something else. More info should be provided after a <code>;</code> in the packet. Things like voice calls are peer to peer and therefore do not get ratelimited by this, if this happens the suggested behavour is to send it peer to peer to the destination and resend it to the server when you can.</p>
+<h4>Server Error Messages</h4>
+<p>failure:internal_server_error (500) - the server encountered a situation it didnt know how to handle with no additional information.
+failure:not_implemented (501) - the request type you send has no currently handling in the server side.
+failure:not_secure (502) - you send an unencrypted packet to the server which it refuses to process.
+failure:no_storage (503) - the server dosen't have the space to process that request
+failure:loop_request (504) - the request you sent put the server into an infanite loop and refuses to process it.</p>
+<h2>Objects</h2>
+<p>Objects are just how we send data between clients. It can be stored in any format, or translated to other formats to allow for interoperability.</p>
+<p>All objects MUST have a data header which specifies the edition which is required to handle the communication properly, and the type of communication.</p>
+<pre><code class="language-yaml">edition: 2023   # Not necesary if you have agreed to talk over only one edition.
+type: message
+operation: GET  # Not technechally needed, as it is the default operation. 
+</code></pre>
+<p>If an object fails the signature check, dosen't contain a heder or all needed data, or the user dosen't have permissions for that, you can either simply DROP the pakcet or send a an ERROR response.</p>
+<h3>Verify encryption is working.</h3>
+<p>To ensure the server knows exactly what to expect, we send a near identical message every time. FOr the client and server, they are as follows. I know they are not very profesional, but they are fun and no end user ever sees them: but I hope they cheer up someone working on an implementation or someone carefully inspecting the packets!</p>
+<p>CLIENT:</p>
+<pre><code class="language-plaintext">Hello server, this is a message to confirm that the quick brown fox jumps over
+ the lazy brown dog on your end too. If this is working, reply with my keyword
+  &quot;{PICKRANDOM}&quot; so I know it worked!
+
+--- BEGIN MESSAGE SIGNATURE ---
+
+--- END MESSAGE SIGNATURE ---
+</code></pre>
+<p>The pickrandom words list is generally every dictionary word in the dictionary for your clients language. It is mostly just a confirmation to make sure the server can actually decrpt it, and can support your languages character set. This message also uses an english panogram to ensure the connection is working.</p>
+<p>SERVER:</p>
+<pre><code class="language-plaintext">Beep Boop, I am a server box. Server to User, please confirm this connection 
+works. And yes I can confirm, the fox is jumping over the {keyword}. Over.
+
+--- BEGIN MESSAGE SIGNATURE ---
+
+--- END MESSAGE SIGNATURE ---
+</code></pre>
+<h3>Verify bonfire edition</h3>
+<p>Right after establishing secure channels, we send a CSV file containing all the editions we are willing to communicate using. We then compare, pick the most recent, and send confirmations.</p>
+<p>(both) Send list:</p>
+<pre><code class="language-csv">editions
+2023
+2022-beta
+</code></pre>
+<p>Generally we reccommend using the most recent shared version.</p>
+<h3>Account</h3>
+<p>An account stores critical data about a profile such as login and encryption details. An account can have multiple profiles.</p>
+<h3>Profile</h3>
+<p>One account can have multiple profiles, and be switched between freely. The official client also allows you to set diffrent profiles to defult for certain people.</p>
+<p>(This document can be minfiied a lot, using [] and {} to elimatye spaces, or minifying spaces and removing comments. And in transit: likely will.)</p>
+<pre><code class="language-yaml">edition: 2023
+type: account
+
+public_key: &quot;999b9af08579802c4d1ca35070b179d610754abd2d601284819493a55e9ce760e1bc9b8adc6f9592311546f88f43237c65577ca7db95919945e63bfbb241b7b6&quot;
+---
+edition: 2023
+type: profile
+
+profile: 
+    guid: 0000000000000000000000000000000000
+    display_name: &quot;String&quot;
+
+    # We reccommend you store the following avatar scales.
+    avatar_fullres: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d.png # If supported by your instance.
+    avatar_256: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d@256.png 
+    avatar_128: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d@128.png 
+    avatar_64: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d@64.png 
+    avatar_32: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d@64.png   # We highly advise against downscaling avatars lower than this.
+
+    pronouns: [&quot;she/they&quot;, &quot;she/her&quot;, &quot;they/them&quot;]
+    # the frist one is shown, then seperated by slashes and when hovered it will show the one at that index
+    # So if you have &quot;she/they&quot; and you hover &quot;she&quot; with the array above, it will show a tooltip saying &quot;she/her&quot;
+
+    links: 
+    - {
+        rel: nofriend, # Unverified
+        icon: mastodon,
+        handle: &quot;@username@instance.tld&quot;,
+        link: https://instance.tld/@username,
+        visibility: friends
+    }
+    - {
+        rel: me, # Verified
+        icon: peertube,
+        handle: &quot;@username@instance.tld&quot;,
+        link: https://instance.tld/@username,
+        visibility: everyone
+    }
+
+lists: 
+    friends: 
+        send_messages: true
+        see_personal_statuses: true
+        
+    
+
+    blocked: 
+        send_messages: false
+
+    best_friends: 
+        display_name: &quot;Best Friends&quot;
+        allow_important_messages: true
+
+user_data: 
+- { 
+    guid: guid,
+    group: &quot;group&quot;,
+    nickname: &quot;nickname&quot;,
+}
+
+- { 
+    guid: guid,
+    group: &quot;group&quot;,
+    nickname: &quot;nickname&quot;,
+}
+</code></pre>
+<p>When mentioning users, any of the following structures can be used, as long as one would bring it down to just one user in the current hub.</p>
+<pre><code class="language-plaintext">@username
+@username@example.net
+</code></pre>
+<p>When an account is suspended, all mentions of them should display as <code>@suspended</code>.</p>
+<p>Deleted accounts should instead be removed from the database entirely, and their mentions should be replaced with <code>@unknown</code>. If they simply moved to another instance, their mentions should update accordingly.</p>
+<ul>
+<li>@<strong>suspended</strong> - A suspended user account.</li>
+<li>@<strong>unknown</strong> - An unknown user account.</li>
+<li>@<strong>everyone</strong> - Mentions everyone</li>
+<li>@<strong>someone</strong> - mentions a random person.</li>
+</ul>
+<h3>Messages</h3>
+<p>A status object can represent a reaction, message, creation, or anything else that is not a <code>person</code> or <code>bot</code> in nature.</p>
+<p>Creation:</p>
+<pre><code class="language-yaml">edition: 2023
+type: message
+operation: CREATE
+
+language: en # Helps screenreaders pronounce the content.
+author: 0000000000000000000000000000000000
+adressed: 0000000000000000000000000000000000 # ONE guid. If its a group chat or channel then it will handle more people receving it.
+time: 09-04-2023@23:03:01
+content: |
+&quot;this is the messages content. Some characters need to be escaped.&quot;
+
+signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
+</code></pre>
+<p>Editing:</p>
+<pre><code class="language-yaml">edition: 2023
+type: message
+operation: EDIT
+
+target: 0000000000000000000000000000000000   # What mwessage is being edited?
+time: 09-04-2023@23:03:55
+content: |
+&quot;this is the messages content. I have now edited it. It sends the new exact content, and the server deals with only storing the diffrence.&quot;
+
+signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
+</code></pre>
+<p>Removing (HIDING from view, the server won't pass it on, NOT remvoing from servers):</p>
+<pre><code class="language-yaml">edition: 2023
+type: message
+operation: REMOVE
+
+target: 0000000000000000000000000000000000   # What mwessage is being removed?
+
+signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
+</code></pre>
+<p>Deleting (Removing from servers):</p>
+<pre><code class="language-yaml">edition: 2023
+type: message
+operation: DELETE
+
+target: 0000000000000000000000000000000000   # What mwessage is being deleted?
+
+signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
+</code></pre>
+<h3>Reactions</h3>
+<p>Reactions are little emoji counters below a message.</p>
+<pre><code class="language-yaml">edition: 2023
+type: message
+operation: CREATE # REMOVE removes YOUR reaction. DELETE clears all reactions of that type.
+
+target: 0000000000000000000000000000000000   # Message ID
+content: &quot;emoji_shortcode&quot; # No colons around them. If its not a valid emoji, simply drop the packet.
+
+signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
+</code></pre>
+<h2>Formatting and Escapes</h2>
+<p>Various things need to be replaced for one reason or another. Most important, some characters need to be escaped.</p>
+<table>
+<thead>
+<tr>
+<th>Char</th>
+<th>Sequence</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&quot;</code></td>
+<td><code>\u0022</code></td>
+<td>String Closer, would interfere with interchange.</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td><code>\u003c</code></td>
+<td>Would interfere with embedded objects and allow embedding of HTML.</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td><code>\u003e</code></td>
+<td>Would interfere with embedded objects and allow embedding of HTML.</td>
+</tr>
+<tr>
+<td><code>&amp;</code></td>
+<td><code>\u0026</code></td>
+<td>YAML Reserved Syntax</td>
+</tr>
+<tr>
+<td><code>:</code></td>
+<td><code>\u003a</code></td>
+<td>YAML Key Identifier</td>
+</tr>
+<tr>
+<td><code>\</code></td>
+<td><code>\u005c</code></td>
+<td>so that <code>\</code> can be included in messages without triggering an escape sequnce.</td>
+</tr>
+</tbody>
+</table>
+<p>Other objects, such as @mentions, #channel-mentions, etc must be wrapped in <code>&lt;&gt;</code>. This tells the program: &quot;Hey, stop what your doing. I have special instructions for you.&quot;</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Replacement</th>
+<th>Reason</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@mention</code></td>
+<td><code>&lt;mention:&quot;guid&quot;&gt;</code></td>
+<td>Allows for refering account data directly, letting mentions get updated as people change usernames.</td>
+</tr>
+<tr>
+<td><code>#channel</code></td>
+<td><code>&lt;channel:&quot;guid&quot;&gt;</code></td>
+<td>Allows for refering channel data directly, letting mentions get updated as channel names change or get deleted.</td>
+</tr>
+</tbody>
+</table>
+<p>Additionally, in rich status and wiki channels you are able to use the following elements</p>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Pourpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;timer mode=&quot;since&quot; start=&quot;10-04-2023 17:57:32&quot;&gt;</code></td>
+<td>Often used in rich status to show the time since an action started.</td>
+</tr>
+<tr>
+<td><code>&lt;button text=&quot;text&quot; type=&quot;type&quot; action=&quot;steam://joingame/440/JOIN_SECRET&quot;&gt;</code></td>
+<td>Used for rich status, often for join game buttons.</td>
+</tr>
+<tr>
+<td><code>&lt;duration mode=&quot;time&quot; bar_start=&quot;0:00&quot; bar_end=&quot;2:06&quot; time_start=&quot;10-04-2023 17:57:32&quot;&gt;</code></td>
+<td>Used for match duration, health, round completion, etc.</td>
+</tr>
+<tr>
+<td><code>&lt;duration mode=&quot;number&quot; bar_start=&quot;0&quot; bar_end=&quot;300&quot; value=&quot;299&quot;&gt;</code></td>
+<td>Used for match duration, health, round completion, etc.</td>
+</tr>
+</tbody>
+</table>
+<h2>Federation</h2>
+<p>Federation occurs using the packet formats above. When a user wants data, they ask thier instance. Any data thier instance does not have, they ask the instance that will. The instnace that has it then forwards the data directly to the user. No data is stored redundently between instances this way.</p>
+<p>This also makes it possible to delete all messages directly. They MAY still be stored in someones cache, but that will likely be cleared out soon.</p>
+<h2>Encryption</h2>
+<p>The encryption versions, standards, etc are defined by the edition. For this edition, and the forseeable future, we will be using AES with keys established over RSA for all communications.</p>
+<p>If a client or service cannot perform said end to end encryption, we highly reccommend you display a warning stating such.</p>
+<h2>Commands</h2>
+<p>Bonfire has a lot of commands that must or should be built in and supported. Any action that is possible via the UI must be possible via a command.</p>
+<p>Therefore, every implenetation MUST have support for the following commands:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/invite <span class="violet-2">[duration]</span> <span class="blue-2">[uses]</span></td>
+<td>Invite a user to your hub!</td>
+</tr>
+<tr>
+<td>/addbot <span class="violet-2">{URI}</span></td>
+<td>Integrate a bot into your hub!</td>
+</tr>
+<tr>
+<td>/kick <span class="violet-2">{user}</span> <span class="blue-2">[reason]</span></td>
+<td>Removes a user from your hub or group chat.</td>
+</tr>
+<tr>
+<td>/ban {user} [reason] [duratation (default: permenent)]</td>
+<td>Removes a user from your hub, and prevents them fron returning with a new invite for the specified time.</td>
+</tr>
+<tr>
+<td>/mute {user} [reason] [duration (defult: 10m)]</td>
+<td>Prevents a user in your hub from talking in voice or text chat for the specified time.</td>
+</tr>
+<tr>
+<td>/quarintine {user} [reason]</td>
+<td>prevents a user from seeing any main voice or text channels, and removes all permissions. They can only see rules, server info, and a help channel. Useful for if you believe an account has been compromised.</td>
+</tr>
+<tr>
+<td>/role {([add | remove] {role} {user})</td>
+<td>([create</td>
+</tr>
+<tr>
+<td>/archive {channel}</td>
+<td>Makes a channel read-only and be taken out of the standard channels list. Used for clearing up clutter without deleting history.</td>
+</tr>
+<tr>
+<td>/nuke {channel}</td>
+<td>Clears all messages in a channel.</td>
+</tr>
+<tr>
+<td>/emote {add | delete | edit} {name} (specific cases)</td>
+<td>Manages emojis</td>
+</tr>
+<tr>
+<td>/nick (user) {nick}</td>
+<td>Change your or someone elses nicknames.</td>
+</tr>
+</tbody>
+</table>
+<h2>Permissions</h2>
+<p>THIS IS OUTDATED. See the rust script for a full list of permissions</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>view_channels</td>
+<td>Allow members to view channels by defult.</td>
+</tr>
+<tr>
+<td>manage_channels</td>
+<td>Allow this group to create, edit, and delete channels.</td>
+</tr>
+<tr>
+<td>manageRoles</td>
+<td>Allow this group to manage all roles below them.</td>
+</tr>
+<tr>
+<td>manageEmoji</td>
+<td>Allow users in this group to manage hub emoji</td>
+</tr>
+<tr>
+<td>viewAuditLog</td>
+<td>Allow members to view a reccord of all changes to the hub</td>
+</tr>
+<tr>
+<td>manageWebhooks</td>
+<td>Allow members to create, edit, or delete webhooks, which can post messages in the hub.</td>
+</tr>
+<tr>
+<td>manageIntegrations</td>
+<td>Allow members to add, remove, and edit integrated bots.</td>
+</tr>
+<tr>
+<td>manageGuild</td>
+<td>Allow members to edit the hubs name, avatar, rules, and description</td>
+</tr>
+<tr>
+<td>createInvite</td>
+<td>Allow users to create hub invites by defult.</td>
+</tr>
+<tr>
+<td>changeAlias</td>
+<td>Allow users to change thier own nickname in the hub</td>
+</tr>
+<tr>
+<td>manageAlias</td>
+<td>Allow users to change anyones nickname in the hub</td>
+</tr>
+<tr>
+<td>canKick</td>
+<td>Allow users to kick members</td>
+</tr>
+<tr>
+<td>canBan</td>
+<td>Allow users to ban members.</td>
+</tr>
+<tr>
+<td>canMute</td>
+<td>Allow users to issue mutes</td>
+</tr>
+<tr>
+<td>sendMessages</td>
+<td>Allow users to send messages in text channels.</td>
+</tr>
+<tr>
+<td>createThreads</td>
+<td></td>
+</tr>
+<tr>
+<td>messageTreads</td>
+<td></td>
+</tr>
+<tr>
+<td>createPrivateThreads</td>
+<td></td>
+</tr>
+<tr>
+<td>embedImages</td>
+<td>Allows users to embed only image links</td>
+</tr>
+<tr>
+<td>embedLinks</td>
+<td>Can embed links to make them look better.</td>
+</tr>
+<tr>
+<td>canReact</td>
+<td>Allows users to react to messages</td>
+</tr>
+<tr>
+<td>useExternalEmoji</td>
+<td>Allows users to use emoji  from other hubs, instnaces, or thier own in your hub.</td>
+</tr>
+<tr>
+<td>canPingAll</td>
+<td>Allow users to mention @everyone</td>
+</tr>
+<tr>
+<td>canPingHere</td>
+<td>Allow users to mention @here</td>
+</tr>
+<tr>
+<td>canPingOnline</td>
+<td>Allow users to mention @online</td>
+</tr>
+<tr>
+<td>canPingRandom</td>
+<td>Allow users to mention @someone</td>
+</tr>
+<tr>
+<td>canPingThis</td>
+<td>Allow users to ping this role</td>
+</tr>
+<tr>
+<td>canPingRoles</td>
+<td>Allow users to ping all roles raguardless of <code>canPingThis</code></td>
+</tr>
+<tr>
+<td>manageMessages</td>
+<td>Allow members to delete messages sent by other people.</td>
+</tr>
+<tr>
+<td>manageThreads</td>
+<td>Allow users to delete or archive threads by other people</td>
+</tr>
+<tr>
+<td>viewMessageHistory</td>
+<td>Allow users to view messgages sent before an hour ago</td>
+</tr>
+<tr>
+<td>blindMessages</td>
+<td>Hide all messages in a channel to a user, except for replies to thier messages and messages sent by them. useful for verification channels</td>
+</tr>
+<tr>
+<td>useCommands</td>
+<td>A blanket commands off button, Probably NOT what you are looking for.</td>
+</tr>
+<tr>
+<td>voiceConnect</td>
+<td>Can connect to voice channels</td>
+</tr>
+<tr>
+<td>voiceSpeak</td>
+<td>Can speak in voice channels</td>
+</tr>
+<tr>
+<td>voiceVideo</td>
+<td>Can use video in voice channels</td>
+</tr>
+<tr>
+<td>voiceActivity</td>
+<td></td>
+</tr>
+<tr>
+<td>voicePriority</td>
+<td>Determine if this user can speak over other people with a keybind</td>
+</tr>
+<tr>
+<td>voiceForceMute</td>
+<td>Allow muting of other members</td>
+</tr>
+<tr>
+<td>voiceForceDeafen</td>
+<td>Allow force deafing members</td>
+</tr>
+<tr>
+<td>voiceDeafenNoMute</td>
+<td>Determine if a user can deafen without also muting.</td>
+</tr>
+<tr>
+<td>moveMembers</td>
+<td>Determine if you can move members between channels</td>
+</tr>
+<tr>
+<td>manageEvents</td>
+<td></td>
+</tr>
+<tr>
+<td>manageAll</td>
+<td>Override all permissions given with yes, for all channels. Doing this will make someone have all the same powers as the hub owner, except for deleting it.</td>
+</tr>
+</tbody>
+</table>
+
+        
+    </main>
+
+    <nav role="Right Sidebar">
+        
+        
+        
+    </nav>
+
+    <footer>
+    <p>Footer</p>
+</footer>
+</body>
+</html>

@@ -166,11 +166,6 @@ tr:hover {
 
 /* PRISM BLOCK */
 
-code { 
-    padding: 0px 0.25rem;
-    border-radius: var(--border-radius);
-}
-
 code,
 pre {
     color: var(--main-child-fg);
@@ -201,9 +196,14 @@ pre {
     border-radius: 0.3em;
 }
 
+:not(pre) > code { 
+    padding: 0px 0.25rem;
+}
+
 :not(pre) > code,
 pre {
     background: var(--main-child-bg);
+    border-radius: var(--border-radius);
 }
 
 /* Inline code */
@@ -241,9 +241,12 @@ pre {
     color: var(--blue-3);
 }
 
+.token.string { 
+    color: var(--yellow-3);
+}
+
 .token.selector,
 .token.attr-name,
-.token.string,
 .token.char,
 .token.builtin,
 .token.inserted {

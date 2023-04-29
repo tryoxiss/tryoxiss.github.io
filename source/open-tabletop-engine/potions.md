@@ -13,7 +13,7 @@ In general, potions that require a roll can be drank as normal for 1 action, or 
 
 ## Types
 
-*Charts will use the currency in my world, [Eytelia](../eytelia/). The currency is called Stiya and 1 stiya is roughly equivelent to 10 canadian cents, or 3 copper coins<sup>[<a href="../open-tabletop:citation-needed">Citation Needed</a>]</sup>.
+*Charts will use the currency in my world, [Eytelia](../eytelia/). The currency is called Stiya and 1 stiya is roughly equivelent to 10 canadian cents, or 3 copper coins<sup>[<a href="../citation-needed">Citation Needed</a>]</sup>.
 
 Potions come in many types, and you can add anything you want for your game! However, these are the default and most common types!
 

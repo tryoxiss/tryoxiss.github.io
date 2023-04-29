@@ -11,15 +11,26 @@ All of the systems provided by Open Tabletop Engine, while interacting in many w
 
 Dice will be defined as `d<sides>` in this document. 
 
-| Dice | Role |
-| ---- | ---- |
-| d20  | Skill checks, most everything. If in doubt: This is what you probably want |
-| d12  | Heavy weapons damage, mostly. Often used to generate times of day, or simillar things. | 
-| d10  | Percentile dice, can be used to get a number between 1 and 10 or 1 and 100. | 
-| d6   | Commonly used for healing and health related actions | 
-| d4   | Aside from being worse to step on than a lego piece, is often used for very light weapons or potion effects. | 
+| Dice | Average | Role |
+| ---- | ------- | ---- |
+| d20  | 10      | Skill checks, most everything. If in doubt: This is what you probably want |
+| d12  | 6       | Heavy weapons damage, mostly. Often used to generate times of day, or simillar things. | 
+| d10  | 5       | Percentile dice, can be used to get a number between 1 and 10 or 1 and 100. | 
+| d6   | 3       | Commonly used for healing and health related actions | 
+| d4   | 2       | Aside from being worse to step on than a lego piece, is often used for very light weapons or potion effects. | 
 
-## Calculating Values
+### Role Modifiers
+
+There are a few types of roll modifers tht can be applied to modify chances or emphaise things. The main three types are: 
+
+- **Advantage**: Roll 2 dice, pick the higher one. This is used for actions that you have some buff or advantage to to increse the chances of getting the minimum roll without loweing its success number. 
+- **Disadvantage**: Roll 2 dice, pick the lower one. This is used for actions that you have some debuff or disadvantage to to decreese the chances of getting the minimum roll without incresing its success number.
+- **Emphais**: Roll 2 dice, pick the one that is farthest from the center (posative or negative). This is used to emphsise rolls that are likely to either succeed well or fail horribly, such as blocking a dragons mouth open with a sword. Basically, it makes games more epic. If the disstance from the center is the same, re-roll both dice.
+- **Neutralise**: Roll 2 dice and pick the one that is closest to the ceter value. Good for rolls that are likely to not wildly succeed or fail. If they are the same distance from the center, re-roll both dice. 
+
+For both emphasis and neutralise rolls you can see the center value in the average field. The centervalue will be
+
+### Calculating Values
 
 Negative values are instead set to 0. So for example, a creature that deals 1d4-3 damage has an attack array of [0, 0, 0, 1] making it a very low threat. 
 

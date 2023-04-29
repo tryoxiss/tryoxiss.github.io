@@ -59,7 +59,7 @@ though monk is about a individuals journey of self so it wouldnt fit there very 
 <span class="pink-2">Devine</span> <span class="red-2">Fighter</span>
 
 ### Magician
-<span class="pink-2">Devine</span> <span class="red-2">Fraudster</span>
+<span class="pink-2">Devine</span> <span class="red-2">Fraudster</span> (Dex)
 
 ## Non-magic classes
 

@@ -48,6 +48,32 @@ body {
     /* background-color: rgb(10, 10, 10); */
     margin: 0px;
     display:inline-block;
+    width: 100vw;
+
+    /* -webkit-clip-path: ellipse(100% 66% at 90% 30%); clip-path: ellipse(100% 66% at 90% 30%); */
+
+    /* clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); */
+    /* clip-path: ellipse(100% 65% at 86% 27%); */
+
+    /* background: 0; */
+
+    /* clip-path: polygon(100% 82%, 100% 100%, 0 100%, 0 68%); */
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+}
+
+h1 { 
+    grid-row: 6;
+    grid-column: span 4;
+    text-align: left;
+    font-size: 3rem;
+
+    font-size: clamp(1.2rem, 5vw + 1rem, 1.8rem);
+}
+
+h1 span { 
+    word-wrap: wrap;
 }
 
 span { 
@@ -61,46 +87,43 @@ section {
 }
 
 .magic-text {
-  font-weight: 700;
-  margin: 0px;
-  padding: 20px;
-  text-align: center;
+    font-weight: 700;
+    margin: 0px;
+    padding: 20px;
 }
 
 .magic-text > .magic {
-  display: inline-block;
-  position: relative;
+    display: inline-block;
+    position: relative;
 }
 
 .magic-text > .magic > .magic-star {
-  --size: clamp(20px, 1.5vw, 30px);
-  
-  animation: scale 700ms ease forwards;
-  display: block;
-  height: var(--size);
-  left: var(--star-left);
-  position: absolute;
-  top: var(--star-top);
-  width: var(--size);
-}
-
-body { 
-    width: 100vw;
+    --size: clamp(20px, 1.5vw, 30px);
+    
+    animation: scale 700ms ease forwards;
+    display: block;
+    height: var(--size);
+    left: var(--star-left);
+    position: absolute;
+    top: var(--star-top);
+    width: var(--size);
 }
 
 .magic-text > .magic > .magic-star > svg {
-  animation: rotate 1000ms linear infinite;
-  display: block;
-  opacity: 0.7;
+    animation: rotate 1000ms linear infinite;
+    display: block;
+    opacity: 0.7;
 }
 
-.magic-text > .magic > .magic-star > svg > path {
-  fill: var(--blueviolet-3);
+.magic-text > .magic > .magic-star > svg {
+    color: var(--blueviolet-3);
+    fill: var(--blueviolet-3);
+    stroke: var(--blueviolet-3);
 }
 
 .magic-text > .magic > .magic-text {
-  animation: background-pan 3s linear infinite;
-  background: linear-gradient(
+    animation: background-pan 3s linear infinite;
+    background: linear-gradient(
     to right,
     var(--blue-3),
     var(--blueviolet-3),
@@ -108,13 +131,13 @@ body {
     var(--violet-3),
     var(--blueviolet-3),
     var(--blue-3)
-  );
-  background-size: 200%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  white-space: nowrap;
+    );
+    background-size: 200%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    white-space: nowrap;
 }
 
 
@@ -156,32 +179,27 @@ img {
     pointer-events: none;
 }
 
-.page-title {
-  font-size: clamp(2rem, 5vw + 1rem, 4rem);
-  z-index: 2;
-}
-
 button {
-  padding: 0.5rem 1rem;
-  margin-bottom: 3rem;
+    padding: 0.5rem 1rem;
+    margin-bottom: 3rem;
 }
 
 .mask-container {
-  position: relative;
+    position: relative;
 }
 
 .color-image {
-  position: absolute;
-  inset: 0;
-  background-image: url("/test/color.jpg");
-  background-size: cover;
+    position: absolute;
+    inset: 0;
+    background-image: url("/test/color.jpg");
+    background-size: cover;
 
-  -webkit-mask-size: cover;
-  -webkit-mask-position: 0% 0%;
-  mask-size: cover;
-  mask-position: 0% 0%;
+    -webkit-mask-size: cover;
+    -webkit-mask-position: 0% 0%;
+    mask-size: cover;
+    mask-position: 0% 0%;
 
-  transition: 
+    transition: 
     -webkit-mask-position ;
 
     z-index: -1;
@@ -210,15 +228,16 @@ button {
   }
 }
 
-h1 { 
-    font-size: 1.2rem;
+a { 
+    border-bottom: 0;
 }
 </style>
 <body>
-    <a href="/posts/">posts</a>
+    <!-- <a href="/posts/">posts</a>
     <a href="/tools/">Tools</a>
     <a href="/links/">My Links</a>
     <a href="/open-tabletop-engine/attributes/">dnd remade</a>
+    <p>THIS PAGE IS A BIG WORK IN PROGRESS!</p> -->
 
     <!-- <section class="mask-container mask-animation">
         <div style="background-image: url('/res/img/home/color-1.jpg')">
@@ -250,86 +269,83 @@ h1 {
 
     <section></section> -->
 
+    <!-- 
+    Stars and sparkles are from lucide icons (lucide.dev) and are licenced 
+    under the ISC Licence
+
+    Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+
+    Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+
+    THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+    -->
+
+     <!-- Raw stars: -->
+
+    <!-- Sparkle (Modified from "stars")-->
+    
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>  -->
+   
+
+    <!-- Star (modified "star")-->
+    
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> -->
+   
+
     <h1 class="magic-text">
         Hello, I am a 
-        <span class="magic">
-        <span class="magic-star">
-            <svg viewBox="0 0 512 512">
-            <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-            </svg>
-        </span>
-        <span class="magic-star">
-            <svg viewBox="0 0 512 512">
-            <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-            </svg>
-        </span>
-        <span class="magic-star">
-            <svg viewBox="0 0 512 512">
-            <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-            </svg>
-        </span>
-        <span class="magic-text">psychotic lesbian girlthing</span>
-        </span>! I make 
-        <span class="magic">
+        <a class="magic" href="/about/">
             <span class="magic-star">
-                <svg viewBox="0 0 512 512">
-                <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
             </span>
             <span class="magic-star">
-                <svg viewBox="0 0 512 512">
-                <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
             </span>
             <span class="magic-star">
-                <svg viewBox="0 0 512 512">
-                <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </span>
+            <span class="magic-text">psychotic lesbian girlthing</span>
+        </a>! I make 
+        <a class="magic" href="/projcts/games/">
+            <span class="magic-star">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+            </span>
+            <span class="magic-star">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+            </span>
+            <span class="magic-star">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </span>
             <span class="magic-text">games</span>
-            </span>, 
-
-            <span class="magic">
-                <span class="magic-star">
-                    <svg viewBox="0 0 512 512">
-                    <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                    </svg>
-                </span>
-                <span class="magic-star">
-                    <svg viewBox="0 0 512 512">
-                    <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                    </svg>
-                </span>
-                <span class="magic-star">
-                    <svg viewBox="0 0 512 512">
-                    <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                    </svg>
-                </span>
-                <span class="magic-text">art</span>
-
-        </span>, and,
-        <span class="magic">
+        </a>, 
+        <a class="magic" href="/art/">
             <span class="magic-star">
-                <svg viewBox="0 0 512 512">
-                <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
             </span>
             <span class="magic-star">
-                <svg viewBox="0 0 512 512">
-                <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
             </span>
             <span class="magic-star">
-                <svg viewBox="0 0 512 512">
-                <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
-                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </span>
+            <span class="magic-text">art</span>
+        </a>, and,
+        <a class="magic" href="/projects/open-source/">
+            <span class="magic-star">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+            </span>
+            <span class="magic-star">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+            </span>
+            <span class="magic-star">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </span>
             <span class="magic-text">Open Source</span>.
-            </span>
+        </a>
     </h1>
 
     <footer>
-        <p>Magical text effect by hyperplexed: <a href="https://www.youtube.com/watch?v=yu0Cm4BqQv0">yt</a></p>
+        <p>Magical text effect by hyperplexed: <a href="https://www.youtube.com/watch?v=yu0Cm4BqQv0">yt</a>.</p>
     </footer>
 
     <script>
@@ -366,28 +382,28 @@ let timeouts = [],
 const magics = document.querySelectorAll(".magic");
 
 magics.forEach(magic => {
-  magic.onmouseenter = () => {
-    let index = 1;
-    
-    for(const star of magic.querySelectorAll(".magic-star")) {
-      timeouts.push(setTimeout(() => {  
-        animate(star);
+    magic.onmouseenter = () => {
+        let index = 1;
         
-        intervals.push(setInterval(() => animate(star), 1000));
-      }, index++ * 300));
-    };
-  }
+        for(const star of magic.querySelectorAll(".magic-star")) {
+            timeouts.push(setTimeout(() => {  
+                animate(star);
+                    intervals.push(setInterval(() => animate(star), 1000));
+                }, index++ * 300)
+            );
+        };
+    }
 
-  magic.onmouseleave = onMouseLeave = () => {
-    for(const t of timeouts) clearTimeout(t);  
-    for(const i of intervals) clearInterval(i);
-    
-    timeouts = [];
-    intervals = [];
-  }
+    magic.onmouseleave = onMouseLeave = () => {
+        for(const t of timeouts) clearTimeout(t);  
+        for(const i of intervals) clearInterval(i);
+        
+        timeouts = [];
+        intervals = [];
+    }
 });
 
 
-    </script>
+</script>
 </body>
 </html>

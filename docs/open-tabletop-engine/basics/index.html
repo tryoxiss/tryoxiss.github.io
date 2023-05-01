@@ -89,33 +89,48 @@
 <thead>
 <tr>
 <th>Dice</th>
+<th>Average</th>
 <th>Role</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>d20</td>
+<td>10</td>
 <td>Skill checks, most everything. If in doubt: This is what you probably want</td>
 </tr>
 <tr>
 <td>d12</td>
+<td>6</td>
 <td>Heavy weapons damage, mostly. Often used to generate times of day, or simillar things.</td>
 </tr>
 <tr>
 <td>d10</td>
+<td>5</td>
 <td>Percentile dice, can be used to get a number between 1 and 10 or 1 and 100.</td>
 </tr>
 <tr>
 <td>d6</td>
+<td>3</td>
 <td>Commonly used for healing and health related actions</td>
 </tr>
 <tr>
 <td>d4</td>
+<td>2</td>
 <td>Aside from being worse to step on than a lego piece, is often used for very light weapons or potion effects.</td>
 </tr>
 </tbody>
 </table>
-<h2>Calculating Values</h2>
+<h3>Role Modifiers</h3>
+<p>There are a few types of roll modifers tht can be applied to modify chances or emphaise things. The main three types are:</p>
+<ul>
+<li><strong>Advantage</strong>: Roll 2 dice, pick the higher one. This is used for actions that you have some buff or advantage to to increse the chances of getting the minimum roll without loweing its success number.</li>
+<li><strong>Disadvantage</strong>: Roll 2 dice, pick the lower one. This is used for actions that you have some debuff or disadvantage to to decreese the chances of getting the minimum roll without incresing its success number.</li>
+<li><strong>Emphais</strong>: Roll 2 dice, pick the one that is farthest from the center (posative or negative). This is used to emphsise rolls that are likely to either succeed well or fail horribly, such as blocking a dragons mouth open with a sword. Basically, it makes games more epic. If the disstance from the center is the same, re-roll both dice.</li>
+<li><strong>Neutralise</strong>: Roll 2 dice and pick the one that is closest to the ceter value. Good for rolls that are likely to not wildly succeed or fail. If they are the same distance from the center, re-roll both dice.</li>
+</ul>
+<p>For both emphasis and neutralise rolls you can see the center value in the average field. The centervalue will be</p>
+<h3>Calculating Values</h3>
 <p>Negative values are instead set to 0. So for example, a creature that deals 1d4-3 damage has an attack array of [0, 0, 0, 1] making it a very low threat.</p>
 <p>With damage and ranges, if attacking closer than the specified minimum, damage is lowered by 1d4 for every tile closer than the minimum. You can attempt to atack farther aswell if using a ranged or magic weapon, but damage is also reduced by 1dN for every tile beyond its range where N is the number of tiles you are attemping to attack past, rounding up to the nearest dice value.</p>
 <p>For example, attempting to shoot a bow 2 tiles past its maximum range will reduce its damage by 2d4, and attempting to shoot it 5 tiles past its max range will reduce its damage by 5d6.</p>
@@ -188,8 +203,45 @@
 
     </main>
 
-    <footer>
-    <p>Footer</p>
+    
+<footer>
+    
+
+    <ul>
+        <li><a href="#" class="dead-link"><b>Credits</b></a></li>
+        <li><a href="https://www.11ty.dev/">11ty</a></li>
+        <li><a href="https://prismjs.com/">prism.js</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><b>Theme</b></li>
+        <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
+        <li><a href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="/projects/" class="dead-link"><b>Our Stuff!</b></a></li>
+        <li><a href="/bonfire/2023/core/">Bonfire</a> Drafts, Project Codename</li>
+    </ul>
+
+    <ul>
+        <li><b>Developement</b></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
+        <li><a href="/debug/">Build Info</a></li>
+    </ul>
+
+    <ul class="badges">
+        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner." /></li>
+        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome." /></a></li>
+    </ul>
+
+    <br>
+    <p class="subtitle">Most content on this site is copyright &copy; tryoxiss 2022 or later. </p>
 </footer>
+
 </body>
 </html>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Mali:wght@600&family=Nunito:ital,wght@0,400;0,800;1,400;1,800&display=swap');
+
 :root { 
     /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); */
     --html-bg: linear-gradient(to bottom right, 
@@ -198,6 +200,7 @@ pre {
 
 :not(pre) > code { 
     padding: 0px 0.25rem;
+    color: var(--blueviolet-3);
 }
 
 :not(pre) > code,
@@ -773,7 +776,6 @@ strong {
 
 .stiya-icon::after { 
     content: url('/resources/images/svg/stiya.svg');
-    fill: var(--red-3);
 
     position: absolute;
     width: 0.9rem;
@@ -790,3 +792,56 @@ strong {
     list-style: disc;
 }
 
+
+@media (max-width: 900px) { 
+    footer .badges * { 
+        max-width: max-content;
+    }
+    
+    footer .badges { 
+        display: flex;
+        max-width: max-content;
+    }
+}
+
+footer ul { 
+    display: flex;
+    list-style: none;
+}
+
+footer li { 
+    margin: 0.5rem; 
+}
+
+.subtitle { 
+    margin: 0; 
+}
+
+.subtitle:has(svg) { 
+    margin-left: 0.5rem; 
+}
+
+.subtitle svg { 
+    margin: 0px; 
+    margin-left: 0.5rem; 
+    margin-right: 0.25rem; 
+
+    margin-bottom: -3px; 
+}
+
+footer a b { 
+    color: var(--main-fg-strong); 
+}
+
+footer { 
+    margin-bottom: 2rem; 
+}
+
+footer .badges * { 
+    height: 2.5rem;
+    border-radius: 0px;
+}
+
+footer ul { 
+    margin-left: 0;
+}

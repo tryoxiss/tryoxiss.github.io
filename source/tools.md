@@ -67,7 +67,7 @@ layout: "base.njk"
 <p>they also assembled it, that was 50$CAD</p>
 <p>I use linux, so I didn't get charged for a windows key because I asked them to not include one. If your curious my current distro is <a href="https://getfedora.org/en/workstation/">Fedora Workstation</a> 37</p>
 
-<p>My keyboard is the <a href="https://drop.com/buy/drop-ctrl-mechanical-keyboard?defaultSelectionIds=972414%2C972408">massdrop  CTRL with Cherry MX brown switches</a>. It's a geat keyboard and works perfectly 99% of the time. Sometimes it has issues connecting to my PC when I restart it (windows linux and mac) but other than that its great!</p>
+<p>My keyboard is the <a href="https://drop.com/buy/drop-ctrl-mechanical-keyboard?defaultSelectionIds=972414%2C972408">massdrop  CTRL with Cherry MX brown switches</a>. It's a great keyboard and works perfectly 99% of the time. Sometimes it has issues connecting to my PC when I restart it (windows linux and mac) but other than that its great!</p>
 
 <p>My mouse is the razer basalisk and it has failed like twice in the year or two that ive had it, I cannot reccommend it so I wont link it. Would not buy another razer product. </p>
 

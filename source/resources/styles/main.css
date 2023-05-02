@@ -628,7 +628,7 @@ ol ol ol ol {
     border-bottom: 0; 
 
     color: var(--contrast-fg); 
-    background-color: var(--violet-bg);
+    background: var(--blueviolet-3);
     padding: .5rem 1rem ;
 
     border-radius: 100vmax;
@@ -660,6 +660,11 @@ ol ol ol ol {
     transform: translateY(-0.25rem);
 }
 
+.button-text, .button-text:hover { 
+    color: var(--main-fg);
+    background-color: transparent;
+}
+
 .brand-icon { 
     fill: var(--contrast-fg); 
     stroke: var(--contrast-fg);
@@ -683,6 +688,12 @@ ol ol ol ol {
 
 details > * { 
     margin-left: var(--spacing-small)
+}
+
+p svg, text svg { 
+    width: 1rem;
+    height: 1rem;
+    margin-bottom: -3px;
 }
 
 /* *******8 */

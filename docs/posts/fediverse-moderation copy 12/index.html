@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fediverse Moderation</title>
+
+    
+
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+
+    <link rel="stylesheet" href="/resources/styles/main.css">
+    <link rel="stylesheet" href="/resources/styles/layout.css">
+</head>
+<body class="match-braces diff-hilight">
+    <script src="/resources/scripts/prism.js"></script>
+    
+
+    <nav role="primary navigation">
+        
+    </nav>
+
+    
+    <header>
+        <h1>Fediverse Moderation</h1>
+        <text class="subtitle"></text>
+        <text class="subtitle">4 minute read </text>
+    </header>
+    
+
+    <nav role="Outline">
+        
+        
+        
+    </nav>
+
+    <main>
+        
+        <p>Moderation seems to be a very hot topic on the fediverse. Some people seem to expect every new instance to be vetted and manually approved by every other instance. Some people (like me) think thats a terrible idea. This post discusses what we will do, and what options people will have, for moderation on our work-in-progress fediverse project.</p>
+<p>The goal is obvious: Allow the maximum onboarding and ease of use for everyone while protecting as many people as possible.</p>
+<p>The first, and most obvious, partial solution is a shared blocklist. The problem with this is that it can be easily abuseable if one is used by everyone. The other problem is that people may just drop off the face of the fediverse if thier instance gets blocked.</p>
+<p>Well no problem with the seccond one, just add the permissions:</p>
+<ul>
+<li>Can always message/contact me</li>
+<li>Can never message/contact me</li>
+<li>Follow instance prefrence</li>
+</ul>
+<p>The first issue is harder to solve, but I believe it can be done. First of all, the person or group in charge should be <strong>fully transparent</strong> on what they are doing and why. They should also allow appeals and take full responseability for any false ratings.</p>
+<p>Of course, not everyone will want to implement that: so they of course don't need to.  Instances can chose to use a blocklist, whitelist, blacklist, greylist, or however they want to moderate.</p>
+<p>Another solution is a trust factor, which can help with the shared lists. We now intend to create a committe to maintain and moderate the lists. We likely will not have any one list, but instead rank every instance on a <strong>trust factor</strong> system.</p>
+<p>In short, you can allow instances over 4.00 unless othersise specified, ban below 2.00, and everything else is allowed at user discresion. This cuts down on work for the moderators as you can easily set your own thresholds. Users would also be able to use thier own block lists and modify thier scores.</p>
+<p>Scores will be reevaluated upon appeal to the council of course, and must be submitted to the cousil for evaluation. The council would rank it from 1 (non existent) to 6 (perfect with a very very small error margin) in various categories, and the average would be taken between them.</p>
+<p>The categories would be:</p>
+<ul>
+<li>Moderation against transphobia</li>
+<li>Moderation against homophobia</li>
+<li>Moderation against ableism/discrimation against neurodivergent people</li>
+<li>Moderation against racism</li>
+<li>Moderation against spam</li>
+<li>Moderation against hate-speech</li>
+<li>Moderation against general toxicity</li>
+<li>General safety (basically a chance for them to add or doc points based on non-accounted for categories)</li>
+</ul>
+<p>The scores will then be averaged and the instance will be given its trust factor.</p>
+
+        
+    </main>
+
+    <nav role="Right Sidebar">
+        
+        
+        
+    </nav>
+
+    
+<footer>
+    
+
+    <ul>
+        <li><a href="#" class="dead-link"><b>Credits</b></a></li>
+        <li><a href="https://www.11ty.dev/">11ty</a></li>
+        <li><a href="https://prismjs.com/">prism.js</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><b>Theme</b></li>
+        <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
+        <li><a href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="/projects/" class="dead-link"><b>Our Stuff!</b></a></li>
+        <li><a href="/bonfire/2023/core/">Bonfire</a> Drafts, Project Codename</li>
+    </ul>
+
+    <ul>
+        <li><b>Developement</b></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
+        <li><a href="/debug/">Build Info</a></li>
+    </ul>
+
+    <ul class="badges">
+        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner." /></li>
+        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome." /></a></li>
+    </ul>
+
+    <br>
+    <p class="subtitle">Most content on this site is copyright &copy; tryoxiss 2022 or later. </p>
+</footer>
+
+</body>
+</html>

@@ -13,8 +13,67 @@
     <link rel="stylesheet" href="/resources/styles/main.css">
     <link rel="stylesheet" href="/resources/styles/layout.css">
 </head>
+
+<style>
+
+:root {
+    --primary-color: #fff; /* try #212121 also for dark mode */
+    --background-color: #212121;
+    --font: sans-serif;
+}
+
+/* Outer Layer with the timeline border */
+.outer {
+    border-left: 2px solid var(--main-child-bg);
+}
+
+/* Card container */
+.card {
+    position: relative;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    background: var(--main-child-bg);
+    color: var(--muted-fg);
+    border-radius: 8px;
+    max-width: 400px;
+}
+
+.card { 
+    display: block;
+    border-bottom: 0;
+
+    transition: 200ms ease-in-out;
+}
+
+.card:focus { 
+    outline-offset: 0.25rem;
+}
+
+.card:hover { 
+    color: inherit;
+    transform: translateY(-0.25rem);
+}
+
+/* Title of the card */
+h2 {
+    color: var(--accent-fg);
+    position: relative;
+}
+
+/* Timeline dot  */
+h2::before {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background: var(--accent-fg);
+    border-radius: 999px;
+    left: -39px;
+    border: 3px solid var(--accent-fg);
+}
+
+</style>
 <body class="match-braces diff-hilight">
-    <script src="/resources/scripts/prism.js"></script>
     
 
     <nav role="primary navigation">
@@ -25,7 +84,6 @@
     <header>
         <h1>Posts Index</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">0 minute read </text>
     </header>
     
 
@@ -37,14 +95,31 @@
 
     <main>
         
-        <!-- <div class="code-toolbar"> -->
-<a class="postcard" href="/posts/fediverse-moderation/"> 
-    <h2>Fediverse Moderation</h2>
-    <p>(IDK how to have a preview yet)</p>
+        <!-- { for post in collections.posts reversed } -->
+<div class="timeline">
+<div class="outer">
+<a class="card" href="/posts/fediverse-moderation copy 20/">
+    <h2 class="title">Fediverse Moderation</h2>
+    <p class="subtitle">01 May 2023</p>
+    <p></p>
 </a>
-<!-- </div> -->
-
+</div>
+</div>
         
+        
+        <div style="display: flex;">
+            <ol class="inline-list" style="margin-left: auto; margin-right: auto;">
+                <li><b>1</b></li>
+                
+
+                
+                
+                
+
+                
+                <li><a href="/posts/20/"></a></li>
+            </ol>
+        </div>
     </main>
 
     <nav role="Right Sidebar">

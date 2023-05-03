@@ -9,7 +9,8 @@
   "keywords": [],
   "author": "",
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2"
+    "@11ty/eleventy": "^1.0.2",
+    "luxon": "^3.3.0"
   },
   "directories": {
     "doc": "docs"

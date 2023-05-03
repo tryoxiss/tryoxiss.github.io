@@ -25,8 +25,8 @@
     --footer-bg: transparent;
     --footer-fg: rgb(205, 214, 244);
     
-    --accent-fg: var(--violet-3);
-    --accent-bg: rgb(var(--violet-3-rgb), 0.2);
+    --accent-fg: var(--blueviolet-3);
+    --accent-bg: rgb(var(--blueviolet-3-rgb), 0.2);
 
     --muted-fg: rgb(161, 168, 201);
     --muted-bg: transparent;
@@ -51,6 +51,7 @@
 
     --red-3-rgb: 243, 139, 168;
     --green-3-rgb: 166, 227, 161;
+    --blueviolet-3-rgb: 135, 176, 249;
     --violet-3-rgb: 135, 176, 249;
 
 
@@ -855,4 +856,13 @@ footer .badges * {
 
 footer ul { 
     margin-left: 0;
+}
+
+.inline-list { 
+    list-style: none;
+    display: flex;
+}
+
+.inline-list > * { 
+    margin: 0px 0.25rem;
 }

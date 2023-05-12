@@ -25,7 +25,7 @@
     <header>
         <h1>Beautiful Codestyle</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">3 minute read </text>
+        <text class="subtitle">1 minute read </text>
     </header>
     
 
@@ -37,67 +37,43 @@
 
     <main>
         
-        <p>The pourpose of this code style is to help keep cohesive, readable, beautioful, and maintainable code. By following this style all code will look as if one person wrote all of it, no matter how many contributers there are.</p>
-<p>This helps some things, such as &quot;style fights&quot;, where two or more people keep changing the style of a block of code to thier prefrence.</p>
-<p>This code style is very opinionated and specific, and aims to lead zero ambiguity when it comes to any case.</p>
-<h2>general styles</h2>
-<p>General rules that apply to all languages. Examples will be written in a combination of languages.</p>
-<ol>
-<li>We indent by 4 spaces, not a tab.</li>
-</ol>
-<h3>Variables</h3>
-<p>Variables are named in <code>snake_case</code> in all cases. Variable names should</p>
-<ol>
-<li><strong>Be descriptive</strong>: We're not stuck with 80 character terminal screens anymore and have tools like autofill. Variable names should clear and tell you exactly what they are.
-<ol>
-<li>Single letter variable names are not allowed UNLESS:
-<ol>
-<li>It is an argument to a function that is explictly a coordinate handler.</li>
-<li>Said function deals with no more than one set of coordinates at a time</li>
-<li>Allowed coordinate variable names are <code>x</code>, <code>y</code>, <code>z</code>.</li>
-</ol>
-</li>
-<li>Pluralise lists and nothing else.
-<ol>
-<li>Lists contain multiple items, nothing else does. Therefore only list types should end with an s. This also allowed for things like <code>for post in posts</code>, as is explored in the next point.</li>
-</ol>
-</li>
-<li>No <code>i</code> in Range
-<ol>
-<li><code>for i in list[]</code> and simillar statements do not tell you what the list handles. If its an abstract concept and you only go one layer deep it can be acceptable, but its generally its prefered to do something like <code>for post in posts</code></li>
-</ol>
-</li>
-</ol>
-</li>
-<li><strong>Be Short</strong></li>
-<li>Not include types</li>
-<li>Include Units</li>
-<li>be in <code>SCREAMING_SNAKE_CASE</code> if its constant</li>
-</ol>
+        <p>Pourpose:
+Design:
+Methodology:
+Ideology:</p>
+<p>This code style was written explecitly with following languages, engines, and frameworks in mind. However, it should work for most languages and frameworks.</p>
 <ul>
-<li>naming</li>
-<li>style</li>
-<li>semantics
-Conditionals</li>
+<li>Python 3</li>
+<li>Rust Edition 2021</li>
+<li>Godot Engine with;
+<ul>
+<li>GDScript</li>
+<li>Rust</li>
 </ul>
+</li>
+</ul>
+<h2>Naming</h2>
+<p>Naming is also covered in architecture, but here we provide do's and don't's with naming things.</p>
+<ul>
+<li><strong>Clarity</strong> is one of the most important things. Everything should be named in clear descriptions.</li>
+</ul>
+<h3>Explictly approved variable names</h3>
+<p>We recignise that sometimes it makes the most</p>
+<h2>Architecture</h2>
+<h3>Compsition over Inheritance</h3>
+<h3>Explicit over Implicit</h3>
 <h3>Functions</h3>
-<p>Functions</p>
 <ul>
-<li>naming</li>
-<li>pourpose</li>
-<li>design</li>
+<li><strong>Naming:</strong> Functions are always named with <code>snake_case</code>.
+<ul>
+<li><strong>Callback Functions</strong> (functions that are not called manually, but instead by an engine or prefab) are to be prefixed with an <code>_</code>.</li>
 </ul>
-<h2>language specifics</h2>
+</li>
+</ul>
+<h3>Classes</h3>
+<h3>Types</h3>
+<h2>Language/Engine Specifics</h2>
 <h3>Godot Engine</h3>
-<p>IDK. Maybe something with <code>Capitalised_Snake_Case</code>?</p>
-<hr>
-<p>Curly braced</p>
-<p>Indented</p>
-<p>XML-like</p>
-<h2>meta</h2>
-<p>Amendments
-Authors
-Copyright</p>
 
         
     </main>

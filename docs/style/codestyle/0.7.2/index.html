@@ -25,7 +25,7 @@
     <header>
         <h1>Beautiful Codestyle</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">3 minute read </text>
+        <text class="subtitle">8 minute read </text>
     </header>
     
 
@@ -52,9 +52,25 @@
 <ol>
 <li>Single letter variable names are not allowed UNLESS:
 <ol>
+<li>Coordinate Handlers
+<ol>
 <li>It is an argument to a function that is explictly a coordinate handler.</li>
-<li>Said function deals with no more than one set of coordinates at a time</li>
-<li>Allowed coordinate variable names are <code>x</code>, <code>y</code>, <code>z</code>.</li>
+<li>Said function deals with no more than one set of coordinates at a time.</li>
+<li>Allowed coordinate variable names are:
+<ul>
+<li><code>x</code>, <code>y</code>, <code>z</code> (position). Where Y is vertical.</li>
+<li><code>w</code> - where W is rotation</li>
+<li><code>u</code>, <code>v</code> where u and v are the textures x and y coordinate mapping.</li>
+<li>The order must be: <code>[u, v], [w], [x, y, [z]] </code>. Arguments in [] are groups of optional arguments.</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Rendering systems and color-related functions
+<ol>
+<li><code>r</code>, <code>g</code>, <code>b</code>, and <code>a</code> are allowed variables, in that order.</li>
+</ol>
+</li>
 </ol>
 </li>
 <li>Pluralise lists and nothing else.
@@ -87,6 +103,12 @@ Conditionals</li>
 <li>pourpose</li>
 <li>design</li>
 </ul>
+<h2>Reusing Code</h2>
+<p>We <strong>avoid inheritnace</strong> as a general rule. Inheritnace inherntly requires you to bundle all shared aspects into one class. That seems to work perfectly until you find an exception to the rule.</p>
+<p>Instead, by using <strong>composition</strong>, we can simply tell each object what properties it has, letting us easily leave things in or out.</p>
+<p>Let's have an example of why. You have a player and an enemy, which both have health, a hitbox, animations, and abbility to deal manage. So we bundle that all into an <code>Entity</code> class.</p>
+<p>Now what if we want to add a tree? It can inherit most of that fine, but a tree dealing damage hardly makes sense. All we can really do there is throw an exception, which, isn't great.</p>
+<p><a href="https://www.youtube.com/watch?v=74y6zWZfQKk">Example Source</a></p>
 <h2>language specifics</h2>
 <h3>Godot Engine</h3>
 <p>IDK. Maybe something with <code>Capitalised_Snake_Case</code>?</p>
@@ -98,6 +120,70 @@ Conditionals</li>
 <p>Amendments
 Authors
 Copyright</p>
+<h2>Extra/To Add</h2>
+<p>It is more important for code to handle all reasonable errors than to have less indent.</p>
+<pre><code class="language-rust">fn main() {
+    let path = &quot;lines.txt&quot;;
+    let output = File::create(path);
+
+    let mut output: File = match output { 
+        Ok(file) =&gt; file,
+        Err(error) =&gt; {
+            panic!(&quot;Could not find the file you amazing beautiful person &lt;3 (Error: {:?}&quot;, error)
+        }
+    };
+
+    write!(output, &quot;Just some\nrandom text for this\nbeautiful file!&quot;)
+        .expect(&quot;Failed to write to the file&quot;);
+
+    let input = File::open(path).unwrap();
+    let buffer = BufReader::new(input);
+
+    for line in buffer.lines() { 
+        println!(&quot;{}&quot;, line.unwrap())
+    }
+
+    let output2 = File::create(&quot;rand.txt&quot;);
+    let output2 = match output2 { 
+        Ok(file) =&gt; file,
+        Err(error) =&gt; match error.kind() { 
+            ErrorKind::NotFound =&gt; match File::create(&quot;rand.txt&quot;) { 
+                Ok(fc) =&gt; fc,
+                Err(e) =&gt; panic!(&quot;File not found, but could not be created. {:?}&quot;, error)
+            },
+            _other_error =&gt; panic!(&quot;Beats me {:?}&quot;, error)
+        }
+    };
+}
+</code></pre>
+<p>space-pad inline dictionaries</p>
+<pre><code class="language-rust">impl Shape for Rectangle { 
+    fn new(length: f32, width: f32) -&gt; Rectangle { 
+        return Rectangle { length: length, width: width }
+    }
+
+    fn area(&amp;self) -&gt; f32 { return self.length * self.width; }
+}
+</code></pre>
+<p>Use Generic for generics when possible
+This:</p>
+<pre><code class="language-rust">fn get_sum_gen&lt;Generic&gt;(x: Generic, y: Generic) -&gt; Generic { 
+    return x + y;
+}
+</code></pre>
+<p>NOT This</p>
+<pre><code class="language-rust">fn get_sum_gen&lt;T&gt;(x: T, y: T) -&gt; T { 
+    return x + y;
+}
+</code></pre>
+<p>also a Generic is literally just an inout or output that can be more than one type
+like
+it lets you add an i32 to a u32 or a f64 to a u128
+or return either a f64 or isize or usize
+etc
+STACK: Stores data as last-in, first-out. Data on the stack must be a fixed size</p>
+<p>HEAP: Request a certin amount of space so things can grow. (pointers)</p>
+<p>COMPONENTS are named in <code>Capitalised_Snake_Case</code> or <code>Pascal_Snake_Case</code>. Items, scenes, and anything summonable by the player is named in <code>snake_case</code>. [?]</p>
 
         
     </main>

@@ -82,3 +82,209 @@ text {
 p { 
     margin-bottom: var(--spacing-small);
 }
+
+
+
+/* ********* */
+
+
+/* a { 
+    border-bottom: 0;
+}
+
+body { 
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    grid-gap: var(--spacing-large);
+    background-size: cover;
+}
+
+header { grid-area: header; }
+main   { grid-area: main; }
+footer { grid-area: footer; }
+
+[role="primary navigation"] { grid-area: nav; }
+[role="Outline"] { grid-area: outline; }
+[role="Right Sidebar"] { grid-area: right-sidebar; }
+
+@media (max-width: 600px) { 
+    body { 
+        grid-template-areas: 
+        "header header header"
+        "nav    nav    nav"
+        "outline outline outline"
+        "main   main   main"
+        "right-sidebar right-sidebar right-sidebar"
+        "footer footer footer";
+
+        padding: 0px;
+    }
+
+
+    div.code-toolbar {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 600.00000000000000000000000000000000000001px) { 
+    body { 
+        grid-template-areas: 
+        "header header header"
+        "nav    nav    nav"
+        "outline outline outline"
+        "main   main   main"
+        "right-sidebar right-sidebar right-sidebar"
+        "footer footer footer";
+
+        padding: 0px;
+    }
+
+
+    div.code-toolbar {
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 1000px) { 
+    body { 
+        grid-template-areas: 
+        "nav       nav    nav"
+        ".header   header header"
+        "outline   main   right-sidebar"
+        ".         footer .";
+    }
+
+    div.code-toolbar {
+        max-width: calc((100vw / 4) * 2);
+    }
+}
+
+header { 
+    min-height: 60svh;
+    max-height: 60vh;
+    position: relative;
+
+    display: flex;
+
+    background-size: cover;
+    background-image: url("https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+}
+
+header::after { 
+    content: '';
+
+    position: absolute;
+    width: 100%;
+    height: 10svh;
+    bottom: 0;
+    background-image: linear-gradient(transparent, var(--main-bg));
+}
+
+header > div { 
+    margin: auto !important;
+    margin-top: auto !important;
+
+    max-width: clamp(22rem, calc(60vw + 6rem), 45rem);
+
+    text-shadow: 0 0 12px currentColor, 0px 0px 12px var(--main-fg);
+}
+
+h1 { 
+    font-size: clamp(1.2rem, 5vw + 1rem, 1.8rem);
+
+    text-shadow: 0 0 12px currentColor, 0px 0px 12px var(--main-fg);
+}
+
+h1 span { 
+    word-wrap: wrap;
+}
+
+main { 
+    border-radius: 0px;
+}
+
+/* @media (min-width: 900.00000000000000000000001px) { 
+    main { 
+        border-radius: 0px;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    main > * { 
+        grid-column: 2 / 3;
+    }
+
+    section {
+        grid-column: 2 / 3;
+    }
+} *
+
+section { 
+    margin: 1.5rem 0px;
+}
+
+p { 
+    margin-bottom: 1.5rem;
+}
+
+* { 
+    color: var(--main-fg)
+}
+
+@keyframes background-pan {
+  from {
+    background-position: 0% center;
+  }
+  
+  to {
+    background-position: -200% center;
+  }
+}
+
+@keyframes scale {
+  from, to {
+    transform: scale(0);
+  }
+  
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+body {
+    /* background-color: rgb(10, 10, 10); *
+    margin: 0px;
+    width: 100vw;
+
+    /* -webkit-clip-path: ellipse(100% 66% at 90% 30%); clip-path: ellipse(100% 66% at 90% 30%); */
+
+    /* clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%); */
+    /* clip-path: ellipse(100% 65% at 86% 27%); */
+
+    /* background: 0; */
+
+    /* clip-path: polygon(100% 82%, 100% 100%, 0 100%, 0 68%); *
+}
+
+span { 
+    padding: 0 !important;
+}
+
+section { 
+    margin-left: auto;
+    margin-right: auto;
+    display:inline-block;
+} */

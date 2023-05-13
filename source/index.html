@@ -69,12 +69,6 @@ section {
     display:inline-block;
 }
 
-.magic-text {
-    font-weight: 700;
-    margin: 0px;
-    padding: 20px;
-}
-
 .magic-text > .magic {
     display: inline-block;
     position: relative;
@@ -115,6 +109,15 @@ section {
     var(--blueviolet-3),
     var(--blue-3)
     );
+
+    /* background: linear-gradient(
+    to right,
+    var(--accent-fg),
+    var(--primary-fg),
+    /* var(--pink-3), *
+    var(--accent-fg)
+    ); */
+
     background-size: 200%;
     -webkit-background-clip: text;
     background-clip: text;
@@ -126,10 +129,7 @@ section {
     /* white-space: nowrap; */
 }
 
-
-
-
-a { 
+a:not(main a) { 
     border-bottom: 0;
 }
 
@@ -158,6 +158,10 @@ header::after {
     background-image: linear-gradient(transparent, var(--main-bg));
 }
 
+header { 
+    box-shadow: 0 0 0 rgb(27, 30, 39);
+}
+
 h1 { 
     margin: auto !important;
     margin-top: auto !important;
@@ -166,7 +170,7 @@ h1 {
 
     font-size: clamp(1.2rem, 5vw + 1rem, 1.8rem);
 
-    text-shadow: 0 0 12px currentColor, 0px 0px 12px var(--main-fg);
+    /* text-shadow: 0 0 12px black, 0px 0px 12px var(--main-fg); */
 }
 
 h1 span { 
@@ -325,22 +329,36 @@ p {
 
         <section id="about">
             <h2>About Me</h2>
-            <p>Lorem ipsum dolor sit <a href="#">amet consectetur adipisicing</a> elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis <a href="#">aliquid quisquam est magnam placeat dolorum, quis ut hic</a> eos alias itaque enim laudantium! Sit, quam?</p>
+            <p class="magic-text">Hello, I am just some girl who has a seemingly unending amount of
+                <span class="magic" href="/projects/software/">
+                    <span class="magic-star">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    </span>
+                    <span class="magic-star">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    </span>
+                    <span class="magic-star">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </span>
+                    <span class="magic-text">mental health issues</span>. 
+                </span>
+                I spend my days joking about autism and psychosis to cope.
+            </p>
+            <p>Lorem ipsum dolor sit amet consectetur <s>adipisicing elit. Consectetur harum</s> amet eligendi cupiditate quas molestias reiciendis <a href="#">aliquid quisquam est magnam placeat dolorum, quis ut hic</a> eos alias itaque enim laudantium! Sit, quam?</p>
         
             <a href="/" class="button">Read the depths of my insanity
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
             <a href="https://theuselessweb.com/" class="button button-text">or don't</a>
         </section>
 
         <section id="games">
             <h2>I make games</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#">Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam</a> est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
+            <p class="magic-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#">Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam</a> est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
         
             <a href="/" class="button">Play my broken games 
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
         </section>
 
@@ -350,7 +368,7 @@ p {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
         
             <a href="/" class="button">Break my software 
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
             <a href="/" class="button button-text">and help fix it</a>
         </section>

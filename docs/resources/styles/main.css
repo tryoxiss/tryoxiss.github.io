@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Mali:wght@600&family=Nunito:ital,wght@0,400;0,800;1,400;1,800&display=swap');
 
+/* 
 :root { 
-    /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); */
+    /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); *
     --html-bg: linear-gradient(to bottom right, 
     var(--blue-4), 
     var(--blueviolet-3), 
@@ -37,6 +38,74 @@
     --display-font: 'Mali', 'Nunito', sans-serif;
 
     --contrast-fg: rgb(30, 30, 46);
+
+    --red-3: rgb(243, 139, 168);
+    --orange-3: rgb(250, 179, 135);
+    --yellow-3: rgb(249, 226, 175);
+    --green-3: rgb(166, 227, 161);
+    --teal-3: rgb(148, 226, 213);
+    --blue-3: rgb(137, 220, 235);
+    --blue-4: rgb(116, 199, 236);;
+    --blueviolet-3: rgb(135, 176, 249);
+    --violet-3: rgb(180, 190, 254);
+    --pink-3: rgb(245, 194, 231);
+
+    --red-3-rgb: 243, 139, 168;
+    --green-3-rgb: 166, 227, 161;
+    --blueviolet-3-rgb: 135, 176, 249;
+    --violet-3-rgb: 135, 176, 249;
+
+
+
+    --border-radius: 6px;
+
+
+    --table-heading-color: rgb(24, 24, 37);
+    --table-hover-color: rgb(24, 24, 37);
+}
+ */
+
+
+:root { 
+    /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); */
+    --html-bg: linear-gradient(to bottom right, 
+    var(--blue-4), 
+    var(--blueviolet-3), 
+    var(--violet-3), 
+    var(--pink-3));
+
+    --html-fg: ;
+
+    --body-bg: hsl(225, 18%, 16%);
+    --body-fg: hsl(225, 60%, 90%);
+    
+    --header-bg: transparent;
+    --header-fg: rgb(205, 214, 244);
+    
+    --main-bg: hsl(225, 18%, 13%);
+    --main-fg: hsl(225, 60%, 90%);
+
+    --main-child-bg: hsl(225, 18%, 16%);
+    --main-child-fg: var(--body-fg);
+
+    --footer-bg: transparent;
+    --footer-fg: hsl(225, 60%, 90%);
+    
+    --primary-fg: var(--blueviolet-3);
+    --primary-bg: var(--blueviolet-3);
+
+    --accent-fg: var(--blue-3);
+    --accent-bg: rgb(137, 220, 235, 0.2);
+
+    --muted-fg: hsl(225, 60%, 80%);
+    --muted-bg: transparent;
+
+    --strong-fg: hsl(225, 60%, 98%);
+
+    --main-font: 'Nunito', sans-serif;
+    --display-font: 'Mali', 'Nunito', sans-serif;
+
+    --contrast-fg: hsl(225, 18%, 13%);
 
     --red-3: rgb(243, 139, 168);
     --orange-3: rgb(250, 179, 135);
@@ -105,9 +174,9 @@ html {
         --pink-2:       var(--latte-pink); 
     } */
 
-    main .code-toolbar::before, 
-    main .canvas-holder,
-    main .has-window-buttons {
+    main .canvas-holder::before,
+    main .has-window-buttons::before,
+    main pre::before {
         background-image: url("/resources/svg/close-buttons-light.svg");
     }
 
@@ -154,12 +223,17 @@ html {
         --hilight-color: rgba(160, 196, 255, 0.25); */
     /* } */
 
-    main .code-toolbar::before, 
-    main .canvas-holder,
-    main .has-window-buttons {
-        background-image: url("/resouces/svg/close-buttons-dark.svg");
-    } 
-
+    main .canvas-holder::before,
+    main .has-window-buttons::before,
+    main pre::before {
+        content: '';
+        display: block;
+        height: 1.5rem;
+        background-size: 3.5rem;
+        background-repeat: no-repeat;
+        /* background-image: url("/resources/svg/close-buttons-dark.svg"); */
+        background-image: url("/resources/svg/close-buttons-dark.svg");
+    }
 
     [href*="wikipedia.org"]::after { 
         content: url('data:image/svg+xml; utf8, <svg role="img" width="16" style="margin-top: 3px;" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Wikipedia</title><path fill="rgb(160, 196, 255)" d="M12.09 13.119c-.936 1.932-2.217 4.548-2.853 5.728-.616 1.074-1.127.931-1.532.029-1.406-3.321-4.293-9.144-5.651-12.409-.251-.601-.441-.987-.619-1.139-.181-.15-.554-.24-1.122-.271C.103 5.033 0 4.982 0 4.898v-.455l.052-.045c.924-.005 5.401 0 5.401 0l.051.045v.434c0 .119-.075.176-.225.176l-.564.031c-.485.029-.727.164-.727.436 0 .135.053.33.166.601 1.082 2.646 4.818 10.521 4.818 10.521l.136.046 2.411-4.81-.482-1.067-1.658-3.264s-.318-.654-.428-.872c-.728-1.443-.712-1.518-1.447-1.617-.207-.023-.313-.05-.313-.149v-.468l.06-.045h4.292l.113.037v.451c0 .105-.076.15-.227.15l-.308.047c-.792.061-.661.381-.136 1.422l1.582 3.252 1.758-3.504c.293-.64.233-.801.111-.947-.07-.084-.305-.22-.812-.24l-.201-.021c-.052 0-.098-.015-.145-.051-.045-.031-.067-.076-.067-.129v-.427l.061-.045c1.247-.008 4.043 0 4.043 0l.059.045v.436c0 .121-.059.178-.193.178-.646.03-.782.095-1.023.439-.12.186-.375.589-.646 1.039l-2.301 4.273-.065.135 2.792 5.712.17.048 4.396-10.438c.154-.422.129-.722-.064-.895-.197-.172-.346-.273-.857-.295l-.42-.016c-.061 0-.105-.014-.152-.045-.043-.029-.072-.075-.072-.119v-.436l.059-.045h4.961l.041.045v.437c0 .119-.074.18-.209.18-.648.03-1.127.18-1.443.421-.314.255-.557.616-.736 1.067 0 0-4.043 9.258-5.426 12.339-.525 1.007-1.053.917-1.503-.031-.571-1.171-1.773-3.786-2.646-5.71l.053-.036z"/></svg>');
@@ -213,12 +287,17 @@ h1, h2, h3, h4, h5, h6,
 
 a { 
     text-decoration: none;
-    border-bottom: 1px solid var(--accent-fg);
-    color: var(--accent-fg);
+    border-bottom: 1px solid var(--primary-fg);
+    color: var(--primary-fg);
 }
 a:hover { 
-    color: var(--blue-3);
+    color: var(--accent-fg);
 }
+
+/* a { 
+    box-shadow: 3px 3px 3px #0B3;
+    text-shadow: 3px 3px 3px #0B3;
+} */
 
 /* ********* TABLES ******* */
 
@@ -484,7 +563,7 @@ div.code-toolbar > .toolbar > .toolbar-item > button {
 }
 
 div.code-toolbar > .toolbar > .toolbar-item > button:hover { 
-    background-color: var(--accent-bg);
+    background-color: var(--primary-bg);
 }
 
 div.code-toolbar > .toolbar > .toolbar-item > span {
@@ -703,7 +782,7 @@ ol ol ol ol {
 }
 
 .button *, .brand-icon, .button { 
-    color: var(--muted-fg); 
+    color: var(--contrast-fg); 
 }
 
 .band-icon { 
@@ -715,7 +794,7 @@ ol ol ol ol {
     border-bottom: 0; 
 
     color: var(--contrast-fg); 
-    background: var(--blueviolet-3);
+    background: var(--primary-bg);
     padding: .5rem 1rem ;
 
     border-radius: 100vmax;

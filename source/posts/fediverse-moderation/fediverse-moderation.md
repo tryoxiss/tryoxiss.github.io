@@ -36,3 +36,5 @@ The categories would be:
 - General safety (basically a chance for them to add or doc points based on non-accounted for categories)
 
 The scores will then be averaged and the instance will be given its trust factor. 
+
+<!-- ![a](img.jpg) -->

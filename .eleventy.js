@@ -3,6 +3,11 @@ const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) { 
     eleventyConfig.addPassthroughCopy("./source/resources/");
 
+    eleventyConfig.addPassthroughCopy("**/*.jpeg");
+    eleventyConfig.addPassthroughCopy("**/*.jpg");
+    eleventyConfig.addPassthroughCopy("**/*.png");
+    // eleventyConfig.addPassthroughCopy("./source/resources/svg/");
+
 
     // luxton docs: https://github.com/moment/luxon/blob/master/docs/formatting.md#tolocalestring-strings-for-humans
     // tutorial: https://www.alpower.com/tutorials/formatting-dates-in-eleventy/

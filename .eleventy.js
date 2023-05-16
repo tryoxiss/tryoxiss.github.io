@@ -3,9 +3,15 @@ const { DateTime } = require("luxon");
 module.exports = function (eleventyConfig) { 
     eleventyConfig.addPassthroughCopy("./source/resources/");
 
-    eleventyConfig.addPassthroughCopy("**/*.jpeg");
-    eleventyConfig.addPassthroughCopy("**/*.jpg");
-    eleventyConfig.addPassthroughCopy("**/*.png");
+    // eleventyConfig.addPassthroughCopy({ "**/*.jpg": "/resources/images/" });
+
+    // eleventyConfig.addPassthroughCopy("*.jpeg");
+
+    // eleventyConfig.addPassthroughCopy({ "**/*.jpg": "img" });
+
+    // it hates this but it works... even though it errors... 
+    // eleventyConfig.addPassthroughCopy("**/*.jpg");
+    // eleventyConfig.addPassthroughCopy("**/*.png");
     // eleventyConfig.addPassthroughCopy("./source/resources/svg/");
 
 

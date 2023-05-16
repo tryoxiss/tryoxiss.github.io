@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Instant Messaiging (DIM)</title>
+
+    
+
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+
+    <link rel="stylesheet" href="/resources/styles/main.css">
+    <link rel="stylesheet" href="/resources/styles/layout.css">
+</head>
+<body class="match-braces diff-hilight">
+    <script src="/resources/scripts/prism.js"></script>
+    
+
+    <nav role="primary navigation">
+        
+    </nav>
+
+    
+    <header>
+        <h1>Distributed Instant Messaiging (DIM)</h1>
+        <text class="subtitle"></text>
+        <text class="subtitle">3 minute read </text>
+    </header>
+    
+
+    <nav role="Outline">
+        
+<details>
+    <summary>Core</summary>
+    <ul>
+        <li><a href="../core/">Core</a></li>
+        <li><a href="../protocol/">Protocol</a></li>
+        <li><a href="../extensions/">Extensions</a></li>
+        <li><a href="../extension-style/">Extension Style</a></li>
+    </ul>
+</details>
+<details>
+    <summary>Reccommended</summary>
+    <text>Not technechally required modules, but are HIGHLY reccommended.</text>
+    <ul>
+        <li><a href="../accounts/">Accounts</a></li>
+        <li><a href="../seperate-profiles/">Seperate Profiles</a></li>
+        <li><a href="../groups/">Groups</a></li>
+        <li><a href="../permissions/">Permissions</a></li>
+        <li><a href="../text-channels/">Text Channels</a></li>
+        <li><a href="../voice-channels/">Voice Channels</a></li>
+        <li><a href="../wiki-channels/">Wiki Channels</a></li>
+        <li><a href="../markdown/">Markdown</a></li>
+        <li><a href="../botting-api/">Botting API</a></li>
+        <li><a href="../extensions-api/">Extensions API</a></li>
+    </ul>
+</details>
+<details>
+    <summary>Extensions</summary>
+</details>
+
+    </nav>
+
+    <main>
+        
+        <p>Distributed Instant Messaiging protocol is an open standard used for our project codename Bonfire. It is secure (Checksumed and encrypted). It is a text-based protocol built on TCP.</p>
+<h2>Interpritation of requirement</h2>
+<ol>
+<li>The keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> MUST be interprited as specified in <a href="https://www.rfc-editor.org/rfc/rfc2119.html">RFC:2119</a>, and either UPPERCASE or Capitalised versions count, but lowercase does not.</li>
+</ol>
+<h2>Requests</h2>
+<p>In this we will explore a few diffrent requests, but first lets show what a request generally looks like. We will explain and break down each section as we go along.</p>
+<pre><code class="language-yaml">GET recent_100_messages FROM @username@instance.tld WITH DIM/2023
+</code></pre>
+<h3>Ports</h3>
+<p>As with any protocol, we need some ports used for this to avoid conflicts. Here are the ones we use with a brief explanation!</p>
+<table>
+<thead>
+<tr>
+<th>Port</th>
+<th>Pourpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>8800</code></td>
+<td><strong>DIM Master Network Thread and Priority Requests</strong>. This handles encryption keys, session management, and any messages that need to get through immeditely like bans.</td>
+</tr>
+<tr>
+<td><code>8801</code></td>
+<td><strong>DIM Text Message Data Stream</strong>. Only text data is loaded through this port, and it is often used for messages, but can be other things too such as role info, group descriptions, etc.</td>
+</tr>
+<tr>
+<td><code>8802</code></td>
+<td><strong>DIM Media Loader Data Stram</strong>. This handles loading media attachments, such as images, audio files, etc.</td>
+</tr>
+<tr>
+<td><code>8803</code></td>
+<td><strong>DIM VoIP Audio Stream</strong>. This handles loading any LIVE audio, such as for calls.</td>
+</tr>
+<tr>
+<td><code>8804</code></td>
+<td><strong>DIM Live Video Stream</strong>. This handles loading any LIVE video, such as a webcam or screenshare.</td>
+</tr>
+<tr>
+<td><code>880X</code></td>
+<td><strong>Reserved</strong> for any future uses we may have. This DOES include ports <code>8806</code> and <code>8809</code>. The next avalible port is <code>8810</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3>Specific Types</h3>
+<pre><code class="language-yaml">CONNECT 192.168.0.1 DIM/2023
+
+priority: low
+allow_encryption: [AES, RSA]
+</code></pre>
+
+        
+    </main>
+
+    <nav role="Right Sidebar">
+        
+        
+        
+    </nav>
+
+    
+<footer>
+    
+
+    <ul>
+        <li><a href="#" class="dead-link"><b>Credits</b></a></li>
+        <li><a href="https://www.11ty.dev/">11ty</a></li>
+        <li><a href="https://prismjs.com/">prism.js</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><b>Theme</b></li>
+        <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
+        <li><a href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="/projects/" class="dead-link"><b>Our Stuff!</b></a></li>
+        <li><a href="/bonfire/2023/core/">Bonfire</a> Drafts, Project Codename</li>
+    </ul>
+
+    <ul>
+        <li><b>Developement</b></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
+        <li><a href="/debug/">Build Info</a></li>
+    </ul>
+
+    <ul class="badges">
+        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner." /></li>
+        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome." /></a></li>
+    </ul>
+
+    <br>
+    <p class="subtitle">Most content on this site is copyright &copy; tryoxiss 2022 or later. </p>
+</footer>
+
+</body>
+</html>

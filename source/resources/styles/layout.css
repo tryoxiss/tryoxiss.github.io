@@ -11,7 +11,7 @@ body {
     grid-gap: var(--spacing-large);
 }
 
-@media (max-width: 600px) { 
+@media (width < 600px) { 
     body { 
         grid-template-areas: 
         "nav    nav    nav"
@@ -30,7 +30,7 @@ body {
     }
 }
 
-@media (min-width: 600.00000000000000000000000000000000000001px) { 
+@media (width > 600px) { 
     body { 
         grid-template-areas: 
         "nav    nav    nav"
@@ -49,7 +49,7 @@ body {
     }
 }
 
-@media (min-width: 1000px) { 
+@media (width > 1000px) { 
     body { 
         grid-template-areas: 
         "nav       nav    nav"
@@ -82,7 +82,6 @@ text {
 p { 
     margin-bottom: var(--spacing-small);
 }
-
 
 
 /* ********* */

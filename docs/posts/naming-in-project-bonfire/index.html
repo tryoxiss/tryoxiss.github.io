@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Naming in project bonfire</title>
+
+    
+
+    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+
+    <link rel="stylesheet" href="/resources/styles/main.css">
+    <link rel="stylesheet" href="/resources/styles/layout.css">
+</head>
+<body class="match-braces diff-hilight">
+    <script src="/resources/scripts/prism.js"></script>
+    
+
+    <nav role="primary navigation">
+        
+    </nav>
+
+    
+    <header>
+        <h1>Naming in project bonfire</h1>
+        <text class="subtitle"></text>
+        <text class="subtitle">4 minute read </text>
+    </header>
+    
+
+    <nav role="Outline">
+        
+        
+        
+    </nav>
+
+    <main>
+        
+        <p>So, for project bonfire we need to do a lot of design work. And a large part of said design work is what we allow in names.</p>
+<p>So in this post, I am going to go through all the naming design decisions we have made so far and why.</p>
+<h2>Usernames</h2>
+<p>Usernames are how you are identified on a unique level, they are your <code>@</code>. Display names are how you are identified on a personal level, they can contain any characters with the excpeption of unicode control bytes.</p>
+<p>Usernames are case insensative, and forced lowercase. You can have <code>@forest</code>, but not <code>@Forest</code> or <code>@forEst</code>.</p>
+<p>Usernames my only have alphanumerics (<code>a-z</code>), numbers (<code>0-9</code>), and the select special characters <code>.</code> and <code>_</code>. This is very standard for usernames.</p>
+<p>Usernames, display names, and account names must all also adhere to your instances rules.</p>
+<p>Some usernames are reserved for functions, they include:</p>
+<ul>
+<li><code>@everyone</code> (<code>@*</code> also works)</li>
+<li><code>@someone</code></li>
+<li><code>@here</code></li>
+<li><code>@online</code></li>
+<li><code>@us</code>, <code>@mods</code>, <code>@moderators</code>, <code>@admin</code>, <code>@support</code>, <code>@contact</code>, and any other names reserved by your instance to easily distingush moderators and official accounts.</li>
+</ul>
+<p>One account can have many profils, each with thier own username, display name, bio, profile picture, and, if desired, group and friends lists. Generally groups and friends these are inherited from the account, though.</p>
+<p>Usernames are unique to each profile, and are <code>@[username]@[instance.tld]</code>. This format is still a work in progress, though.</p>
+<p>This works great, but one account can have many profiles. This creates an opportunity for abuse, where one account can create may profiles just to take OG usernames, such as <code>@forest</code>, <code>@dog</code>, etc.</p>
+<p>This issue is partially midigated by the federation aspect. There can be an <code>@forest@someinstance.social</code> and an <code>@forest@example.net</code> at the same time.</p>
+<p>This can be further midigated by allow you to prefix it with an account name (what you would use to sign in, and is displayed as a host to your profiles). Such as <code>@forest@nature.system@example.net</code>. If you include an account name, you must also include the instance.</p>
+<p>That's great and all, but elegance in design is a primary design goal, after all, so this just this won't cut it.</p>
+<p>You can also omit uneeded sections, if <code>@forest</code> identifies a unique user in the current context, even if multiple <code>@forest</code>'s exist in your federation.</p>
+<p>For example, your group or DM has only one <code>@forest</code>, then you can omit the instance!</p>
+
+        
+    </main>
+
+    <nav role="Right Sidebar">
+        
+        
+        
+    </nav>
+
+    
+<footer>
+    
+
+    <ul>
+        <li><a href="#" class="dead-link"><b>Credits</b></a></li>
+        <li><a href="https://www.11ty.dev/">11ty</a></li>
+        <li><a href="https://prismjs.com/">prism.js</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><b>Theme</b></li>
+        <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
+        <li><a href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
+        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="/projects/" class="dead-link"><b>Our Stuff!</b></a></li>
+        <li><a href="/bonfire/2023/core/">Bonfire</a> Drafts, Project Codename</li>
+    </ul>
+
+    <ul>
+        <li><b>Developement</b></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
+        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
+        <li><a href="/debug/">Build Info</a></li>
+    </ul>
+
+    <ul class="badges">
+        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner." /></li>
+        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome." /></a></li>
+    </ul>
+
+    <br>
+    <p class="subtitle">Most content on this site is copyright &copy; tryoxiss 2022 or later. </p>
+</footer>
+
+</body>
+</html>

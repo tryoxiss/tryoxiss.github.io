@@ -4,11 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributed Instant Messaiging (DIM)</title>
+    <title>Distributed Instant Messaging (DIM)</title>
 
     
 
-    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="icon" href="/resources/favicon/ourlogo.png">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css">
 
     <link rel="stylesheet" href="/resources/styles/main.css">
     <link rel="stylesheet" href="/resources/styles/layout.css">
@@ -23,9 +25,9 @@
 
     
     <header>
-        <h1>Distributed Instant Messaiging (DIM)</h1>
+        <h1>Distributed Instant Messaging (DIM)</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">3 minute read </text>
+        <text class="subtitle">4 minute read </text>
     </header>
     
 
@@ -64,22 +66,40 @@
 
     <main>
         
-        <p>Distributed Instant Messaiging protocol is an open standard used for our project codename Bonfire. It is secure (Checksumed and encrypted). It is a text-based protocol built on TCP.</p>
-<h2>Interpritation of requirement</h2>
+        <p>Distributed Instant Messaging protocol is an open standard used for our project codename Bonfire. It is secure (Checksumed and encrypted). It is a text-based protocol built on TCP.</p>
+<h2>Definitions</h2>
 <ol>
-<li>The keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> MUST be interprited as specified in <a href="https://www.rfc-editor.org/rfc/rfc2119.html">RFC:2119</a>, and either UPPERCASE or Capitalised versions count, but lowercase does not.</li>
+<li>The keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> MUST be interprited as specified in <a rel="noreferrer" target="_blank" href="https://www.rfc-editor.org/rfc/rfc2119.html">RFC:2119</a>, and either UPPERCASE or Capitalised versions count, but lowercase does not.</li>
+<li><strong>SP</strong> means a unicode space character.</li>
 </ol>
 <h2>Requests</h2>
-<p>In this we will explore a few diffrent requests, but first lets show what a request generally looks like. We will explain and break down each section as we go along.</p>
-<pre><code class="language-yaml">GET recent_100_messages FROM @username@instance.tld WITH DIM/2023
+<p>Every packet MUST start with a data header containing the version and the operation you wish to complete.</p>
+<pre><code class="language-yaml">version: dim/2023
+operation: CONNECT
 </code></pre>
+<p>The following actions are valid</p>
+<ul>
+<li><code>CONNECT</code> establishes a connection.</li>
+<li><code>CREATE</code> creates an object.</li>
+<li><code>NOTIFY</code> sends an object that does not need to be stored.</li>
+<li><code>EDIT</code> edits an existing object.</li>
+<li><code>REMOVE</code> removes an object from public view, or removes your contribution.</li>
+<li><code>DELETE</code> deletes the object.</li>
+<li><code>DESTROY</code> deletes an object and writes over it immeditely.</li>
+<li><code>GET</code> gets content.</li>
+</ul>
+<p>The following rules also apply:</p>
+<ul>
+<li>The action is UPPERCASE.</li>
+</ul>
+<p>To the extent reasonable, we try and use the terms <code>parent</code>, <code>content</code>, and <code>target</code> in messages.</p>
 <h3>Ports</h3>
 <p>As with any protocol, we need some ports used for this to avoid conflicts. Here are the ones we use with a brief explanation!</p>
 <table>
 <thead>
 <tr>
 <th>Port</th>
-<th>Pourpose</th>
+<th>Purpose</th>
 </tr>
 </thead>
 <tbody>
@@ -93,7 +113,7 @@
 </tr>
 <tr>
 <td><code>8802</code></td>
-<td><strong>DIM Media Loader Data Stram</strong>. This handles loading media attachments, such as images, audio files, etc.</td>
+<td><strong>DIM Media Loader Data Stream</strong>. This handles loading media attachments, such as images, audio files, etc.</td>
 </tr>
 <tr>
 <td><code>8803</code></td>
@@ -101,7 +121,7 @@
 </tr>
 <tr>
 <td><code>8804</code></td>
-<td><strong>DIM Live Video Stream</strong>. This handles loading any LIVE video, such as a webcam or screenshare.</td>
+<td><strong>DIM Live Video Stream</strong>. This handles loading any LIVE video, such as a webcam or screen-share.</td>
 </tr>
 <tr>
 <td><code>880X</code></td>
@@ -109,11 +129,23 @@
 </tr>
 </tbody>
 </table>
-<h3>Specific Types</h3>
-<pre><code class="language-yaml">CONNECT 192.168.0.1 DIM/2023
-
-priority: low
-allow_encryption: [AES, RSA]
+<h3>Connect</h3>
+<p>Connect messages are sent to the server at port <code>8800</code>.</p>
+<pre><code>version: dim/2023
+operation: CONNECT
+target: [DIM Adress | GUID | IPv6 Address (IPv4 NOT ACCEPTED!)]
+encryption: AES
+priority: high
+</code></pre>
+<h3>Create</h3>
+<p>sent to port</p>
+<pre><code>version: dim/2023
+operation: CREATE
+target: channel_guid
+content: |
+"""
+This is my message content
+"""
 </code></pre>
 
         
@@ -131,16 +163,16 @@ allow_encryption: [AES, RSA]
 
     <ul>
         <li><a href="#" class="dead-link"><b>Credits</b></a></li>
-        <li><a href="https://www.11ty.dev/">11ty</a></li>
-        <li><a href="https://prismjs.com/">prism.js</a></li>
-        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://www.11ty.dev/">11ty</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://prismjs.com/">prism.js</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
     </ul>
 
     <ul>
         <li><b>Theme</b></li>
         <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
-        <li><a href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
-        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
     </ul>
 
     <ul>
@@ -150,19 +182,19 @@ allow_encryption: [AES, RSA]
 
     <ul>
         <li><b>Developement</b></li>
-        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
-        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
-        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
         <li><a href="/debug/">Build Info</a></li>
     </ul>
 
     <ul class="badges">
-        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner." /></li>
-        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome." /></a></li>
+        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></li>
+        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
     </ul>
 
     <br>
-    <p class="subtitle">Most content on this site is copyright &copy; tryoxiss 2022 or later. </p>
+    <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
 
 </body>

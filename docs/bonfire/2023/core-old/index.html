@@ -8,7 +8,9 @@
 
     
 
-    <link rel='stylesheet' href='//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css'>
+    <link rel="icon" href="/resources/favicon/ourlogo.png">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css">
 
     <link rel="stylesheet" href="/resources/styles/main.css">
     <link rel="stylesheet" href="/resources/styles/layout.css">
@@ -69,7 +71,7 @@
 <blockquote class="callout callout--info">
     <!-- <svg src="/_shared-content/lucide/alert-triangle.svg" color="red"></svg> -->
     <div class="callout__header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-info"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
         <p>This specification is a draft!</p>
     </div>
     <p>it is not finished and is due for many, many revisions down the road. </p>
@@ -77,7 +79,7 @@
 <blockquote class="callout callout--warning">
     <!-- <svg src="/_shared-content/lucide/alert-triangle.svg" color="red"></svg> -->
     <div class="callout__header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path><path d="M14 2v6h6"></path><path d="m3 12.5 5 5"></path><path d="m8 12.5-5 5"></path></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4" /><path d="M14 2v6h6" /><path d="m3 12.5 5 5" /><path d="m8 12.5-5 5" /></svg>
         <p>Dependy Issue</p>
     </div>
     <p>This specification seems to refrence or cite 1 or more speicfications that appear to be missing. These issues must be resolved before 1.0. A list can be found below: </p>
@@ -88,7 +90,7 @@
 <h2>Definitions</h2>
 <p>Let the keywords that follow be case insensitive unless otherwise specified.</p>
 <ul>
-<li>Let the keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> (and lowercase equivalents) be defined as specified in <a href="https://www.rfc-editor.org/rfc/rfc2119">RFC:2119</a></li>
+<li>Let the keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> (and lowercase equivalents) be defined as specified in <a rel="noreferrer" target="_blank" href="https://www.rfc-editor.org/rfc/rfc2119">RFC:2119</a></li>
 <li>Let <code>incorrect</code> mean MUST NOT; as in, incorrect behaviour violates the standard.</li>
 <li>Let <code>i&lt;int&gt;</code> represent 2^int-1. Some examples (and the important ones) are as follows;
 <ul>
@@ -99,18 +101,18 @@
 <li><code>i64</code> equals approximately <code>1.844674407×10¹⁹</code></li>
 </ul>
 </li>
-<li>Let <code>YAML</code>, or <code>Object</code> represent one YAML file (or &quot;file&quot; part of a stream), and any nested objects. Let this not exceed the maximum status characters of an i16. I validated my YAML with <a href="https://yamlchecker.com/">This YAML validator</a></li>
+<li>Let <code>YAML</code>, or <code>Object</code> represent one YAML file (or "file" part of a stream), and any nested objects. Let this not exceed the maximum status characters of an i16. I validated my YAML with <a rel="noreferrer" target="_blank" href="https://yamlchecker.com/">This YAML validator</a></li>
 <li>Let <code>packet</code> represent one YAML Object sent between a client-server, or server-server relationship.</li>
 <li>Let <code>snake_case</code> and <code>snake case</code> mean the naming scheme where multiple words are written in all lowercase and are seperated with underscores.</li>
-<li>Let <code>GUID</code> and <code>UUID</code> represent a <a href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally Unique Identifier</a>.</li>
+<li>Let <code>GUID</code> and <code>UUID</code> represent a <a rel="noreferrer" target="_blank" href="https://en.wikipedia.org/wiki/Universally_unique_identifier">Universally Unique Identifier</a>.</li>
 <li>Let <code>snowflake</code> represent one GUID.</li>
-<li>Let the character sets <code>reserved</code>, <code>escaped</code>, <code>delims</code>, <code>unwise</code>, <code>lowalpha</code>, <code>upalpha</code>, <code>alpha</code>, <code>digit</code>, <code>alphanum</code>, <code>mark</code> and <code>unreserved</code> are to be defined as in <a href="https://www.ietf.org/rfc/rfc2396.txt">RFC:2396</a>. This is only when these keywords are in reference to a <strong>character set</strong>.</li>
-<li>Let <code>inalpha</code> represent the character set including <code>upalpha</code> and <code>lowalpha</code>, where no distinction is made between uppercase and lowercase. (&quot;A&quot; is the same as &quot;a&quot;).</li>
+<li>Let the character sets <code>reserved</code>, <code>escaped</code>, <code>delims</code>, <code>unwise</code>, <code>lowalpha</code>, <code>upalpha</code>, <code>alpha</code>, <code>digit</code>, <code>alphanum</code>, <code>mark</code> and <code>unreserved</code> are to be defined as in <a rel="noreferrer" target="_blank" href="https://www.ietf.org/rfc/rfc2396.txt">RFC:2396</a>. This is only when these keywords are in reference to a <strong>character set</strong>.</li>
+<li>Let <code>inalpha</code> represent the character set including <code>upalpha</code> and <code>lowalpha</code>, where no distinction is made between uppercase and lowercase. ("A" is the same as "a").</li>
 <li>Let the character set <code>safe</code> be the culmination of <code>inalpha</code> and <code>digit</code> and the characters <code>_</code> and <code>-</code>.</li>
 <li>Let <strong>Edition</strong> mean the anual revision to the specification.</li>
 </ul>
 <h2>Design Philosophy</h2>
-<p>*Some of the following definitions are from <a href="https://ariadne.space/2019/01/07/activitypub-the-worse-is-better-approach-to-federated-social-networking/">ariadne.space's post on ActivityPub's design falings</a>.</p>
+<p>*Some of the following definitions are from <a rel="noreferrer" target="_blank" href="https://ariadne.space/2019/01/07/activitypub-the-worse-is-better-approach-to-federated-social-networking/">ariadne.space's post on ActivityPub's design falings</a>.</p>
 <ul>
 <li><strong>Simplicity</strong>: The standard and protocol should be simple to implement.</li>
 <li><strong>Cleanliness</strong>: The standard must be clean and easily usable from a end-user perspective. It is more important for it to be clean and simple for end-users than the backend implementation.</li>
@@ -120,13 +122,13 @@
 <li><strong>Privacy</strong>: All content should be encrypted and sent through secure channels. It is considered incorrect to send unencrypted data with the exception of pre-written public HTML pages (which are only a should not).</li>
 <li><strong>Prevent Consolidation</strong>: We don't want this to end up like email, where you <em>can</em> self host and join a smaller provider, but good luck with all the limitations in place.</li>
 </ul>
-<p>Other, smaller goals are to make it extensible so at no point will there ever be breaking changes (No &quot;bonfire 2.0&quot;). While we cannot guarantee this, a finished 1.0 spec should be backwards compatible for at least the next 30 years, while still being able to add support for new features.</p>
+<p>Other, smaller goals are to make it extensible so at no point will there ever be breaking changes (No "bonfire 2.0"). While we cannot guarantee this, a finished 1.0 spec should be backwards compatible for at least the next 30 years, while still being able to add support for new features.</p>
 <h2>Protocol</h2>
 <p>This section defines the way bonfire protocol communicates.</p>
 <h3>Ports and process</h3>
 <p>The uri sceheme uses the ports <code>:9870</code> -- <code>:9879</code>.</p>
 <ul>
-<li>Port <code>:9870</code> is responseable for coordinating session-level things such as encryption, and automated content delivery such as &quot;there is a new message in this channel&quot;, but contains no information about the message itself.</li>
+<li>Port <code>:9870</code> is responseable for coordinating session-level things such as encryption, and automated content delivery such as "there is a new message in this channel", but contains no information about the message itself.</li>
 <li>Port <code>:9871</code> through <code>:9878</code> are reserved for sending text messages in multiple channels at a time, where a single port cannot recevie enough data simulataniously.</li>
 <li>Port <code>:9879</code> is reserved for voice and video communications.</li>
 </ul>
@@ -136,11 +138,11 @@
 <ul>
 <li><strong>CLIENT:</strong> I would like an encerypted channel. Here are my TLS/SSL versions</li>
 <li><strong>SERVER:</strong> Thanks for the request, I would like to use this version of TLS, now heres my certificate with my public key.</li>
-<li><strong>CLIENT:</strong> Verifies certificate, extracts public key, and encrypts a new &quot;pre-master key&quot;</li>
+<li><strong>CLIENT:</strong> Verifies certificate, extracts public key, and encrypts a new "pre-master key"</li>
 <li><strong>SERVER:</strong> Server decrypts pre-master key</li>
-<li><strong>BOTH:</strong> Computes a shared secret key, called a &quot;shared secret&quot;</li>
-<li><strong>CLIENT:</strong> Sends verification message that basically says &quot;Hey this is encrypted with our shared secret, decrypt it and let me know if its correct!&quot;</li>
-<li><strong>CLIENT:</strong> Sends verification message that basically says &quot;Hey this is encrypted with our shared secret, decrypt it and let me know if its correct!&quot;</li>
+<li><strong>BOTH:</strong> Computes a shared secret key, called a "shared secret"</li>
+<li><strong>CLIENT:</strong> Sends verification message that basically says "Hey this is encrypted with our shared secret, decrypt it and let me know if its correct!"</li>
+<li><strong>CLIENT:</strong> Sends verification message that basically says "Hey this is encrypted with our shared secret, decrypt it and let me know if its correct!"</li>
 <li><strong>BOTH:</strong> Now use shared secret to encrypt communications for the remainder of the session.</li>
 </ul>
 </li>
@@ -174,7 +176,7 @@ View a specific message:
 bonfire://d1cp:e0fg:ms56:wf2a:ygkd:fveb:82
 </code></pre>
 <h3>Response Codes</h3>
-<p>Every response code has a 3-digit number (based off <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">https response codes</a>), and a cleaner name.</p>
+<p>Every response code has a 3-digit number (based off <a rel="noreferrer" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">https response codes</a>), and a cleaner name.</p>
 <h4>Information Responses</h4>
 <p>information:information (100) - allows for returning of multiple status codes when appropriate.
 information:returning_list (101)
@@ -216,7 +218,7 @@ operation: GET  # Not technechally needed, as it is the default operation.
 <p>CLIENT:</p>
 <pre><code class="language-plaintext">Hello server, this is a message to confirm that the quick brown fox jumps over
  the lazy brown dog on your end too. If this is working, reply with my keyword
-  &quot;{PICKRANDOM}&quot; so I know it worked!
+  "{PICKRANDOM}" so I know it worked!
 
 --- BEGIN MESSAGE SIGNATURE ---
 
@@ -247,14 +249,14 @@ works. And yes I can confirm, the fox is jumping over the {keyword}. Over.
 <pre><code class="language-yaml">edition: 2023
 type: account
 
-public_key: &quot;999b9af08579802c4d1ca35070b179d610754abd2d601284819493a55e9ce760e1bc9b8adc6f9592311546f88f43237c65577ca7db95919945e63bfbb241b7b6&quot;
+public_key: "999b9af08579802c4d1ca35070b179d610754abd2d601284819493a55e9ce760e1bc9b8adc6f9592311546f88f43237c65577ca7db95919945e63bfbb241b7b6"
 ---
 edition: 2023
 type: profile
 
 profile: 
     guid: 0000000000000000000000000000000000
-    display_name: &quot;String&quot;
+    display_name: "String"
 
     # We reccommend you store the following avatar scales.
     avatar_fullres: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d.png # If supported by your instance.
@@ -263,22 +265,22 @@ profile:
     avatar_64: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d@64.png 
     avatar_32: https://sub.domain.tld/file/960b70fb405047fd92425f1f3a4b341d@64.png   # We highly advise against downscaling avatars lower than this.
 
-    pronouns: [&quot;she/they&quot;, &quot;she/her&quot;, &quot;they/them&quot;]
+    pronouns: ["she/they", "she/her", "they/them"]
     # the frist one is shown, then seperated by slashes and when hovered it will show the one at that index
-    # So if you have &quot;she/they&quot; and you hover &quot;she&quot; with the array above, it will show a tooltip saying &quot;she/her&quot;
+    # So if you have "she/they" and you hover "she" with the array above, it will show a tooltip saying "she/her"
 
     links: 
     - {
         rel: nofriend, # Unverified
         icon: mastodon,
-        handle: &quot;@username@instance.tld&quot;,
+        handle: "@username@instance.tld",
         link: https://instance.tld/@username,
         visibility: friends
     }
     - {
         rel: me, # Verified
         icon: peertube,
-        handle: &quot;@username@instance.tld&quot;,
+        handle: "@username@instance.tld",
         link: https://instance.tld/@username,
         visibility: everyone
     }
@@ -294,20 +296,20 @@ lists:
         send_messages: false
 
     best_friends: 
-        display_name: &quot;Best Friends&quot;
+        display_name: "Best Friends"
         allow_important_messages: true
 
 user_data: 
 - { 
     guid: guid,
-    group: &quot;group&quot;,
-    nickname: &quot;nickname&quot;,
+    group: "group",
+    nickname: "nickname",
 }
 
 - { 
     guid: guid,
-    group: &quot;group&quot;,
-    nickname: &quot;nickname&quot;,
+    group: "group",
+    nickname: "nickname",
 }
 </code></pre>
 <p>When mentioning users, any of the following structures can be used, as long as one would bring it down to just one user in the current hub.</p>
@@ -334,7 +336,7 @@ author: 0000000000000000000000000000000000
 adressed: 0000000000000000000000000000000000 # ONE guid. If its a group chat or channel then it will handle more people receving it.
 time: 09-04-2023@23:03:01
 content: |
-&quot;this is the messages content. Some characters need to be escaped.&quot;
+"this is the messages content. Some characters need to be escaped."
 
 signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </code></pre>
@@ -346,7 +348,7 @@ operation: EDIT
 target: 0000000000000000000000000000000000   # What mwessage is being edited?
 time: 09-04-2023@23:03:55
 content: |
-&quot;this is the messages content. I have now edited it. It sends the new exact content, and the server deals with only storing the diffrence.&quot;
+"this is the messages content. I have now edited it. It sends the new exact content, and the server deals with only storing the diffrence."
 
 signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </code></pre>
@@ -375,7 +377,7 @@ type: message
 operation: CREATE # REMOVE removes YOUR reaction. DELETE clears all reactions of that type.
 
 target: 0000000000000000000000000000000000   # Message ID
-content: &quot;emoji_shortcode&quot; # No colons around them. If its not a valid emoji, simply drop the packet.
+content: "emoji_shortcode" # No colons around them. If its not a valid emoji, simply drop the packet.
 
 signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </code></pre>
@@ -391,7 +393,7 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </thead>
 <tbody>
 <tr>
-<td><code>&quot;</code></td>
+<td><code>"</code></td>
 <td><code>\u0022</code></td>
 <td>String Closer, would interfere with interchange.</td>
 </tr>
@@ -422,7 +424,7 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </tr>
 </tbody>
 </table>
-<p>Other objects, such as @mentions, #channel-mentions, etc must be wrapped in <code>&lt;&gt;</code>. This tells the program: &quot;Hey, stop what your doing. I have special instructions for you.&quot;</p>
+<p>Other objects, such as @mentions, #channel-mentions, etc must be wrapped in <code>&lt;&gt;</code>. This tells the program: "Hey, stop what your doing. I have special instructions for you."</p>
 <table>
 <thead>
 <tr>
@@ -434,12 +436,12 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 <tbody>
 <tr>
 <td><code>@mention</code></td>
-<td><code>&lt;mention:&quot;guid&quot;&gt;</code></td>
+<td><code>&lt;mention:"guid"&gt;</code></td>
 <td>Allows for refering account data directly, letting mentions get updated as people change usernames.</td>
 </tr>
 <tr>
 <td><code>#channel</code></td>
-<td><code>&lt;channel:&quot;guid&quot;&gt;</code></td>
+<td><code>&lt;channel:"guid"&gt;</code></td>
 <td>Allows for refering channel data directly, letting mentions get updated as channel names change or get deleted.</td>
 </tr>
 </tbody>
@@ -454,19 +456,19 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </thead>
 <tbody>
 <tr>
-<td><code>&lt;timer mode=&quot;since&quot; start=&quot;10-04-2023 17:57:32&quot;&gt;</code></td>
+<td><code>&lt;timer mode="since" start="10-04-2023 17:57:32"&gt;</code></td>
 <td>Often used in rich status to show the time since an action started.</td>
 </tr>
 <tr>
-<td><code>&lt;button text=&quot;text&quot; type=&quot;type&quot; action=&quot;steam://joingame/440/JOIN_SECRET&quot;&gt;</code></td>
+<td><code>&lt;button text="text" type="type" action="steam://joingame/440/JOIN_SECRET"&gt;</code></td>
 <td>Used for rich status, often for join game buttons.</td>
 </tr>
 <tr>
-<td><code>&lt;duration mode=&quot;time&quot; bar_start=&quot;0:00&quot; bar_end=&quot;2:06&quot; time_start=&quot;10-04-2023 17:57:32&quot;&gt;</code></td>
+<td><code>&lt;duration mode="time" bar_start="0:00" bar_end="2:06" time_start="10-04-2023 17:57:32"&gt;</code></td>
 <td>Used for match duration, health, round completion, etc.</td>
 </tr>
 <tr>
-<td><code>&lt;duration mode=&quot;number&quot; bar_start=&quot;0&quot; bar_end=&quot;300&quot; value=&quot;299&quot;&gt;</code></td>
+<td><code>&lt;duration mode="number" bar_start="0" bar_end="300" value="299"&gt;</code></td>
 <td>Used for match duration, health, round completion, etc.</td>
 </tr>
 </tbody>
@@ -738,16 +740,16 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 
     <ul>
         <li><a href="#" class="dead-link"><b>Credits</b></a></li>
-        <li><a href="https://www.11ty.dev/">11ty</a></li>
-        <li><a href="https://prismjs.com/">prism.js</a></li>
-        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://www.11ty.dev/">11ty</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://prismjs.com/">prism.js</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
     </ul>
 
     <ul>
         <li><b>Theme</b></li>
         <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
-        <li><a href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
-        <li><a href="https://lucide.dev/">Lucide Icons</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
     </ul>
 
     <ul>
@@ -757,19 +759,19 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 
     <ul>
         <li><b>Developement</b></li>
-        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
-        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
-        <li><a href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
         <li><a href="/debug/">Build Info</a></li>
     </ul>
 
     <ul class="badges">
-        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner." /></li>
-        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome." /></a></li>
+        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></li>
+        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
     </ul>
 
     <br>
-    <p class="subtitle">Most content on this site is copyright &copy; tryoxiss 2022 or later. </p>
+    <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
 
 </body>

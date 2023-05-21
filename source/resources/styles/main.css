@@ -454,7 +454,8 @@ pre {
 }
 
 .token.keyword {
-    color: var(--main-fg);
+    color: var(--teal-3);
+    font-weight: bold;
 }
 
 .token.regex,

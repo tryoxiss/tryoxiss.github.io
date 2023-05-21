@@ -80,9 +80,21 @@ text {
 }
 
 p { 
-    margin-bottom: var(--spacing-small);
+    margin: var(--spacing-small) 0px;
 }
 
+h1, h2, h3, h4, h5, h6 { 
+    margin-top: var(--spacing-small);
+}
+
+li p { 
+    margin: 0;
+    /* margin: var(--spacing-small) 0px; */
+}
+
+:is(h1, h2, h3, h4, h5, h6) + p { 
+    margin-top: 0;
+}
 
 /* ********* */
 

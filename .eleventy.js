@@ -1,17 +1,18 @@
 const { DateTime } = require("luxon");
+const safeLinks = require('@sardine/eleventy-plugin-external-links');
+// const drawio = require('eleventy-plugin-drawio');
 
 module.exports = function (eleventyConfig) { 
-    eleventyConfig.addPassthroughCopy("./source/resources/");
+    eleventyConfig.addPassthroughCopy("./source/resources/**/*.js");
+    eleventyConfig.addPassthroughCopy("./source/resources/**/*.css");
 
-    // eleventyConfig.addPassthroughCopy({ "**/*.jpg": "/resources/images/" });
+    // eleventyConfig.addPlugin(drawio);
+    eleventyConfig.addPlugin(safeLinks);
 
-    // eleventyConfig.addPassthroughCopy("*.jpeg");
+    eleventyConfig.addPassthroughCopy("./source/**/*.jpeg");
 
-    // eleventyConfig.addPassthroughCopy({ "**/*.jpg": "img" });
-
-    // it hates this but it works... even though it errors... 
-    // eleventyConfig.addPassthroughCopy("**/*.jpg");
-    // eleventyConfig.addPassthroughCopy("**/*.png");
+    eleventyConfig.addPassthroughCopy("./source/**/*.jpg");
+    eleventyConfig.addPassthroughCopy("./source/**/*.png");
     // eleventyConfig.addPassthroughCopy("./source/resources/svg/");
 
 

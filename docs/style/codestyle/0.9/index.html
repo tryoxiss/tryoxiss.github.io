@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beautiful Codestyle</title>
+
+    
+
+    <link rel="icon" href="/resources/favicon/ourlogo.png">
+
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css">
+
+    <link rel="stylesheet" href="/resources/styles/main.css">
+    <link rel="stylesheet" href="/resources/styles/layout.css">
+</head>
+<body class="match-braces diff-hilight">
+    <script src="/resources/scripts/prism.js"></script>
+    
+
+    <nav role="primary navigation">
+        
+    </nav>
+
+    
+    <header>
+        <h1>Beautiful Codestyle</h1>
+        <text class="subtitle"></text>
+        <text class="subtitle">11 minute read </text>
+    </header>
+    
+
+    <nav role="Outline">
+        
+        
+        
+    </nav>
+
+    <main>
+        
+        <p>This code style is written keeping in mind some core concepts of what we believe "good code" looks like. This code style is written with Python, GDScript, Rust, CSS, HTML, and JavaScript (ew) in mind. It should, however, be applicable to almost any programming language.</p>
+<h2>Pillars</h2>
+<ol>
+<li><a href="#breathable"><strong>B</strong>reatheable</a> - space between blocks, and spread out.</li>
+<li><a href="#explicit"><strong>e</strong>xplicit</a> - Names should be clear, and types should be explictly set when possible and reasonable.</li>
+<li><a href="#atomic"><strong>a</strong>tomic</a> - a function should be the smallest useable amount of code</li>
+<li><a href="#useful"><strong>u</strong>seful</a> - the code should serve a pourpose or solve a problem. Dead code should be removed and redundent code should be its own function (where reasonable)</li>
+<li><a href="#maintainable">main<strong>t</strong>ainable</a> - Code should be future-proof to the extent it can survive the expected lifespan of the project, and be clear for future maintainers.</li>
+<li><a href="#intentional"><strong>i</strong>ntentional</a> - code should never be there "just because", it should always have a pourpose.</li>
+<li><a href="#flat"><strong>f</strong>lat</a> (and functional) - nested code is harder to read and maintain, minimise nesting where possible and more than 5 layers is explictly banned (with exceptions).</li>
+<li><a href="#unanimous"><strong>u</strong>nanimous</a> - All code should feel as though it was written as a whole and feel cohesive. That is the problem this code style adresses.</li>
+<li><a href="#legible"><strong>l</strong>egible</a> - code should be designed and written in such a way that it is easy to</li>
+</ol>
+<p>Or all together: <strong>Beautiful</strong>. We will address these principals one by one, and then provide some examples.</p>
+<h3 id="breathable">Breatheable</h3>
+<p>Breatheability is defined by the space between blocks of code, and the density of the lines. For example:</p>
+<pre><code class="language-py">def main(): 
+    proceed = input("Proceed (y/n)?")
+    match proceed: 
+        case "y": proceed = True
+        case "n": proceed = False
+        _: proceed = False; raise TypeError; return
+</code></pre>
+<p>Not very breathable, is it? Let's clean that up a bit.</p>
+<pre><code class="language-py">def main(): 
+    proceed = input("Proceed (y/n)?")
+    # We add a space here, since this is now a new section
+    match proceed: 
+        case "y": proceed = True # Since we are only setting one thing, this is fine.
+        case "n": proceed = False
+        _:  # Here we do multiple things, so this gets an indent.
+            proceed = False
+            raise TypeError
+            return
+</code></pre>
+<p>But not all languages are like python, in fact most brace things. We do inline bracing (though that is subject to maybe change!) So lets look at an example there.</p>
+<pre><code class="language-rust">// Since this is a tuple struct of rgb values, and its short,
+// we should keep this on one line. 
+struct Color (u8, u8, u8) 
+
+impl Color {
+    teal(r, g, b) {
+        return Color(0, 127, 127);
+    }
+}
+</code></pre>
+<!-- Khaim: Fixxbuzz times
+inline: 7:33 (~4m accounting for diffrence)
+newline:  4:10 ish -->
+<!-- There are two exceptions to the next line bracing. One is that a simple return -->
+<!-- 1. 
+```rust
+fn main() 
+{
+    let cuddles = "yes";
+
+    if cuddles = "yes" 
+    { 
+        println!("Yay!")
+    } 
+    else if cuddles = "no" 
+    { 
+        println!("awww...")
+    } 
+    else 
+    { 
+        println!("Confusion??")
+    }
+}
+```
+2. 
+```rust
+fn main() {
+    let cuddles = "yes";
+
+    if cuddles = "yes" { 
+        println!("Yay!")
+    } else if cuddles = "no" { 
+        println!("awww...")
+    } else { 
+        println!("Confusion??")
+    }
+}
+```
+-->
+<!-- 3.  -->
+<pre><code class="language-rust">fn main() {
+    let cuddles = "yes";
+
+    if cuddles = "yes" { 
+        println!("Yay!")
+    } 
+    else if cuddles = "no" { 
+        println!("awww...")
+    } 
+    else { 
+        println!("Confusion??")
+    }
+}
+</code></pre>
+<p>Single-statement checks, for example a <code>return</code> or <code>continue</code>, can go on the same line granted the expression is short enough to fit within the left-most 60 characters.</p>
+<pre><code class="language-py">for index in range(256): 
+    if index % 2 == 0: print("Divisible by 2!")
+    if index % 3 == 0: print("Diviseable by 3!")
+    if index % 7 == 0: 
+        print("divisisable by 7!")
+        continue
+    if index % 11 == 0: return
+</code></pre>
+<p>We add spaces between operations, arguments, and bracing.</p>
+<pre><code class="language-py">def function(a: int, b: str, c: float): 
+    if a == 13: 
+        exit(1)
+
+    function(13, "thirteen", 13.0)
+</code></pre>
+<pre><code class="language-js">function function_name() {
+    // ...
+}
+</code></pre>
+<h3 id="explicit">Explicit</h3>
+<p>Function and variable names should almost never be one character, and clearly convey what it does. Types should be explictly annotated most of the time.</p>
+<p>Allowed short variable names are as follows:</p>
+<ul>
+<li>Coordinate Handlers. We always accept arguments in the order listed order, but coordinates can be ommitted as needed.
+<ul>
+<li><code>w</code> - represents a vector of quaternion rotations</li>
+<li><code>x</code></li>
+<li><code>y</code></li>
+<li><code>z</code></li>
+<li><code>wx</code>, <code>wy</code>, <code>wz</code> - used if using non-quaternion rotation, yaw, roll, pitch.</li>
+</ul>
+</li>
+<li>One-way mathmatical functions
+<ul>
+<li><code>n</code></li>
+<li><code>x</code></li>
+</ul>
+</li>
+<li>Simple iterators, if you need a short and sweet iterator you can use the following. You may not use these if loops are nested. Please only use these if no better name exists (such as <code>character</code>, <code>line</code>, <code>file</code>, <code>flag</code>, etc.)
+<ul>
+<li><code>x</code></li>
+<li><code>y</code> - Specifically dealing with coordinates</li>
+<li><code>z</code></li>
+<li><code>i</code></li>
+</ul>
+</li>
+</ul>
+<p>Pluralise only lists, so we can loop over them with something like <code>for line in lines</code> or <code>for flag in flags</code>.</p>
+<pre><code class="language-py">def draw_point(x: float, y: float): 
+    ...
+
+def square(n): 
+    return n * n
+
+def power(n, power): 
+    return n ** power
+</code></pre>
+<h3 id="atomic">Atomic</h3>
+<p>Code should be broken down into the smallest useable pieces. Yes, many languages have function overhead, but unless performance is a <strong>measureable problem</strong> it is far better to have the incresed readability, and modularity.</p>
+<p>And if performance is a measured issue: its likely not time to optimise what's there, its time to <em>rewrite it in a speed language</em> like <a rel="noreferrer" target="_blank" href="https://www.rust-lang.org/">rust</a>—which has <a rel="noreferrer" target="_blank" href="https://stackoverflow.com/questions/56572014/is-there-any-overhead-in-rust-style-method-calling-approach-compared-to-the-usua">almost no function overhead</a>.</p>
+<p>While our code is performance-aware, we still <strong>avoid premature optimisation if it makes the code much harder to read or understand</strong>. When it comes time to optimise, we optimise in the following order:</p>
+<ul>
+<li>
+<p><strong>Benchmark</strong> - Find the <em>real</em> problem. Most of the time its where you think it is: but you don't want to optimise already good systems!</p>
+</li>
+<li>
+<p><strong>200% Changes</strong> - Anything that could <strong>half the problem</strong>  (Doubble the speed, half the memory useage, etc.) of the code. Often this is rewirites in another language.</p>
+</li>
+<li>
+<p><strong>80% Changes</strong> - Anything that could reduce the problem by 80%. Often this is data structure changes.</p>
+</li>
+<li>
+<p><strong>40% Changes</strong> - is often things like micro-managing memory (stack, and heap allocations). If its a performance critical function, we may want to do this the first time we write it.</p>
+</li>
+<li>
+<p><strong>Micro-optimisations</strong> - Anything else. Things that may only slighly improve performance. If these are needed: we need <em>really good</em> evidence they will help, as they often barely do anything.</p>
+</li>
+<li>
+<p>Break code down to the smallest useable pieces.</p>
+</li>
+</ul>
+<h3 id="useful">Useful</h3>
+<ul>
+<li>Code should serve a pourpose</li>
+</ul>
+<h3 id="maintainable">Maintainable</h3>
+<ul>
+<li>Future proof</li>
+<li>Clear for future readers</li>
+</ul>
+<h3 id="intentional">Intentional</h3>
+<ul>
+<li>Every decision should be explainable</li>
+</ul>
+<h3 id="flat">Flat</h3>
+<ul>
+<li>Avoid nesting</li>
+</ul>
+<h3 id="unanimous">Unanimous</h3>
+<ul>
+<li>All code should be consistant and look like it belongs to the same project.</li>
+</ul>
+<h3 id="legible">Legible</h3>
+<ul>
+<li>Named with <code>_</code> in almost all cases.</li>
+</ul>
+
+        
+    </main>
+
+    <nav role="Right Sidebar">
+        
+        
+        
+    </nav>
+
+    
+<footer>
+    
+
+    <ul>
+        <li><a href="#" class="dead-link"><b>Credits</b></a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://www.11ty.dev/">11ty</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://prismjs.com/">prism.js</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><b>Theme</b></li>
+        <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="/projects/" class="dead-link"><b>Our Stuff!</b></a></li>
+        <li><a href="/bonfire/2023/core/">Bonfire</a> Drafts, Project Codename</li>
+    </ul>
+
+    <ul>
+        <li><b>Developement</b></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
+        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
+        <li><a href="/debug/">Build Info</a></li>
+    </ul>
+
+    <ul class="badges">
+        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></li>
+        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
+    </ul>
+
+    <br>
+    <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
+</footer>
+
+</body>
+</html>

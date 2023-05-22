@@ -2,7 +2,9 @@ const { DateTime } = require("luxon");
 const safeLinks = require('@sardine/eleventy-plugin-external-links');
 // const drawio = require('eleventy-plugin-drawio');
 
-module.exports = function (eleventyConfig) { 
+module.exports = function (eleventyConfig) {
+
+    // added from Pulsar!
 
     // eleventyConfig.addPlugin(drawio);
     eleventyConfig.addPlugin(safeLinks);
@@ -10,7 +12,7 @@ module.exports = function (eleventyConfig) {
     eleventyConfig.addPlugin(anchors_plugin);
 
     // we need to manually clear file extensions or else it will complain
-    // about trying to copt a file twice. 
+    // about trying to copt a file twice.
     eleventyConfig.addPassthroughCopy("./source/resources/**/*.js");
     eleventyConfig.addPassthroughCopy("./source/resources/**/*.css");
     eleventyConfig.addPassthroughCopy("./source/resources/**/*.svg");
@@ -37,9 +39,9 @@ module.exports = function (eleventyConfig) {
     });
 
 
-    return { 
-        dir: { 
-            input: "source", 
+    return {
+        dir: {
+            input: "source",
             output: "docs" // I WOULD MAKE THIS _public BUT GITHUB PAGES DONT LIKE THAT
         }
     }

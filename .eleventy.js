@@ -4,8 +4,6 @@ const safeLinks = require('@sardine/eleventy-plugin-external-links');
 
 module.exports = function (eleventyConfig) {
 
-    // added from Pulsar!
-
     // eleventyConfig.addPlugin(drawio);
     eleventyConfig.addPlugin(safeLinks);
     const anchors_plugin = require('@orchidjs/eleventy-plugin-ids');

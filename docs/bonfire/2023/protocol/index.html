@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +23,7 @@
 
     
     <header>
-        <h1>Distributed Instant Messaging (DIM)</h1>
+        <h1 id="distributed-instant-messaging-dim">Distributed Instant Messaging (DIM)</h1>
         <text class="subtitle"></text>
         <text class="subtitle">4 minute read </text>
     </header>
@@ -67,12 +65,12 @@
     <main>
         
         <p>Distributed Instant Messaging protocol is an open standard used for our project codename Bonfire. It is secure (Checksumed and encrypted). It is a text-based protocol built on TCP.</p>
-<h2>Definitions</h2>
+<h2 id="definitions">Definitions</h2>
 <ol>
 <li>The keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> MUST be interprited as specified in <a rel="noreferrer" target="_blank" href="https://www.rfc-editor.org/rfc/rfc2119.html">RFC:2119</a>, and either UPPERCASE or Capitalised versions count, but lowercase does not.</li>
 <li><strong>SP</strong> means a unicode space character.</li>
 </ol>
-<h2>Requests</h2>
+<h2 id="requests">Requests</h2>
 <p>Every packet MUST start with a data header containing the version and the operation you wish to complete.</p>
 <pre><code class="language-yaml">version: dim/2023
 operation: CONNECT
@@ -93,7 +91,7 @@ operation: CONNECT
 <li>The action is UPPERCASE.</li>
 </ul>
 <p>To the extent reasonable, we try and use the terms <code>parent</code>, <code>content</code>, and <code>target</code> in messages.</p>
-<h3>Ports</h3>
+<h3 id="ports">Ports</h3>
 <p>As with any protocol, we need some ports used for this to avoid conflicts. Here are the ones we use with a brief explanation!</p>
 <table>
 <thead>
@@ -129,7 +127,7 @@ operation: CONNECT
 </tr>
 </tbody>
 </table>
-<h3>Connect</h3>
+<h3 id="connect">Connect</h3>
 <p>Connect messages are sent to the server at port <code>8800</code>.</p>
 <pre><code>version: dim/2023
 operation: CONNECT
@@ -137,7 +135,7 @@ target: [DIM Adress | GUID | IPv6 Address (IPv4 NOT ACCEPTED!)]
 encryption: AES
 priority: high
 </code></pre>
-<h3>Create</h3>
+<h3 id="create">Create</h3>
 <p>sent to port</p>
 <pre><code>version: dim/2023
 operation: CREATE
@@ -189,7 +187,7 @@ This is my message content
     </ul>
 
     <ul class="badges">
-        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></li>
+        <li><a rel="noreferrer" target="_blank" href="https://genderdysphoria.fyi/en/#introduction"><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></a></li>
         <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
     </ul>
 
@@ -197,5 +195,5 @@ This is my message content
     <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
 
-</body>
-</html>
+
+</body></html>

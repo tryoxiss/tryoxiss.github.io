@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +23,7 @@
 
     
     <header>
-        <h1>Beautiful Codestyle</h1>
+        <h1 id="beautiful-codestyle">Beautiful Codestyle</h1>
         <text class="subtitle"></text>
         <text class="subtitle">11 minute read </text>
     </header>
@@ -40,9 +38,9 @@
     <main>
         
         <p>This code style is written keeping in mind some core concepts of what we believe "good code" looks like. This code style is written with Python, GDScript, Rust, CSS, HTML, and JavaScript (ew) in mind. It should, however, be applicable to almost any programming language.</p>
-<h2>Pillars</h2>
+<h2 id="pillars">Pillars</h2>
 <ol>
-<li><a href="#breathable"><strong>B</strong>reatheable</a> - space between blocks, and spread out.</li>
+<li><a href="#breatheable"><strong>B</strong>reatheable</a> - space between blocks, and spread out.</li>
 <li><a href="#explicit"><strong>e</strong>xplicit</a> - Names should be clear, and types should be explictly set when possible and reasonable.</li>
 <li><a href="#atomic"><strong>a</strong>tomic</a> - a function should be the smallest useable amount of code</li>
 <li><a href="#useful"><strong>u</strong>seful</a> - the code should serve a pourpose or solve a problem. Dead code should be removed and redundent code should be its own function (where reasonable)</li>
@@ -53,7 +51,7 @@
 <li><a href="#legible"><strong>l</strong>egible</a> - code should be designed and written in such a way that it is easy to</li>
 </ol>
 <p>Or all together: <strong>Beautiful</strong>. We will address these principals one by one, and then provide some examples.</p>
-<h3 id="breathable">Breatheable</h3>
+<h3 id="breatheable">Breatheable</h3>
 <p>Breatheability is defined by the space between blocks of code, and the density of the lines. For example:</p>
 <pre><code class="language-py">def main(): 
     proceed = input("Proceed (y/n)?")
@@ -155,7 +153,9 @@ fn main() {
 
     function(13, "thirteen", 13.0)
 </code></pre>
-<pre><code class="language-js">function function_name() {
+<p>JS Example:</p>
+<pre><code class="language-js">//                space v
+function function_name() {
     // ...
 }
 </code></pre>
@@ -166,24 +166,19 @@ fn main() {
 <li>Coordinate Handlers. We always accept arguments in the order listed order, but coordinates can be ommitted as needed.
 <ul>
 <li><code>w</code> - represents a vector of quaternion rotations</li>
-<li><code>x</code></li>
-<li><code>y</code></li>
-<li><code>z</code></li>
-<li><code>wx</code>, <code>wy</code>, <code>wz</code> - used if using non-quaternion rotation, yaw, roll, pitch.</li>
+<li><code>x</code>, <code>y</code>, <code>z</code></li>
+<li><strong>DO NOT USE</strong> <code>wx</code>, <code>wy</code>, <code>wz</code>. Use <code>yaw</code>, <code>roll</code>, and <code>pitch</code> instead.</li>
 </ul>
 </li>
 <li>One-way mathmatical functions
 <ul>
-<li><code>n</code></li>
-<li><code>x</code></li>
+<li><code>n</code> - Input number</li>
 </ul>
 </li>
 <li>Simple iterators, if you need a short and sweet iterator you can use the following. You may not use these if loops are nested. Please only use these if no better name exists (such as <code>character</code>, <code>line</code>, <code>file</code>, <code>flag</code>, etc.)
 <ul>
-<li><code>x</code></li>
-<li><code>y</code> - Specifically dealing with coordinates</li>
-<li><code>z</code></li>
-<li><code>i</code></li>
+<li><code>x</code>, <code>y</code>, <code>z</code> - Specifically dealing with coordinates</li>
+<li><code>i</code> - Please only use this if there is <strong>no better option</strong> such as  <code>for flag in flags</code>.</li>
 </ul>
 </li>
 </ul>
@@ -202,25 +197,13 @@ def power(n, power):
 <p>And if performance is a measured issue: its likely not time to optimise what's there, its time to <em>rewrite it in a speed language</em> like <a rel="noreferrer" target="_blank" href="https://www.rust-lang.org/">rust</a>—which has <a rel="noreferrer" target="_blank" href="https://stackoverflow.com/questions/56572014/is-there-any-overhead-in-rust-style-method-calling-approach-compared-to-the-usua">almost no function overhead</a>.</p>
 <p>While our code is performance-aware, we still <strong>avoid premature optimisation if it makes the code much harder to read or understand</strong>. When it comes time to optimise, we optimise in the following order:</p>
 <ul>
-<li>
-<p><strong>Benchmark</strong> - Find the <em>real</em> problem. Most of the time its where you think it is: but you don't want to optimise already good systems!</p>
-</li>
-<li>
-<p><strong>200% Changes</strong> - Anything that could <strong>half the problem</strong>  (Doubble the speed, half the memory useage, etc.) of the code. Often this is rewirites in another language.</p>
-</li>
-<li>
-<p><strong>80% Changes</strong> - Anything that could reduce the problem by 80%. Often this is data structure changes.</p>
-</li>
-<li>
-<p><strong>40% Changes</strong> - is often things like micro-managing memory (stack, and heap allocations). If its a performance critical function, we may want to do this the first time we write it.</p>
-</li>
-<li>
-<p><strong>Micro-optimisations</strong> - Anything else. Things that may only slighly improve performance. If these are needed: we need <em>really good</em> evidence they will help, as they often barely do anything.</p>
-</li>
-<li>
-<p>Break code down to the smallest useable pieces.</p>
-</li>
+<li><strong>Benchmark</strong> - Find the <em>real</em> problem. Most of the time its where you think it is: but you don't want to optimise already good systems!</li>
+<li><strong>200% Changes</strong> - Anything that could <strong>half the problem</strong>  (Doubble the speed, half the memory useage, etc.) of the code. Often this is rewirites in another language.</li>
+<li><strong>80% Changes</strong> - Anything that could reduce the problem by 80%. Often this is data structure changes.</li>
+<li><strong>40% Changes</strong> - is often things like micro-managing memory (stack, and heap allocations). If its a performance critical function, we may want to do this the first time we write it.</li>
+<li><strong>Micro-optimisations</strong> - Anything else. Things that may only slighly improve performance. If these are needed: we need <em>really good</em> evidence they will help, as they often barely do anything.</li>
 </ul>
+<p>Anyhow, back to atomic code. <em>One function, one pourpose</em>!</p>
 <h3 id="useful">Useful</h3>
 <ul>
 <li>Code should serve a pourpose</li>
@@ -288,7 +271,7 @@ def power(n, power):
     </ul>
 
     <ul class="badges">
-        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></li>
+        <li><a rel="noreferrer" target="_blank" href="https://genderdysphoria.fyi/en/#introduction"><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></a></li>
         <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
     </ul>
 
@@ -296,5 +279,5 @@ def power(n, power):
     <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
 
-</body>
-</html>
+
+</body></html>

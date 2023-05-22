@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,9 +12,9 @@
     
     <header>
         <div>
-            <h1>DnD Remade Framework</h1>
+            <h1 id="dnd-remade-framework">DnD Remade Framework</h1>
             <p class="subtitle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /><path d="M8 14h.01" /><path d="M12 14h.01" /><path d="M16 14h.01" /><path d="M8 18h.01" /><path d="M12 18h.01" /><path d="M16 18h.01" /></svg>Updated Date Undefined
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>Updated Date Undefined
             </p>
             </div>
     </header>
@@ -83,7 +81,7 @@
     <main>
         <p>This document defines the basic framework and definitions for the rest of the ruleset, which defines spells, mechanics, and more. This is more of a framework that the rest is built on. The other parts can be modified much more easily, but modifying this may break things as it is foundational.</p>
 <p>All of the systems provided by Open Tabletop Engine, while interacting in many ways, can be replaced with your own systems fairly easily. Don't like the potion system? Make your own! Magic system dosen't fit in your world? Make or find one that does!</p>
-<h2>Dice</h2>
+<h2 id="dice">Dice</h2>
 <p>Dice will be defined as <code>d&lt;sides&gt;</code> in this document.</p>
 <table>
 <thead>
@@ -121,7 +119,7 @@
 </tr>
 </tbody>
 </table>
-<h3>Role Modifiers</h3>
+<h3 id="role-modifiers">Role Modifiers</h3>
 <p>There are a few types of roll modifers tht can be applied to modify chances or emphaise things. The main three types are:</p>
 <ul>
 <li><strong>Advantage</strong>: Roll 2 dice, pick the higher one. This is used for actions that you have some buff or advantage to to increse the chances of getting the minimum roll without loweing its success number.</li>
@@ -130,12 +128,12 @@
 <li><strong>Neutralise</strong>: Roll 2 dice and pick the one that is closest to the ceter value. Good for rolls that are likely to not wildly succeed or fail. If they are the same distance from the center, re-roll both dice.</li>
 </ul>
 <p>For both emphasis and neutralise rolls you can see the center value in the average field. The centervalue will be</p>
-<h3>Calculating Values</h3>
+<h3 id="calculating-values">Calculating Values</h3>
 <p>Negative values are instead set to 0. So for example, a creature that deals 1d4-3 damage has an attack array of [0, 0, 0, 1] making it a very low threat.</p>
 <p>With damage and ranges, if attacking closer than the specified minimum, damage is lowered by 1d4 for every tile closer than the minimum. You can attempt to atack farther aswell if using a ranged or magic weapon, but damage is also reduced by 1dN for every tile beyond its range where N is the number of tiles you are attemping to attack past, rounding up to the nearest dice value.</p>
 <p>For example, attempting to shoot a bow 2 tiles past its maximum range will reduce its damage by 2d4, and attempting to shoot it 5 tiles past its max range will reduce its damage by 5d6.</p>
 <p>With damage, random citcical hits are not a thing unless specified.</p>
-<h2>Item Rarity</h2>
+<h2 id="item-rarity">Item Rarity</h2>
 <p>The following table has a list of all raritys you are the main tier system. All open for change, in both name color and description.</p>
 <table>
 <thead>
@@ -235,7 +233,7 @@
     </ul>
 
     <ul class="badges">
-        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></li>
+        <li><a rel="noreferrer" target="_blank" href="https://genderdysphoria.fyi/en/#introduction"><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></a></li>
         <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
     </ul>
 
@@ -243,5 +241,5 @@
     <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
 
-</body>
-</html>
+
+</body></html>

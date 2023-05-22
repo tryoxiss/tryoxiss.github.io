@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html><html lang="en"><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +23,7 @@
 
     
     <header>
-        <h1>Bonfire Core</h1>
+        <h1 id="bonfire-core">Bonfire Core</h1>
         <text class="subtitle"></text>
         <text class="subtitle">37 minute read </text>
     </header>
@@ -71,7 +69,7 @@
 <blockquote class="callout callout--info">
     <!-- <svg src="/_shared-content/lucide/alert-triangle.svg" color="red"></svg> -->
     <div class="callout__header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-info"><circle cx="12" cy="12" r="10" /><line x1="12" y1="16" x2="12" y2="12" /><line x1="12" y1="8" x2="12.01" y2="8" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
         <p>This specification is a draft!</p>
     </div>
     <p>it is not finished and is due for many, many revisions down the road. </p>
@@ -79,7 +77,7 @@
 <blockquote class="callout callout--warning">
     <!-- <svg src="/_shared-content/lucide/alert-triangle.svg" color="red"></svg> -->
     <div class="callout__header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4" /><path d="M14 2v6h6" /><path d="m3 12.5 5 5" /><path d="m8 12.5-5 5" /></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h14a2 2 0 0 0 2-2V7.5L14.5 2H6a2 2 0 0 0-2 2v4"></path><path d="M14 2v6h6"></path><path d="m3 12.5 5 5"></path><path d="m8 12.5-5 5"></path></svg>
         <p>Dependy Issue</p>
     </div>
     <p>This specification seems to refrence or cite 1 or more speicfications that appear to be missing. These issues must be resolved before 1.0. A list can be found below: </p>
@@ -87,7 +85,7 @@
         <li>Clean ID System</li>
     </ul>
 </blockquote>
-<h2>Definitions</h2>
+<h2 id="definitions">Definitions</h2>
 <p>Let the keywords that follow be case insensitive unless otherwise specified.</p>
 <ul>
 <li>Let the keywords <strong>MUST</strong>, <strong>MUST NOT</strong>, <strong>SHOULD</strong>, <strong>SHOULD NOT</strong>, and <strong>MAY</strong> (and lowercase equivalents) be defined as specified in <a rel="noreferrer" target="_blank" href="https://www.rfc-editor.org/rfc/rfc2119">RFC:2119</a></li>
@@ -111,7 +109,7 @@
 <li>Let the character set <code>safe</code> be the culmination of <code>inalpha</code> and <code>digit</code> and the characters <code>_</code> and <code>-</code>.</li>
 <li>Let <strong>Edition</strong> mean the anual revision to the specification.</li>
 </ul>
-<h2>Design Philosophy</h2>
+<h2 id="design-philosophy">Design Philosophy</h2>
 <p>*Some of the following definitions are from <a rel="noreferrer" target="_blank" href="https://ariadne.space/2019/01/07/activitypub-the-worse-is-better-approach-to-federated-social-networking/">ariadne.space's post on ActivityPub's design falings</a>.</p>
 <ul>
 <li><strong>Simplicity</strong>: The standard and protocol should be simple to implement.</li>
@@ -123,9 +121,9 @@
 <li><strong>Prevent Consolidation</strong>: We don't want this to end up like email, where you <em>can</em> self host and join a smaller provider, but good luck with all the limitations in place.</li>
 </ul>
 <p>Other, smaller goals are to make it extensible so at no point will there ever be breaking changes (No "bonfire 2.0"). While we cannot guarantee this, a finished 1.0 spec should be backwards compatible for at least the next 30 years, while still being able to add support for new features.</p>
-<h2>Protocol</h2>
+<h2 id="protocol">Protocol</h2>
 <p>This section defines the way bonfire protocol communicates.</p>
-<h3>Ports and process</h3>
+<h3 id="ports-and-process">Ports and process</h3>
 <p>The uri sceheme uses the ports <code>:9870</code> -- <code>:9879</code>.</p>
 <ul>
 <li>Port <code>:9870</code> is responseable for coordinating session-level things such as encryption, and automated content delivery such as "there is a new message in this channel", but contains no information about the message itself.</li>
@@ -161,7 +159,7 @@
 </li>
 <li>Close Channel</li>
 </ol>
-<h3>URI Scheme</h3>
+<h3 id="uri-scheme">URI Scheme</h3>
 <p>The <code>bonfire://</code> URI scheme is motivated by the desire to have a clean inter-instance and inter-client way to denote various locations. This does not need to denote actions as those are sent in <strong>packets</strong> instead. However, they can include links <em>to</em> actions like joining a hub or being an invite.</p>
 <p>As a general rule, it follows the sceme <code>bonfire://guid</code> scheme.</p>
 <p>Examples:</p>
@@ -175,20 +173,20 @@ bonfire://d1cp:e0fg:ms56:wf2a:ygkd:fveb:82
 View a specific message: 
 bonfire://d1cp:e0fg:ms56:wf2a:ygkd:fveb:82
 </code></pre>
-<h3>Response Codes</h3>
+<h3 id="response-codes">Response Codes</h3>
 <p>Every response code has a 3-digit number (based off <a rel="noreferrer" target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Status">https response codes</a>), and a cleaner name.</p>
-<h4>Information Responses</h4>
+<h4 id="information-responses">Information Responses</h4>
 <p>information:information (100) - allows for returning of multiple status codes when appropriate.
 information:returning_list (101)
 information:switching_protocols (102)
 information:processing (103)</p>
-<h4>Success Responses</h4>
+<h4 id="success-responses">Success Responses</h4>
 <p>success:success (200) - Success with no further information given. We advise you use a more descritive response code where possible.
 success:created (201)  - A resource was created in response. This can be a message, reaction, etc.
 success:accepted (202) - The request has been accepted and is queued for action.
 success:removed (203) - The requested content was removed.
 success:deleted (204) - the requested content was deleted.</p>
-<h4>Client Error Messages</h4>
+<h4 id="client-error-messages">Client Error Messages</h4>
 <p>failure:bad_request (400) - The request is invalid with no further information
 failure:unauthorised (401) - You are not logged in or we cannot verify you, preventing you from accessing this content.
 failure:forbidden (402) - we have verified you, but you may not access this content
@@ -199,13 +197,13 @@ failure:gone (406) - the content was removed
 failure:oversized_payload (407) - we refuse to process this request because the payload exeeded the servers byte limit, often 65,535 bytes for text packets and 2,147,483,647 bytes for images.
 failure:too_many_requests (408) - you are sending too many requests so we refuse to process these. Generally this is 7200 requests over the past 60 minutes (2 requests per seccond for 1 continuous hour)
 failure:better_authentication_needed (409) - you need to authenticate yourself by additional means to access this content. That may be 2 Factor Authentication, Proxy Authentication, or something else. More info should be provided after a <code>;</code> in the packet. Things like voice calls are peer to peer and therefore do not get ratelimited by this, if this happens the suggested behavour is to send it peer to peer to the destination and resend it to the server when you can.</p>
-<h4>Server Error Messages</h4>
+<h4 id="server-error-messages">Server Error Messages</h4>
 <p>failure:internal_server_error (500) - the server encountered a situation it didnt know how to handle with no additional information.
 failure:not_implemented (501) - the request type you send has no currently handling in the server side.
 failure:not_secure (502) - you send an unencrypted packet to the server which it refuses to process.
 failure:no_storage (503) - the server dosen't have the space to process that request
 failure:loop_request (504) - the request you sent put the server into an infanite loop and refuses to process it.</p>
-<h2>Objects</h2>
+<h2 id="objects">Objects</h2>
 <p>Objects are just how we send data between clients. It can be stored in any format, or translated to other formats to allow for interoperability.</p>
 <p>All objects MUST have a data header which specifies the edition which is required to handle the communication properly, and the type of communication.</p>
 <pre><code class="language-yaml">edition: 2023   # Not necesary if you have agreed to talk over only one edition.
@@ -213,7 +211,7 @@ type: message
 operation: GET  # Not technechally needed, as it is the default operation. 
 </code></pre>
 <p>If an object fails the signature check, dosen't contain a heder or all needed data, or the user dosen't have permissions for that, you can either simply DROP the pakcet or send a an ERROR response.</p>
-<h3>Verify encryption is working.</h3>
+<h3 id="verify-encryption-is-working">Verify encryption is working.</h3>
 <p>To ensure the server knows exactly what to expect, we send a near identical message every time. FOr the client and server, they are as follows. I know they are not very profesional, but they are fun and no end user ever sees them: but I hope they cheer up someone working on an implementation or someone carefully inspecting the packets!</p>
 <p>CLIENT:</p>
 <pre><code class="language-plaintext">Hello server, this is a message to confirm that the quick brown fox jumps over
@@ -233,7 +231,7 @@ works. And yes I can confirm, the fox is jumping over the {keyword}. Over.
 
 --- END MESSAGE SIGNATURE ---
 </code></pre>
-<h3>Verify bonfire edition</h3>
+<h3 id="verify-bonfire-edition">Verify bonfire edition</h3>
 <p>Right after establishing secure channels, we send a CSV file containing all the editions we are willing to communicate using. We then compare, pick the most recent, and send confirmations.</p>
 <p>(both) Send list:</p>
 <pre><code class="language-csv">editions
@@ -241,9 +239,9 @@ works. And yes I can confirm, the fox is jumping over the {keyword}. Over.
 2022-beta
 </code></pre>
 <p>Generally we reccommend using the most recent shared version.</p>
-<h3>Account</h3>
+<h3 id="account">Account</h3>
 <p>An account stores critical data about a profile such as login and encryption details. An account can have multiple profiles.</p>
-<h3>Profile</h3>
+<h3 id="profile">Profile</h3>
 <p>One account can have multiple profiles, and be switched between freely. The official client also allows you to set diffrent profiles to defult for certain people.</p>
 <p>(This document can be minfiied a lot, using [] and {} to elimatye spaces, or minifying spaces and removing comments. And in transit: likely will.)</p>
 <pre><code class="language-yaml">edition: 2023
@@ -324,7 +322,7 @@ user_data:
 <li>@<strong>everyone</strong> - Mentions everyone</li>
 <li>@<strong>someone</strong> - mentions a random person.</li>
 </ul>
-<h3>Messages</h3>
+<h3 id="messages">Messages</h3>
 <p>A status object can represent a reaction, message, creation, or anything else that is not a <code>person</code> or <code>bot</code> in nature.</p>
 <p>Creation:</p>
 <pre><code class="language-yaml">edition: 2023
@@ -370,7 +368,7 @@ target: 0000000000000000000000000000000000   # What mwessage is being deleted?
 
 signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </code></pre>
-<h3>Reactions</h3>
+<h3 id="reactions">Reactions</h3>
 <p>Reactions are little emoji counters below a message.</p>
 <pre><code class="language-yaml">edition: 2023
 type: message
@@ -381,7 +379,7 @@ content: "emoji_shortcode" # No colons around them. If its not a valid emoji, si
 
 signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </code></pre>
-<h2>Formatting and Escapes</h2>
+<h2 id="formatting-and-escapes">Formatting and Escapes</h2>
 <p>Various things need to be replaced for one reason or another. Most important, some characters need to be escaped.</p>
 <table>
 <thead>
@@ -473,13 +471,13 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </tr>
 </tbody>
 </table>
-<h2>Federation</h2>
+<h2 id="federation">Federation</h2>
 <p>Federation occurs using the packet formats above. When a user wants data, they ask thier instance. Any data thier instance does not have, they ask the instance that will. The instnace that has it then forwards the data directly to the user. No data is stored redundently between instances this way.</p>
 <p>This also makes it possible to delete all messages directly. They MAY still be stored in someones cache, but that will likely be cleared out soon.</p>
-<h2>Encryption</h2>
+<h2 id="encryption">Encryption</h2>
 <p>The encryption versions, standards, etc are defined by the edition. For this edition, and the forseeable future, we will be using AES with keys established over RSA for all communications.</p>
 <p>If a client or service cannot perform said end to end encryption, we highly reccommend you display a warning stating such.</p>
-<h2>Commands</h2>
+<h2 id="commands">Commands</h2>
 <p>Bonfire has a lot of commands that must or should be built in and supported. Any action that is possible via the UI must be possible via a command.</p>
 <p>Therefore, every implenetation MUST have support for the following commands:</p>
 <table>
@@ -536,7 +534,7 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
 </tr>
 </tbody>
 </table>
-<h2>Permissions</h2>
+<h2 id="permissions">Permissions</h2>
 <p>THIS IS OUTDATED. See the rust script for a full list of permissions</p>
 <table>
 <thead>
@@ -766,7 +764,7 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
     </ul>
 
     <ul class="badges">
-        <li><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></li>
+        <li><a rel="noreferrer" target="_blank" href="https://genderdysphoria.fyi/en/#introduction"><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></a></li>
         <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
     </ul>
 
@@ -774,5 +772,5 @@ signature: 2346ad27d7568ba9896f1b7da6b5991251debdf2
     <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
 
-</body>
-</html>
+
+</body></html>

@@ -3,11 +3,17 @@ const safeLinks = require('@sardine/eleventy-plugin-external-links');
 // const drawio = require('eleventy-plugin-drawio');
 
 module.exports = function (eleventyConfig) { 
-    eleventyConfig.addPassthroughCopy("./source/resources/**/*.js");
-    eleventyConfig.addPassthroughCopy("./source/resources/**/*.css");
 
     // eleventyConfig.addPlugin(drawio);
     eleventyConfig.addPlugin(safeLinks);
+    const anchors_plugin = require('@orchidjs/eleventy-plugin-ids');
+    eleventyConfig.addPlugin(anchors_plugin);
+
+    // we need to manually clear file extensions or else it will complain
+    // about trying to copt a file twice. 
+    eleventyConfig.addPassthroughCopy("./source/resources/**/*.js");
+    eleventyConfig.addPassthroughCopy("./source/resources/**/*.css");
+    eleventyConfig.addPassthroughCopy("./source/resources/**/*.svg");
 
     eleventyConfig.addPassthroughCopy("./source/**/*.jpeg");
 

@@ -11,7 +11,7 @@
 </head>
 <style>
 
-* { 
+* {
     color: var(--main-fg)
 }
 
@@ -19,7 +19,7 @@
   from {
     background-position: 0% center;
   }
-  
+
   to {
     background-position: -200% center;
   }
@@ -29,7 +29,7 @@
   from, to {
     transform: scale(0);
   }
-  
+
   50% {
     transform: scale(1);
   }
@@ -39,7 +39,7 @@
   from {
     transform: rotate(0deg);
   }
-  
+
   to {
     transform: rotate(180deg);
   }
@@ -60,11 +60,11 @@ body {
     /* clip-path: polygon(100% 82%, 100% 100%, 0 100%, 0 68%); */
 }
 
-span { 
+span {
     padding: 0 !important;
 }
 
-section { 
+section {
     margin-left: auto;
     margin-right: auto;
     display:inline-block;
@@ -77,7 +77,7 @@ section {
 
 .magic-text > .magic > .magic-star {
     --size: clamp(20px, 1.5vw, 30px);
-    
+
     animation: scale 700ms ease forwards;
     display: block;
     height: var(--size);
@@ -99,7 +99,7 @@ section {
     stroke: var(--blueviolet-3);
 }
 
-.magic-text:not(.magic-text *) { 
+.magic-text:not(.magic-text *) {
     animation: background-pan 3s linear infinite;
     background: linear-gradient(
     to right,
@@ -130,15 +130,15 @@ section {
     /* white-space: nowrap; */
 }
 
-a:not(main a) { 
+a:not(main a) {
     border-bottom: 0;
 }
 
-body { 
+body {
     background-size: cover;
 }
 
-header { 
+header {
     min-height: 60svh;
     max-height: 60vh;
     position: relative;
@@ -149,7 +149,7 @@ header {
     background-image: url("https://images.unsplash.com/photo-1531366936337-7c912a4589a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
 }
 
-header::after { 
+header::after {
     content: '';
 
     position: absolute;
@@ -159,11 +159,11 @@ header::after {
     background-image: linear-gradient(transparent, var(--main-bg));
 }
 
-header { 
+header {
     box-shadow: 0 0 0 rgb(27, 30, 39);
 }
 
-h1 { 
+h1 {
     margin: auto !important;
     margin-top: auto !important;
 
@@ -174,11 +174,11 @@ h1 {
     /* text-shadow: 0 0 12px black, 0px 0px 12px var(--main-fg); */
 }
 
-h1 span { 
+h1 span {
     word-wrap: wrap;
 }
 
-main { 
+main {
     border-radius: 0px;
 
     display: grid;
@@ -187,8 +187,8 @@ main {
     padding: 1rem;
 }
 
-@media (min-width: 900.00000000000000000000001px) { 
-    main { 
+@media (min-width: 900.00000000000000000000001px) {
+    main {
         border-radius: 0px;
 
         display: grid;
@@ -200,15 +200,16 @@ main {
     }
 }
 
-section { 
+section {
     margin: 1.5rem 0px;
 }
 
-p { 
+p {
     margin-bottom: 1.5rem;
 }
 </style>
 <body>
+
     <!-- <a href="/posts/">posts</a>
     <a href="/tools/">Tools</a>
     <a href="/links/">My Links</a>
@@ -245,8 +246,8 @@ p {
 
     <section></section> -->
 
-    <!-- 
-    Stars and sparkles are from lucide icons (lucide.dev) and are licenced 
+    <!--
+    Stars and sparkles are from lucide icons (lucide.dev) and are licenced
     under the ISC Licence
 
     Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
@@ -259,51 +260,51 @@ p {
      <!-- Raw stars: -->
 
     <!-- Sparkle (Modified from "stars")-->
-    
+
     <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>  -->
-   
+
 
     <!-- Star (modified "star")-->
-    
+
     <!-- <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg> -->
-   
+
     <!-- <div class="characters">
         <a href="/"><img style="top: 10%; left: 30%;" src="https://images.unsplash.com/photo-1563178406-4cdc2923acbc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=696&q=80" alt="Character descrption" class="character"></a>
     </div> -->
 
     <header>
         <h1 class="magic-text">
-            Hello, I am a 
+            Hello, I am a
             <a class="magic" href="/about/">
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 </span>
                 <span class="magic-text">psychotic lesbian girlthing</span>
-            </a>! I make 
+            </a>! I make
             <a class="magic" href="/projcts/games/">
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 </span>
                 <span class="magic-text">games</span>
-            </a>, 
+            </a>,
             <a class="magic" href="/art/">
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -312,15 +313,15 @@ p {
             </a>, and
             <a class="magic" href="/projects/software/">
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                 </span>
                 <span class="magic-star">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
                 </span>
-                <span class="magic-text">open source</span>. 
+                <span class="magic-text">open source</span>.
             </a>
         </h1>
     </header>
@@ -333,10 +334,10 @@ p {
             <p class="magic-text">You thought you were going to get a bio?
                 <span class="magic" href="/projects/software/">
                     <span class="magic-star">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                     </span>
                     <span class="magic-star">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg> 
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></svg>
                     </span>
                     <span class="magic-star">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -345,7 +346,7 @@ p {
                 </span>
                 Maybe next time.
             </p>
-        
+
             <a href="/" class="button">Read the depths of my insanity
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
@@ -356,8 +357,8 @@ p {
             <h2>I make games</h2>
             <p class="magic-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="#">Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam</a> est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
-        
-            <a href="/" class="button">Play my broken games 
+
+            <a href="/" class="button">Play my broken games
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
         </section>
@@ -366,8 +367,8 @@ p {
             <h2>Art too, sometimes</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
-        
-            <a href="/" class="button">Break my software 
+
+            <a href="/" class="button">Break my software
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
             <a href="/" class="button button-text">and help fix it</a>
@@ -377,8 +378,8 @@ p {
             <h2>Fully accreitted hug dealer</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
-        
-            <a href="/" class="button">Break my software 
+
+            <a href="/" class="button">Break my software
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
             <a href="/" class="button button-text">and help fix it</a>
@@ -388,8 +389,8 @@ p {
             <h2>Commissions</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur harum amet eligendi cupiditate quas molestias reiciendis aliquid quisquam est magnam placeat dolorum, quis ut hic eos alias itaque enim laudantium! Sit, quam?</p>
-        
-            <a href="/" class="button">Reasons you shouldn't hire me 
+
+            <a href="/" class="button">Reasons you shouldn't hire me
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-stars"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path><path d="M5 3v4"></path><path d="M19 17v4"></path><path d="M3 5h4"></path><path d="M17 19h4"></path></svg>
             </a>
             <a href="/" class="button button-text">but you can anyway </a>
@@ -407,7 +408,7 @@ p {
 let index = 0,
     interval = 1000;
 
-const rand = (min, max) => 
+const rand = (min, max) =>
     Math.floor(Math.random() * (max - min + 1)) + min;
 
 const animate = star => {
@@ -424,7 +425,7 @@ const animate = star => {
 // for(const star of document.getElementsByClassName("magic-star")) {
 //     setTimeout(() => {
 //         animate(star);
-        
+
 //         setInterval(() => animate(star), 1000);
 //     }, index++ * (interval / 3))
 // }
@@ -439,9 +440,9 @@ const magics = document.querySelectorAll(".magic");
 magics.forEach(magic => {
     magic.onmouseenter = () => {
         let index = 1;
-        
+
         for(const star of magic.querySelectorAll(".magic-star")) {
-            timeouts.push(setTimeout(() => {  
+            timeouts.push(setTimeout(() => {
                 animate(star);
                     intervals.push(setInterval(() => animate(star), 1000));
                 }, index++ * 300)
@@ -450,9 +451,9 @@ magics.forEach(magic => {
     }
 
     magic.onmouseleave = onMouseLeave = () => {
-        for(const t of timeouts) clearTimeout(t);  
+        for(const t of timeouts) clearTimeout(t);
         for(const i of intervals) clearInterval(i);
-        
+
         timeouts = [];
         intervals = [];
     }

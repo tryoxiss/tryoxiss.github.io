@@ -25,7 +25,7 @@
     <header>
         <h1 id="naming-in-project-bonfire">Naming in project bonfire</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">4 minute read </text>
+        <text class="subtitle">6 minute read </text>
     </header>
     
 
@@ -41,6 +41,7 @@
 <p>So in this post, I am going to go through all the naming design decisions we have made so far and why.</p>
 <h2 id="usernames">Usernames</h2>
 <p>Usernames are how you are identified on a unique level, they are your <code>@</code>. Display names are how you are identified on a personal level, they can contain any characters with the excpeption of unicode control bytes.</p>
+<h3 id="restrictions">Restrictions</h3>
 <p>Usernames are case insensative, and forced lowercase. You can have <code>@forest</code>, but not <code>@Forest</code> or <code>@forEst</code>.</p>
 <p>Usernames my only have alphanumerics (<code>a-z</code>), numbers (<code>0-9</code>), and the select special characters <code>.</code> and <code>_</code>. This is very standard for usernames.</p>
 <p>Usernames, display names, and account names must all also adhere to your instances rules.</p>
@@ -52,15 +53,49 @@
 <li><code>@online</code></li>
 <li><code>@us</code>, <code>@mods</code>, <code>@moderators</code>, <code>@admin</code>, <code>@support</code>, <code>@contact</code>, and any other names reserved by your instance to easily distingush moderators and official accounts.</li>
 </ul>
+<h3 id="one-account-multiple-profiles">One account, multiple profiles</h3>
 <p>One account can have many profils, each with thier own username, display name, bio, profile picture, and, if desired, group and friends lists. Generally groups and friends these are inherited from the account, though.</p>
-<p>Usernames are unique to each profile, and are <code>@[username]@[instance.tld]</code>. This format is still a work in progress, though.</p>
+<p>Usernames are unique to each profile, and are <code>[@][username]@[instance.tld]</code>. This format is still a work in progress, though.</p>
 <p>This works great, but one account can have many profiles. This creates an opportunity for abuse, where one account can create may profiles just to take OG usernames, such as <code>@forest</code>, <code>@dog</code>, etc.</p>
 <p>This issue is partially midigated by the federation aspect. There can be an <code>@forest@someinstance.social</code> and an <code>@forest@example.net</code> at the same time.</p>
 <p>This can be further midigated by allow you to prefix it with an account name (what you would use to sign in, and is displayed as a host to your profiles). Such as <code>@forest@nature.system@example.net</code>. If you include an account name, you must also include the instance.</p>
 <p>That's great and all, but elegance in design is a primary design goal, after all, so this just this won't cut it.</p>
 <p>You can also omit uneeded sections, if <code>@forest</code> identifies a unique user in the current context, even if multiple <code>@forest</code>'s exist in your federation.</p>
 <p>For example, your group or DM has only one <code>@forest</code>, then you can omit the instance!</p>
-
+<h2 id="display-names">Display names</h2>
+<p>Display names, unlike usernames, have no such restrictions. The only restrictions they have are:</p>
+<ul>
+<li>Private use sector unicode are not allowed.
+<ul>
+<li><code>U+F000</code> through <code>U+FFFFD</code></li>
+<li><code>U+100000</code> through <code>U+10FFFD</code></li>
+</ul>
+</li>
+<li>Unicode control bytes are not allowed.
+<ul>
+<li><code>U+0000</code> (NULL)</li>
+<li><code>U+0009</code> (HORIZONTAL TAB)</li>
+<li><code>U+000A</code> (LINE FEED)</li>
+<li><code>U+000C</code> (FORM FEED)</li>
+<li><code>U+000D</code> (CARRAGE RETURN)</li>
+<li><code>U+0085</code> (NEXT LINE)</li>
+<li><code>U+2028</code> (LINE SEPERATOR)</li>
+<li><code>U+2029</code> (PARAGRAPH SEPERATOR)</li>
+<li><code>U+FFF9</code>, <code>U+FFFA</code>, <code>U+FFFB</code> (INTERLINEAR ANNOTATION CHARCTERS)</li>
+</ul>
+</li>
+<li>Depreciated Unicode characters are not allowed.</li>
+<li>Markdown syntax is allowed, but will not do anything; with the following exception:
+<ul>
+<li>Emoji shortcodes (<code>:shortcode:</code>) are allowed in display names.</li>
+</ul>
+</li>
+</ul>
+<p>Display names are public to everyone, and must follow your instances rules.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have many hours coming to the most reasonable compromise between uniqueness, simplicity, and customiseability possible. Feel free to suggest anything for any part of the project, however unless we encounter major issues usernames are likely final.</p>
+<!-- ## Tags
+[#engineering](../posts/tags/engineering) -->
         
     </main>
 
@@ -109,6 +144,7 @@
     <br>
     <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
+
 
 
 </body></html>

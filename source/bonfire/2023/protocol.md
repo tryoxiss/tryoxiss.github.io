@@ -51,7 +51,7 @@ As with any protocol, we need some ports used for this to avoid conflicts. Here 
 
 Connect messages are sent to the server at port `8800`. 
 
-```
+```yaml
 version: dim/2023
 operation: CONNECT
 target: [DIM Adress | GUID | IPv6 Address (IPv4 NOT ACCEPTED!)]
@@ -62,7 +62,7 @@ priority: high
 ### Create
 
 sent to port
-```
+```yaml
 version: dim/2023
 operation: CREATE
 target: channel_guid

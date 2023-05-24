@@ -1,7 +1,5 @@
 ---
 title: Naming in project bonfire
-tags: 
-    - engineering
 ---
 
 So, for project bonfire we need to do a lot of design work. And a large part of said design work is what we allow in names. 

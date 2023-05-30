@@ -3,15 +3,17 @@
 
 :root { 
     /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); */
-    --html-bg: linear-gradient(to bottom right, 
+    /* --html-bg: linear-gradient(to bottom right, 
     var(--blue-4), 
     var(--blueviolet-3), 
     var(--violet-3), 
-    var(--pink-3));
+    var(--pink-3)); */
 
     --html-fg: ;
 
-    --body-bg: rgb(30, 30, 46, 0.8);
+    --html-bg: rgb(30, 30, 46, 0.8);
+
+    --body-bg: rgb(17, 17, 27, 1);
     --body-fg: rgb(205, 214, 244);
     
     --header-bg: transparent;
@@ -280,6 +282,10 @@ body > header {
     text-align: center;
     height: max-content;
 }
+
+h2 { font-size: 1.25rem; }
+h3 { font-size: 1.1rem; }
+h4, h5, h6 { font-size: 1rem; }
 
 .header,
 h1, h2, h3, h4, h5, h6,

@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Article</title>
+    <title>Posts Index</title>
 
     
 
@@ -13,30 +13,79 @@
     <link rel="stylesheet" href="/resources/styles/main.css">
     <link rel="stylesheet" href="/resources/styles/layout.css">
 <style>
-[role="Right Sidebar"] { 
-    padding: 1rem;
+
+:root {
+    --primary-color: #fff; /* try #212121 also for dark mode */
+    --background-color: #212121;
+    --font: sans-serif;
 }
 
-h1 { 
-    margin-top: 0;
-
-    border-bottom: 1px solid var(--muted-fg);
-    margin-bottom: 8px;
+/* Outer Layer with the timeline border */
+.outer {
+    border-left: 2px solid var(--main-child-bg);
 }
 
-h2 { 
-    border-bottom: 1px dotted var(--muted-fg);
-    margin-bottom: 8px;
+/* Card container */
+.card {
+    position: relative;
+    margin: 0 0 20px 20px;
+    padding: 10px;
+    background: var(--main-child-bg);
+    color: var(--muted-fg);
+    border-radius: 8px;
+    max-width: 400px;
 }
+
+.card { 
+    display: block;
+    border-bottom: 0;
+
+    transition: 200ms ease-in-out;
+}
+
+.card:focus { 
+    outline-offset: 0.25rem;
+}
+
+.card:hover { 
+    color: inherit;
+    transform: translateY(-0.25rem);
+}
+
+/* Title of the card */
+h2 {
+    color: var(--accent-fg);
+    position: relative;
+}
+
+/* Timeline dot  */
+h2::before {
+    content: "";
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    background: var(--accent-fg);
+    border-radius: 999px;
+    left: -39px;
+    border: 3px solid var(--accent-fg);
+}
+
 </style></head>
 
+
 <body class="match-braces diff-hilight">
-    <script src="/resources/scripts/prism.js"></script>
     
 
     <nav role="primary navigation">
         
     </nav>
+
+    
+    <header>
+        <h1 id="posts-index">Posts Index</h1>
+        <text class="subtitle"></text>
+    </header>
+    
 
     <nav role="Outline">
         
@@ -46,33 +95,38 @@ h2 {
 
     <main>
         
-        <h1 id="test-article">Test Article</h1>
-        <p>Meow?</p>
-<p><a href="../test2">test2</a></p>
-<h2 id="h2">H2</h2>
-<h3 id="h3">H3</h3>
-<h4 id="h4">H4</h4>
-<h5 id="h5">H5</h5>
-<h6 id="h6">H6</h6>
-
+        <!-- { for post in collections.posts reversed } -->
+<div class="timeline">
+<div class="outer">
+<a class="card" href="/posts/fediverse-moderation/">
+    <h2 class="title" id="fediverse-moderation">Fediverse Moderation</h2>
+    <p class="subtitle">13 May 2023</p>
+    <p></p>
+</a>
+</div>
+</div>
         
+        
+        <div style="display: flex;">
+            <ol class="inline-list" style="margin-left: auto; margin-right: auto;">
+                <li><a href="/eytelia/posts/">1</a> ...</li>
+                
+
+                
+                
+                
+
+                
+                <li></li>
+            </ol>
+        </div>
     </main>
 
-    <aside role="Right Sidebar">
+    <nav role="Right Sidebar">
         
-        <ul>
         
-            <li><b>AAA</b>AAAA? </li>
         
-            <li>**Meow**: meow </li>
-        
-            <li>AAAAA? </li>
-        
-            <li>&lt;3 </li>
-        
-        </ul>
-        
-    </aside>
+    </nav>
 
     
 <footer>
@@ -113,7 +167,6 @@ h2 {
     <br>
     <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
-
 
 
 </body></html>

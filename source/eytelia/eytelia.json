@@ -1,4 +1,4 @@
 { 
-    "layout": "base.njk",
-    "tags": "eytelia-wiki"
+    "layout": "eytelia-wiki.njk",
+    "tags": "eytelia_wiki"
 }

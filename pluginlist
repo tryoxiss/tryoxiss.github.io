@@ -3,8 +3,10 @@ https://www.11ty.dev/docs/plugins/rss/
 https://www.npmjs.com/package/@orchidjs/eleventy-plugin-ids
 
 MAYBE ADD: 
-https://www.npmjs.com/package/wikity
 https://www.npmjs.com/package/eleventy-plugin-broken-links
 https://www.npmjs.com/package/eleventy-plugin-backlinks
 https://www.npmjs.com/package/eleventy-plugin-typeset
 https://www.npmjs.com/package/eleventy-plugin-drawio
+
+BROKEN (NOT ADDING FOR A BIT):
+https://www.npmjs.com/package/wikity

@@ -1,3 +1,3 @@
 ---
-title: eytelia (City)
+title: Eytelia (City)
 ---

@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Mali:wght@600&family=Nunito:ital,wght@0,400;0,800;1,400;1,800&display=swap');
 
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap'); */
 
 :root { 
     /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); */
@@ -39,7 +40,7 @@
 
     --strong-fg: #dce0ee;
 
-    --main-font: 'Nunito', sans-serif;
+    --main-font: /* 'Inter',*/ 'Nunito', sans-serif;
     --display-font: 'Mali', 'Nunito', sans-serif;
 
     --contrast-fg: rgb(30, 30, 46);
@@ -541,6 +542,10 @@ div.code-toolbar > .toolbar {
     .button:hover { 
         transform: translateX(-20px)
     }
+}
+
+em { 
+    font-style: oblique -10;
 }
 
 div.code-toolbar:hover > .toolbar {

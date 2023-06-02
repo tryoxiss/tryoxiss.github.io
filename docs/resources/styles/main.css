@@ -47,13 +47,31 @@
 
     --contrast-fg: rgb(30, 30, 46);
 
-    --red-3: rgb(243, 139, 168);
+    --red-hue: 0;
+    --yellow-hue: ;
+    --green-hue: ;
+    --teal-hue: ;
+    --blue-hue: ;
+    --blueviolet-hue: ;
+    --violet-hue: ;
+    --pink-hue: ;
+
+    --important-saturation: ;
+    --important-luminance: ;
+
+    --standard-saturation: 90%;
+    --standard-luminance: 80%;
+
+    --muted-saturation: ;
+    --muted-luminance: ;
+
+    --red-3: hsl(var(--red-hue), var(--standard-saturation), var(--standard-luminance));
     --orange-3: rgb(250, 179, 135);
     --yellow-3: rgb(249, 226, 175);
     --green-3: rgb(166, 227, 161);
     --teal-3: rgb(148, 226, 213);
     --blue-3: rgb(137, 220, 235);
-    --blue-4: rgb(116, 199, 236);;
+    --blue-4: rgb(116, 199, 236);
     --blueviolet-3: rgb(135, 176, 249);
     --violet-3: rgb(180, 190, 254);
     --pink-3: rgb(245, 194, 231);
@@ -63,7 +81,21 @@
     --blueviolet-3-rgb: 135, 176, 249;
     --violet-3-rgb: 135, 176, 249;
 
+    /* --red-3: rgb(243, 139, 168);
+    --orange-3: rgb(250, 179, 135);
+    --yellow-3: rgb(249, 226, 175);
+    --green-3: rgb(166, 227, 161);
+    --teal-3: rgb(148, 226, 213);
+    --blue-3: rgb(137, 220, 235);
+    --blue-4: rgb(116, 199, 236);
+    --blueviolet-3: rgb(135, 176, 249);
+    --violet-3: rgb(180, 190, 254);
+    --pink-3: rgb(245, 194, 231);
 
+    --red-3-rgb: 243, 139, 168;
+    --green-3-rgb: 166, 227, 161;
+    --blueviolet-3-rgb: 135, 176, 249;
+    --violet-3-rgb: 135, 176, 249; */
 
     --border-radius: 6px;
 

@@ -51,9 +51,9 @@
     --yellow-hue: ;
     --green-hue: ;
     --teal-hue: ;
-    --blue-hue: ;
+    --blue-hue: 190;
     --blueviolet-hue: ;
-    --violet-hue: ;
+    --violet-hue: 220;
     --pink-hue: ;
 
     --important-saturation: ;
@@ -70,10 +70,10 @@
     --yellow-3: rgb(249, 226, 175);
     --green-3: rgb(166, 227, 161);
     --teal-3: rgb(148, 226, 213);
-    --blue-3: rgb(137, 220, 235);
+    --blue-3: hsl(var(--blue-hue), var(--standard-saturation), var(--standard-luminance));
     --blue-4: rgb(116, 199, 236);
     --blueviolet-3: rgb(135, 176, 249);
-    --violet-3: rgb(180, 190, 254);
+    --violet-3: hsl(var(--violet-hue), var(--standard-saturation), var(--standard-luminance));
     --pink-3: rgb(245, 194, 231);
 
     --red-3-rgb: 243, 139, 168;

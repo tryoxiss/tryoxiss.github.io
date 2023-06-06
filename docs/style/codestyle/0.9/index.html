@@ -77,7 +77,7 @@
 // we should keep this on one line. 
 struct Color (u8, u8, u8) 
 
-impl Color {
+impl Color { 
     teal(r, g, b) {
         return Color(0, 127, 127);
     }
@@ -204,6 +204,7 @@ def power(n, power):
 <li><strong>Micro-optimisations</strong> - Anything else. Things that may only slighly improve performance. If these are needed: we need <em>really good</em> evidence they will help, as they often barely do anything.</li>
 </ul>
 <p>Anyhow, back to atomic code. <em>One function, one pourpose</em>!</p>
+<p>Functions should be no more than 60 lines, and serve one--and exactly one--pourpose.</p>
 <h3 id="useful">Useful</h3>
 <ul>
 <li>Code should serve a pourpose</li>

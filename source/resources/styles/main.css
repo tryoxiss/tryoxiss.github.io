@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Mali:wght@600&family=Nunito:ital,wght@0,400;0,800;1,400;1,800&display=swap');
 
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600&display=swap'); */
-
 @import url('https://fonts.googleapis.com/css2?family=Flow+Circular&display=swap');
 
-@import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css);
+/* @import url(https://cdn.jsdelivr.net/npm/firacode@6.2.0/distr/fira_code.css); */
+
+@import "component.css";
 
 :root { 
     /* --html-bg: url('https://4.bp.blogspot.com/-CUNfyYFvq7w/UCvFpSOYp3I/AAAAAAAAHYo/19Ac-g_XMPI/s1600/Galaxy+Wallpapers+3.jpg'); */
@@ -13,6 +13,9 @@
     var(--blueviolet-3), 
     var(--violet-3), 
     var(--pink-3)); */
+
+    /* --hue: 190; */
+    --hue: 190;
 
     --html-fg: ;
 
@@ -43,6 +46,34 @@
     --muted-bg: transparent;
 
     --strong-fg: #dce0ee;
+
+    /* --html-bg: hsl(var(--hue), 70, 70);
+
+    --body-bg: hsl(var(--hue), 70, 70);
+    --body-fg: rgb(205, 214, 244);
+    
+    --header-bg: transparent;
+    --header-fg: rgb(205, 214, 244);
+    
+    --main-bg: hsl(var(--hue), 95%, 2%);
+    --main-fg: rgb(205, 214, 244);
+
+    --main-child-bg: rgb(24, 24, 37);
+    --main-child-fg: rgb(205, 214, 244);
+
+    --footer-bg: transparent;
+    --footer-fg: rgb(205, 214, 244);
+
+    --primary-fg: var(--blueviolet-3);
+    --primary-bg: var(--blueviolet-3);
+
+    --accent-fg: var(--blue-3);
+    --accent-bg: rgb(137, 220, 235, 0.2);
+
+    --muted-fg: rgb(161, 168, 201);
+    --muted-bg: transparent;
+
+    --strong-fg: #dce0ee; */
 
     --main-font: /* 'Inter',*/ 'Nunito', sans-serif;
     --display-font: 'Mali', 'Nunito', sans-serif;
@@ -1102,3 +1133,5 @@ footer ul {
 @supports (font-variation-settings: normal) {
   code { font-family: 'Fira Code VF', monospace; }
 } */
+
+@import "component.css";

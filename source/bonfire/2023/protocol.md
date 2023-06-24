@@ -33,28 +33,7 @@ The following operations are valid
 
 #### Connect
 
-Connect messages are sent to the server at port `8800`. 
 
-```yaml
-version: dim/2023
-operation: CONNECT
-target: [DIM Adress | GUID | IPv6 Address (IPv4 NOT ACCEPTED!)]
-encryption: AES
-priority: high
-```
-
-#### Create
-
-sent to port 
-```yaml
-version: dim/2023
-operation: CREATE
-target: channel_guid
-content: |
-"""
-This is my message content
-"""
-```
 
 ### Type
 
@@ -70,6 +49,8 @@ Default types are:
   - You can further spcify bu adding an extension, for example `Media/Image/Png`.
 - `Stream` = Live streams of video or audio. 
   - Video uses `mpeg` since you can simply concatinate them without issue. 
+
+The Media type is an Internet Media Type.
 
 ### Location
 

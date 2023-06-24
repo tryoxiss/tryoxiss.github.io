@@ -24,10 +24,13 @@ body {
         padding: 0px;
     }
 
-
     div.code-toolbar {
         max-width: 100%;
     }
+}
+
+pre code { 
+    overflow: hidden !important;
 }
 
 @media (width > 600px) { 
@@ -43,9 +46,12 @@ body {
         padding: var(--spacing-large);
     }
 
-
+    pre code { 
+        max-width: 80ch !important;
+    }
+    
     div.code-toolbar {
-        max-width: 100%;
+        max-width: 80ch;
     }
 }
 

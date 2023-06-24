@@ -25,7 +25,7 @@
     <header>
         <h1 id="beautiful-codestyle">Beautiful Codestyle</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">11 minute read </text>
+        <text class="subtitle">20 minute read </text>
     </header>
     
 
@@ -43,16 +43,16 @@
 <li><a href="#breatheable"><strong>B</strong>reatheable</a> - space between blocks, and spread out.</li>
 <li><a href="#explicit"><strong>e</strong>xplicit</a> - Names should be clear, and types should be explictly set when possible and reasonable.</li>
 <li><a href="#atomic"><strong>a</strong>tomic</a> - a function should be the smallest useable amount of code</li>
-<li><a href="#useful"><strong>u</strong>seful</a> - the code should serve a pourpose or solve a problem. Dead code should be removed and redundent code should be its own function (where reasonable)</li>
+<li><a href="#useful"><strong>u</strong>seful</a> - the code should serve a purpose or solve a problem. Dead code should be removed and redundant code should be its own function (where reasonable)</li>
 <li><a href="#maintainable">main<strong>t</strong>ainable</a> - Code should be future-proof to the extent it can survive the expected lifespan of the project, and be clear for future maintainers.</li>
-<li><a href="#intentional"><strong>i</strong>ntentional</a> - code should never be there "just because", it should always have a pourpose.</li>
+<li><a href="#intentional"><strong>i</strong>ntentional</a> - code should never be there "just because", it should always have a purpose.</li>
 <li><a href="#flat"><strong>f</strong>lat</a> (and functional) - nested code is harder to read and maintain, minimise nesting where possible and more than 5 layers is explictly banned (with exceptions).</li>
 <li><a href="#unanimous"><strong>u</strong>nanimous</a> - All code should feel as though it was written as a whole and feel cohesive. That is the problem this code style adresses.</li>
-<li><a href="#legible"><strong>l</strong>egible</a> - code should be designed and written in such a way that it is easy to</li>
+<li><a href="#legible"><strong>l</strong>egible</a> - code should be designed and written in such a way that it is easy to read.</li>
 </ol>
 <p>Or all together: <strong>Beautiful</strong>. We will address these principals one by one, and then provide some examples.</p>
 <h3 id="breatheable">Breatheable</h3>
-<p>Breatheability is defined by the space between blocks of code, and the density of the lines. For example:</p>
+<p>breathability is defined by the space between blocks of code, and the density of the lines. For example:</p>
 <pre><code class="language-py">def main(): 
     proceed = input("Proceed (y/n)?")
     match proceed: 
@@ -72,44 +72,39 @@
             raise TypeError
             return
 </code></pre>
-<p>But not all languages are like python, in fact most brace things. We do inline bracing (though that is subject to maybe change!) So lets look at an example there.</p>
+<p>But not all languages are like python, in fact most brace things. To enforce breathability, we do next line bracing for <strong>major blocks</strong>, but since <strong>control blocks</strong> are very common, we do inline for those.</p>
+<p><strong>major blocks</strong> include but are not limited to:</p>
+<ul>
+<li><code>enum</code></li>
+<li><code>struct</code></li>
+<li><code>function</code> / <code>def</code>/ <code>/func</code> / <code>fn</code> / etc</li>
+<li><code>impl</code></li>
+<li><code>trait</code></li>
+</ul>
+<p><strong>control blocks</strong> are what manage the <strong>control flow</strong> of the program, such as:</p>
+<ul>
+<li><code>if</code> / <code>else if</code> / <code>elif</code> / etc</li>
+<li><code>match</code> + <code>case</code> (the prefered way to write these is without indent, so the <code>case</code> statements are on the same level as the <code>match</code> statement)</li>
+<li><code>while</code></li>
+<li><code>for</code></li>
+<li>Etc</li>
+</ul>
+<p>Some people may argue this is inconsistant and well, yes. But it is the best middle ground in short code and easily readable blocks.</p>
 <pre><code class="language-rust">// Since this is a tuple struct of rgb values, and its short,
 // we should keep this on one line. 
 struct Color (u8, u8, u8) 
 
-impl Color { 
-    teal(r, g, b) {
-        return Color(0, 127, 127);
-    }
+impl Color 
+{ 
+    return teal(r, g, b) { return Color(0, 127, 127); }
 }
 </code></pre>
 <!-- Khaim: Fixxbuzz times
 inline: 7:33 (~4m accounting for diffrence)
 newline:  4:10 ish -->
 <!-- There are two exceptions to the next line bracing. One is that a simple return -->
-<!-- 1. 
-```rust
-fn main() 
+<pre><code class="language-rust">fn main() 
 {
-    let cuddles = "yes";
-
-    if cuddles = "yes" 
-    { 
-        println!("Yay!")
-    } 
-    else if cuddles = "no" 
-    { 
-        println!("awww...")
-    } 
-    else 
-    { 
-        println!("Confusion??")
-    }
-}
-```
-2. 
-```rust
-fn main() {
     let cuddles = "yes";
 
     if cuddles = "yes" { 
@@ -117,6 +112,22 @@ fn main() {
     } else if cuddles = "no" { 
         println!("awww...")
     } else { 
+        println!("Confusion??")
+    }
+}
+</code></pre>
+<!-- 2. 
+```rust
+fn main() {
+    let cuddles = "yes";
+
+    if cuddles = "yes" { 
+        println!("Yay!")
+    } 
+    else if cuddles = "no" { 
+        println!("awww...")
+    } 
+    else { 
         println!("Confusion??")
     }
 }
@@ -154,8 +165,8 @@ fn main() {
     function(13, "thirteen", 13.0)
 </code></pre>
 <p>JS Example:</p>
-<pre><code class="language-js">//                space v
-function function_name() {
+<pre><code class="language-js">function function_name()
+{
     // ...
 }
 </code></pre>
@@ -193,43 +204,112 @@ def power(n, power):
     return n ** power
 </code></pre>
 <h3 id="atomic">Atomic</h3>
-<p>Code should be broken down into the smallest useable pieces. Yes, many languages have function overhead, but unless performance is a <strong>measureable problem</strong> it is far better to have the incresed readability, and modularity.</p>
-<p>And if performance is a measured issue: its likely not time to optimise what's there, its time to <em>rewrite it in a speed language</em> like <a rel="noreferrer" target="_blank" href="https://www.rust-lang.org/">rust</a>—which has <a rel="noreferrer" target="_blank" href="https://stackoverflow.com/questions/56572014/is-there-any-overhead-in-rust-style-method-calling-approach-compared-to-the-usua">almost no function overhead</a>.</p>
+<p>Code should be broken down into the smallest useable pieces. Yes, many languages have function overhead, but unless performance is a <strong>measureable problem</strong> it is far better to have the increased readability, and modularity.</p>
+<p>And if performance is a measured issue: its likely not time to optimise what's there, it's time to <em>rewrite it in a speed language</em> like <a rel="noreferrer" target="_blank" href="https://www.rust-lang.org/">rust</a>—which has <a rel="noreferrer" target="_blank" href="https://stackoverflow.com/questions/56572014/is-there-any-overhead-in-rust-style-method-calling-approach-compared-to-the-usua">almost no function overhead</a>.</p>
 <p>While our code is performance-aware, we still <strong>avoid premature optimisation if it makes the code much harder to read or understand</strong>. When it comes time to optimise, we optimise in the following order:</p>
 <ul>
 <li><strong>Benchmark</strong> - Find the <em>real</em> problem. Most of the time its where you think it is: but you don't want to optimise already good systems!</li>
-<li><strong>200% Changes</strong> - Anything that could <strong>half the problem</strong>  (Doubble the speed, half the memory useage, etc.) of the code. Often this is rewirites in another language.</li>
+<li><strong>200% Changes</strong> - Anything that could <strong>half the problem</strong>  (Double the speed, half the memory useage, etc.) of the code. Often this is rewrites in another language.</li>
 <li><strong>80% Changes</strong> - Anything that could reduce the problem by 80%. Often this is data structure changes.</li>
 <li><strong>40% Changes</strong> - is often things like micro-managing memory (stack, and heap allocations). If its a performance critical function, we may want to do this the first time we write it.</li>
 <li><strong>Micro-optimisations</strong> - Anything else. Things that may only slighly improve performance. If these are needed: we need <em>really good</em> evidence they will help, as they often barely do anything.</li>
 </ul>
 <p>Anyhow, back to atomic code. <em>One function, one pourpose</em>!</p>
-<p>Functions should be no more than 60 lines, and serve one--and exactly one--pourpose.</p>
+<p>Functions should be no more than 60 lines, and serve one--and exactly one--purpose.</p>
 <h3 id="useful">Useful</h3>
-<ul>
-<li>Code should serve a pourpose</li>
-</ul>
+<p>I feel like this is obvious, but if there is a function that is unlikely to be used again after a change, remove it!</p>
+<p>If the function already exists, don't implement it again! That's not useful! It leads to less cache hits which leads to more r/w and a bigger binary. There is <em>no</em> reason to duplicate functions.</p>
 <h3 id="maintainable">Maintainable</h3>
+<p>Code is read far more than it's written, and edited far more than created initally. We design as much of our code as possible to be future proof, which means it is:</p>
 <ul>
-<li>Future proof</li>
-<li>Clear for future readers</li>
+<li>Clear and easy to understand for future readers and maintainers
+<ul>
+<li>A functions purpose should not be hard to decipher</li>
 </ul>
+</li>
+<li>Written in a way that will be unlikely to change, except for optimisations.</li>
+<li>"Correct", as in no assumptions are made. Using Team Fortress 2 as an example, for teams they just check if you're on red, and if not assume you are on blue (or vice versa). This leads to weird inconsistancies in the way the game behaves. If we were to write that code, we could check both and have an else case.</li>
+</ul>
+<p>In general, a function should be no more than 60 lines and take no more than 6 paramaters. If you need more than that it's a sign you are doing something wrong and should fix your code.</p>
+<p>The length of a function is also <strong>Inversely Proportional</strong> to its complexity. If you have a dead simple function that just needs to do a lot of different things for a lot of different cases, then you can have a longer function.</p>
+<p>But if you have a function that is more complex, you should adhere to the limits more strictly.</p>
 <h3 id="intentional">Intentional</h3>
+<p>Every decision you make should have some explainable rational. "It was the first way I thought to do it" is not good enough. Some examples are:</p>
 <ul>
-<li>Every decision should be explainable</li>
+<li>Good enough:
+<ul>
+<li>It leads to [Decently Large Speedup] to do it this way.</li>
+<li>This way was the easiest to implement and didn't cause problems</li>
+<li>It is the cleanest looking and dosen't have much of a performance penalty.</li>
 </ul>
+</li>
+<li>NOT Good Enough:
+<ul>
+<li>I liked it more</li>
+<li>That's how [X Person] would want me to do it (They're not here and they're not watching you code this. And if they are, they should be happy you are following style).</li>
+<li>It's the first thing I thought of (this is good enough for testing and prototypeing, but it won't get merged)</li>
+</ul>
+</li>
+</ul>
+<p>Comments explain the <strong>Why</strong>s and <strong>How</strong>s of a function, or to draw attention to something that may need help. The what (it does) should be obvious from its name. It is generally prefered you write code so the why's and how's are obvious, but when it comes to optimisation that's not always possible.</p>
 <h3 id="flat">Flat</h3>
-<ul>
-<li>Avoid nesting</li>
-</ul>
+<p>Nesting is to be avoided as much as possible. If you need more nesting, use helper functions.</p>
+<p>Some tips for avoiding nesting:</p>
+<p>Flip happy conditions</p>
+<pre><code class="language-python">def function(a, b, c, d):
+    if a: 
+        if b: 
+            if c: 
+                ... (function body)
+</code></pre>
+<p>Instead try:</p>
+<pre><code class="language-python">def function(a, b, c, d):
+    # Gatekeeping block
+    if not a: return
+    if not b: return
+    if not c: return
+    
+    # Function body
+    ... (function body)
+</code></pre>
+<p>The other of course being extraction, where you take a specific part of a function and turn it into its own function or <strong>Helper Function</strong>.</p>
+<p>We recommend avoiding more than 3 levels of indent and put a hard limit on 5. (With the exception of HTML). If you need 4 or 5, you better be prepared to spend a long time justyfying why it is necessary.</p>
 <h3 id="unanimous">Unanimous</h3>
 <ul>
 <li>All code should be consistant and look like it belongs to the same project.</li>
 </ul>
 <h3 id="legible">Legible</h3>
+<p>We like to seem like we're not idiots even though we know that most of us are just catgirls on keyboards. For any output messages, use proper scentence structure and punctuation. Don't be stuffy though, in general use <code>don't</code> not <code>do not</code> or <code>dont</code>. Expanding the words is used for emphasis, use <code>do not</code> if it is important.</p>
+<p>Examples:</p>
 <ul>
-<li>Named with <code>_</code> in almost all cases.</li>
+<li>"<strong>Do not</strong> turn of your system!" (risk of data corruption)</li>
+<li>"<strong>Don't</strong> exit the program while it's running." (They would just need to re-run it)</li>
+<li>"<strong>Do not</strong> attempt to modify the binaries. Use the source code!"</li>
+<li>"<strong>Don't</strong> edit config.yml.lock manually."</li>
 </ul>
+<p>Comments are less strict, while we encourage proper grammer and punctuation, as long as it can be easily read and understood you're <em>probably</em> good.</p>
+<p>Most items are generally named with underscores (<code>_</code>) for easier reading. Here are our conventions:</p>
+<ul>
+<li>Game Objects (Scenes, mostly):
+<ul>
+<li><code>catastrophy:Water_Tile</code> - the commands are insensitive and this makes it clearer what it is.</li>
+</ul>
+</li>
+<li>Types, Classes, and Structs do not use underscores.
+<ul>
+<li><code>struct Guid</code></li>
+<li><code>struct Packet</code></li>
+<li><code>enum ResponseCode</code></li>
+</ul>
+</li>
+<li>Variables, functions, and methods use all lowercase snake case (unless it's a constant, in which case its SCREAMING_SNAKE_CASE!!)
+<ul>
+<li><code>fn do_something() {}</code></li>
+<li><code>let do_daylight_cycle: bool = true</code></li>
+</ul>
+</li>
+</ul>
+<p>We don't abbreivate (most of the time). <code>let temperary_buffer</code> not <code>tmp</code> or <code>temp_buffer</code>, etc. If it is an abbriviation so common it can be used as a word, you can abbreviate. (<code>guid</code> instead of <code>globally_unique_identifier</code>).</p>
 
         
     </main>

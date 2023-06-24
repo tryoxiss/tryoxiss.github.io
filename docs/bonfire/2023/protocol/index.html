@@ -2,7 +2,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributed Instant Messaging (DIM)</title>
+    <title>Distributed Instant Messaging (DIM) Protocol</title>
 
     
 
@@ -23,9 +23,9 @@
 
     
     <header>
-        <h1 id="distributed-instant-messaging-dim">Distributed Instant Messaging (DIM)</h1>
+        <h1 id="distributed-instant-messaging-dim-protocol">Distributed Instant Messaging (DIM) Protocol</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">4 minute read </text>
+        <text class="subtitle">10 minute read </text>
     </header>
     
 
@@ -72,10 +72,11 @@
 </ol>
 <h2 id="requests">Requests</h2>
 <p>Every packet MUST start with a data header containing the version and the operation you wish to complete.</p>
-<pre><code class="language-yaml">version: dim/2023
-operation: CONNECT
+<pre><code class="language-yaml">&lt;Operation | Code_Number&gt; &lt;Type | Code_String_Id&gt; "FROM" &lt;Location&gt; "WITH" &lt;Version&gt; [&lt;And&gt; &lt;Encryption Algorithum&gt;]
 </code></pre>
-<p>The following actions are valid</p>
+<h3 id="operation">Operation</h3>
+<p>The operation is an <code>UPPERCASE</code> identifier used to idefntify what the packet intends to do. These are equivlent to HTTP methods.</p>
+<p>The following operations are valid</p>
 <ul>
 <li><code>CONNECT</code> establishes a connection.</li>
 <li><code>CREATE</code> creates an object.</li>
@@ -83,15 +84,61 @@ operation: CONNECT
 <li><code>EDIT</code> edits an existing object.</li>
 <li><code>REMOVE</code> removes an object from public view, or removes your contribution.</li>
 <li><code>DELETE</code> deletes the object.</li>
-<li><code>DESTROY</code> deletes an object and writes over it immeditely.</li>
+<li><code>DESTROY</code> deletes an object and writes over it immeditely. Used for confidental data mostly (Such as accidently sending a password).</li>
 <li><code>GET</code> gets content.</li>
 </ul>
-<p>The following rules also apply:</p>
+<h4 id="connect">Connect</h4>
+<p>Connect messages are sent to the server at port <code>8800</code>.</p>
+<pre><code class="language-yaml">version: dim/2023
+operation: CONNECT
+target: [DIM Adress | GUID | IPv6 Address (IPv4 NOT ACCEPTED!)]
+encryption: AES
+priority: high
+</code></pre>
+<h4 id="create">Create</h4>
+<p>sent to port</p>
+<pre><code class="language-yaml">version: dim/2023
+operation: CREATE
+target: channel_guid
+content: |
+"""
+This is my message content
+"""
+</code></pre>
+<h3 id="type">Type</h3>
+<p>The type specifies the type you want to get. This can be modular and is extensible. The server SHOULD simply forward any requests where the destination when it does not understand or recignise the type. If the client does not undserstand it, it SHOULD return a <code>501 Not_Implemented</code> error.</p>
+<p>Default types are:</p>
 <ul>
-<li>The action is UPPERCASE.</li>
+<li><code>Messages</code> = Text Messages</li>
+<li><code>Media</code> = Generic media type for any media. Also known as uploaded files.
+<ul>
+<li><code>Media/Image</code> = Images only</li>
+<li><code>Media/Video</code> = Videos only</li>
+<li><code>Media/Document</code> = text documents only.</li>
+<li>You can further spcify bu adding an extension, for example <code>Media/Image/Png</code>.</li>
 </ul>
+</li>
+<li><code>Stream</code> = Live streams of video or audio.
+<ul>
+<li>Video uses <code>mpeg</code> since you can simply concatinate them without issue.</li>
+</ul>
+</li>
+</ul>
+<h3 id="location">Location</h3>
+<p>Location is either a vector (unsized list) of IP addresses or DIM uri. IP Addresses will be routed by your client and bypass the server, but DIM addresses will go through the server. Optionally, you can set a flag for the server to drop packets routed with a DIM uri, or sent an IP packet to the server for it to store it.</p>
+<p>A dim uri is defined in the <a href="#uri-scheme">URI Scheme</a> section.</p>
+<h3 id="version">Version</h3>
+<h3 id="encryption">Encryption</h3>
+<p>The following rules also apply:</p>
+<h2 id="uri-scheme">URI Scheme</h2>
+<p><code>"dim:" [type] ":" {identifier} "/" [path] ["?" query (k1=v1;k2=v2;)] ["#" fragment]</code></p>
+<p>The type is a clear category. Generally <code>user</code> or <code>group</code>. A user represents one user, while a group represents an entire group. You use the path to specify where in the group you want the content delivered.</p>
+<p>The identifier is a GUID or a graphical ID. Graphical IDs are forced lowercase (<code>a-z</code>), and allow the special characters <code>_</code> and <code>.</code>. It is minimum 5 characters and maximum 32 characters. They must be completely unique for thier category. (You cannot have two "@username@domain.tld" but you can have "@username@domain.tld" (user) and "group@domain.tld" (group)).</p>
+<p>NTS: DEFINE GRAHICAL ID'S MORE STRICTLYYY!!!!</p>
+<p>The path represents well, the path. This is generally comprised of local graphical ID's. A groups path behaves the same as a directory strucutre (and is actually generally how its stored). It is generally <code>/category/channel/room_or_thread/</code></p>
+<h2 id="content">Content</h2>
 <p>To the extent reasonable, we try and use the terms <code>parent</code>, <code>content</code>, and <code>target</code> in messages.</p>
-<h3 id="ports">Ports</h3>
+<h2 id="ports">Ports</h2>
 <p>As with any protocol, we need some ports used for this to avoid conflicts. Here are the ones we use with a brief explanation!</p>
 <table>
 <thead>
@@ -127,24 +174,51 @@ operation: CONNECT
 </tr>
 </tbody>
 </table>
-<h3 id="connect">Connect</h3>
-<p>Connect messages are sent to the server at port <code>8800</code>.</p>
-<pre><code class="language-yaml">version: dim/2023
-operation: CONNECT
-target: [DIM Adress | GUID | IPv6 Address (IPv4 NOT ACCEPTED!)]
-encryption: AES
-priority: high
-</code></pre>
-<h3 id="create">Create</h3>
-<p>sent to port</p>
-<pre><code class="language-yaml">version: dim/2023
-operation: CREATE
-target: channel_guid
-content: |
-"""
-This is my message content
-"""
-</code></pre>
+<h2 id="responses">Responses</h2>
+<p><code>100 Information</code>
+<code>101 Switching_Protocols</code>
+<code>102 Processing</code>
+<code>103 Request_Timeout</code></p>
+<p><code>200 Okay</code>
+<code>201 Created</code>
+<code>202 Accepted</code>
+<code>204 No_Content</code>
+<code>205 Reset_Content</code>
+<code>206 Partial_Content</code></p>
+<p><code>300 Security_Error</code>
+<code>301 Ssl_Handshake_Failed</code>
+<code>302 Ssl_Cirtificate_Expired</code>
+<code>303 Better_Encryption_Required</code> (More details sent in the body)</p>
+<p><code>400 Client_Error</code>
+<code>401 Bad_Request</code>
+<code>402 Unauthorised</code>
+<code>403 Forbidden</code>
+<code>404 Not_Found</code>
+<code>405 Method_Not_Allowed</code>
+<code>406 Proxy_Authenication_Required</code>
+<code>407 Conflict</code>
+<code>410 Gone</code>
+<code>411 Payload_Too_Large</code>
+<code>412 Uri_Too_Long</code>
+<code>413 Too_Early</code>
+<code>414 Upgrade_Reccommended</code>
+<code>415 Upgrade_Required</code>
+<code>416 Too_Many_Requests</code>
+<code>417 Wrong_Instance</code>
+<code>418 Token_Required</code>
+<code>419 Token_Invalid</code></p>
+<p><code>500 Internal_Server_Error</code>
+<code>501 Not_Implemented</code>
+<code>502 Bad_Gateway</code>
+<code>503 Service_Unavalible</code>
+<code>504 Gateway_Timeout</code>
+<code>505 Dim_Edition_Not_Supported</code>
+<code>506 Insufficent_Storage</code>
+<code>507 Loop_Detected</code>
+<code>508 Netword_Authentication_Required</code>
+<code>509 Bandwidth_Limit_Exeeded</code>
+<code>510 Site_Overloaded</code>
+<code>511 Request_Timeout</code></p>
 
         
     </main>

@@ -16,12 +16,14 @@ I use a variety of misc short codes and abbriviations when refering to things.
 - **pw** = psych ward
 - **mh** = mental health, (less commonly: mental hospital)
 - **ph** = physical health
+- **sh** = self harm
 - **inp** = inpatient
 - **sa** = sexual abuse
 - **nsfl** = gore/messed up (not safe for life)
 - **sui** = suicide / suicidal thoughts
 - **ch** = childhood (as in, ch trauma)
 - **mbd** (or simillar) = mental breakdown (could be literal, or a psychotic episode, etc)
+- **oh** = overheard
 
 Most other things I spell out fully, these are the main abbriviations I use!
 

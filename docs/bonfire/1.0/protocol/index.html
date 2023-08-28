@@ -1,105 +1,19 @@
-<!DOCTYPE html><html lang="en"><head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Distributed Instant Messaging (DIM) Protocol</title>
-
-    
-
-    <link rel="icon" href="/resources/favicon/ourlogo-1.1.svg">
-
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.css">
-
-    <link rel="stylesheet" href="/resources/styles/main.css">
-    <link rel="stylesheet" href="/resources/styles/layout.css">
-</head>
-<body class="match-braces diff-hilight">
-    <script src="/resources/scripts/prism.js"></script>
-    
-
-    <nav role="primary navigation">
-        
-    </nav>
-
-    
-    <header>
-        <h1 id="distributed-instant-messaging-dim-protocol">Distributed Instant Messaging (DIM) Protocol</h1>
-        <text class="subtitle"></text>
-        <text class="subtitle">4 minute read </text>
-    </header>
-    
-
-    <nav role="Outline">
-        
-        
-        
-    </nav>
-
-    <main>
-        
-        <h2 id="packets">Packets</h2>
-<p>Packets are in a (hopefully) incredibly simple and intuitve format.</p>
-<pre><code>&lt;Version&gt; SP &lt;Details&gt; LF
-[Header Flags] LF
-"---" LF
-&lt;Message&gt;
-["---" OR "..."] LF
+<html><head></head><body><p>MAX PACKET LENGTH: <code>u16::MAX</code> = 65,535 / 63.99 KiB</p>
+<p>If you need more data, send it over in multiple packets. This soft limits message length as <code>50,000</code> characters, leaving <code>15,535</code> characters left for header flags and such.</p>
+<pre><code>&lt;Version&gt; SP &lt;Request&gt; LF
+&lt;Header Flags&gt; LF
+"---"
+&lt;Content&gt;
+"---"
 </code></pre>
-<p>Now for the components.</p>
-<pre><code>SP     = " " / 0x20
-LF     = 0x0A
-
-Version     = "dim" "/" &lt;Major&gt; "." &lt;Minor&gt;
-Details     = "[Request | Response Code] SP [DIM URI | Details]"
-Header Flag = &lt;Key&gt; "=" &lt;Value&gt; ";"
-Message     = Any valid Unicode string where the sequences "---", "...", and "&amp;" are properly encoded.
-
-Encoding: 
-"---" Gets Encoded As "&amp;hr;"
-"..." Gets Encoded As "&amp;cont;"
-"&amp;"   Gets Encoded As "&amp;amp;"
-</code></pre>
-<h3 id="valid-and-invalid-packet-examples">Valid and Invalid Packet Examples</h3>
-<p>This packet is <strong>INVALID</strong> because there is a space after the semicolon on the seccond line.</p>
-<pre><code>dim/1.0 GET dim:user:user@domain.tld
-encryption="aes"; do_not_track=true;
----
-This is my content. I can put anything here
-it can even span multiple lines!
-
-The only thing that isn't allowed is tripple-hyphens must be encoded with 
-the entity `&amp;hr;`, and 3 dots must be encoded with `&amp;cont;`
-
-Other than that this is completely safe for any content!
----
-</code></pre>
-<p>To make this valid, simply remove the space.</p>
-<pre><code>dim/1.0 GET dim:user:user@domain.tld
-encryption="aes";do_not_track=true;
----
-This is my content. I can put anything here
-it can even span multiple lines!
-
-The only thing that isn't allowed is tripple-hyphens must be encoded with 
-the entity `&amp;hr;`, and 3 dots must be encoded with `&amp;cont;`
-
-Other than that this is completely safe for any content!
----
-</code></pre>
-<p>This packet is <strong>INVALID</strong> because the secconmd "..." incdicates the payload continues with another linked message, but no message is found.</p>
-<pre><code>dim/1.0 GET dim:channel:group_id@instance.domain.tld/channel
-encryption="aes"; do_not_track=true;
----
-Message. Anything except the control sequences of 3 hyphens (deliminator), 
-and 3 dots (more transmissions in this packet, for network efficentcy), 
-is allowed! This block ends with either 3 dots or 3 hyphens
-...
-dim/1.0 GET dim:channel:group_id@instance.domain.tld/rules
+<pre><code>&lt;Version&gt; &lt;Request&gt;
 ---
 Message. Anything except the control sequences of 3 hyphens (end of transmission), and 3 dots (more transmissions in this packet, for network efficentcy), is allowed! This block ends with either 3 dots or 3 hyphens
 ...
 </code></pre>
-<p>To make it <strong>VALID</strong>, convert the seccond "..." into a "---".</p>
+<pre><code>request = &lt;Action&gt; + SP + &lt;DIM URI Locator&gt;
+header flag = &lt;Key&gt; "=" &lt;Value&gt; ";" (key=value;key2=value2;)
+</code></pre>
 <pre><code>dim/1.0 GET dim:channel:group_id@instance.domain.tld/channel
 encryption="aes"; do_not_track=true;
 ---
@@ -108,58 +22,70 @@ Message. Anything except the control sequences of 3 hyphens (deliminator), and 3
 dim/1.0 GET dim:channel:group_id@instance.domain.tld/rules
 ---
 Message. Anything except the control sequences of 3 hyphens (end of transmission), and 3 dots (more transmissions in this packet, for network efficentcy), is allowed! This block ends with either 3 dots or 3 hyphens
----
+...
 </code></pre>
-
-        
-    </main>
-
-    <nav role="Right Sidebar">
-        
-        
-        
-    </nav>
-
-    
-<footer>
-    
-
-    <ul>
-        <li><a href="#" class="dead-link"><b>Credits</b></a></li>
-        <li><a rel="noreferrer" target="_blank" href="https://www.11ty.dev/">11ty</a></li>
-        <li><a rel="noreferrer" target="_blank" href="https://prismjs.com/">prism.js</a></li>
-        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
-    </ul>
-
-    <ul>
-        <li><b>Theme</b></li>
-        <li><a href="/specs/milkshake/2.0/" class="dead-link">Milkshake 2.0 Theme</a></li>
-        <li><a rel="noreferrer" target="_blank" href="https://github.com/catppuccin/catppuccin">catppuccin</a></li>
-        <li><a rel="noreferrer" target="_blank" href="https://lucide.dev/">Lucide Icons</a></li>
-    </ul>
-
-    <ul>
-        <li><a href="/projects/" class="dead-link"><b>Our Stuff!</b></a></li>
-        <li><a href="/bonfire/2023/core/">Bonfire</a> Drafts, Project Codename</li>
-    </ul>
-
-    <ul>
-        <li><b>Developement</b></li>
-        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io">Source</a></li>
-        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/issues">Issues</a></li>
-        <li><a rel="noreferrer" target="_blank" href="https://github.com/tryoxiss/tryoxiss.github.io/commit/main">Deployment Status</a></li>
-        <li><a href="/debug/">Build Info</a></li>
-    </ul>
-
-    <ul class="badges">
-        <li><a rel="noreferrer" target="_blank" href="https://genderdysphoria.fyi/en/#introduction"><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></a></li>
-        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
-    </ul>
-
-    <br>
-    <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
-</footer>
-
-
-
+<p><code>---</code> = <code>&amp;hr;</code>
+<code>...</code> = <code>&amp;cont;</code>
+<code>&amp;</code>      = <code>&amp;amp;</code></p>
+<h2 id="header-flags">Header Flags</h2>
+<p>Bool header flags are either <code>t</code> or <code>f</code>, for true or false.</p>
+<ul>
+<li><code>encoding</code> (<code>StrictString</code>)</li>
+<li><code>content_format</code> (<code>StrictString</code>). Default (and reccommended supported values) are:
+<ul>
+<li><code>plaintext</code></li>
+<li><code>markdown</code></li>
+<li><code>markdown_extended</code></li>
+<li><code>wikitext</code></li>
+<li><code>html</code></li>
+<li><code>xml</code></li>
+<li><code>yaml</code> (<code>yml</code> is NOT VALID)</li>
+</ul>
+</li>
+</ul>
+<h2 id="response-codes">Response Codes</h2>
+<p><code>100</code> Information
+<code>101</code> Switching_Protocols
+<code>102</code> Processing
+<code>103</code> Request_Timeout</p>
+<p><code>200</code> Okay
+<code>201</code> Created
+<code>202</code> Accepted
+<code>204</code> No_Content
+<code>205</code> Reset_Content
+<code>206</code> Partial_Content</p>
+<p><code>300</code> Security_Error
+<code>301</code> Ssl_Handshake_Failed
+<code>302</code> Ssl_Cirtificate_Expired
+<code>303</code> Better_Encryption_Required (More details sent in the body)</p>
+<p><code>400</code> Client_Error
+<code>401</code> Bad_Request
+<code>402</code> Unauthorised
+<code>403</code> Forbidden
+<code>404</code> Not_Found
+<code>405</code> Method_Not_Allowed
+<code>406</code> Proxy_Authenication_Required
+<code>407</code> Conflict
+<code>410</code> Gone
+<code>411</code> Payload_Too_Large
+<code>412</code> Uri_Too_Long
+<code>413</code> Too_Early
+<code>414</code> Upgrade_Reccommended
+<code>415</code> Upgrade_Required
+<code>416</code> Too_Many_Requests
+<code>417</code> Wrong_Instance
+<code>418</code> Token_Required
+<code>419</code> Token_Invalid</p>
+<p><code>500</code> Internal_Server_Error
+<code>501</code> Not_Implemented
+<code>502</code> Bad_Gateway
+<code>503</code> Service_Unavalible
+<code>504</code> Gateway_Timeout
+<code>505</code> Dim_Edition_Not_Supported
+<code>506</code> Insufficent_Storage
+<code>507</code> Loop_Detected
+<code>508</code> Netword_Authentication_Required
+<code>509</code> Bandwidth_Limit_Exeeded
+<code>510</code> Site_Overloaded
+<code>511</code> Request_Timeout</p>
 </body></html>

@@ -25,7 +25,7 @@
     <header>
         <h1 id="distributed-instant-messaging-dim-protocol">Distributed Instant Messaging (DIM) Protocol</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">10 minute read </text>
+        <text class="subtitle">9 minute read </text>
     </header>
     
 
@@ -88,23 +88,6 @@
 <li><code>GET</code> gets content.</li>
 </ul>
 <h4 id="connect">Connect</h4>
-<p>Connect messages are sent to the server at port <code>8800</code>.</p>
-<pre><code class="language-yaml">version: dim/2023
-operation: CONNECT
-target: [DIM Adress | GUID | IPv6 Address (IPv4 NOT ACCEPTED!)]
-encryption: AES
-priority: high
-</code></pre>
-<h4 id="create">Create</h4>
-<p>sent to port</p>
-<pre><code class="language-yaml">version: dim/2023
-operation: CREATE
-target: channel_guid
-content: |
-"""
-This is my message content
-"""
-</code></pre>
 <h3 id="type">Type</h3>
 <p>The type specifies the type you want to get. This can be modular and is extensible. The server SHOULD simply forward any requests where the destination when it does not understand or recignise the type. If the client does not undserstand it, it SHOULD return a <code>501 Not_Implemented</code> error.</p>
 <p>Default types are:</p>
@@ -124,6 +107,7 @@ This is my message content
 </ul>
 </li>
 </ul>
+<p>The Media type is an Internet Media Type.</p>
 <h3 id="location">Location</h3>
 <p>Location is either a vector (unsized list) of IP addresses or DIM uri. IP Addresses will be routed by your client and bypass the server, but DIM addresses will go through the server. Optionally, you can set a flag for the server to drop packets routed with a DIM uri, or sent an IP packet to the server for it to store it.</p>
 <p>A dim uri is defined in the <a href="#uri-scheme">URI Scheme</a> section.</p>
@@ -269,6 +253,8 @@ This is my message content
     <p class="subtitle">Most content on this site is copyright © tryoxiss 2022 or later. </p>
 </footer>
 
+
+    <script>if(navigator.getEnvironmentIntegrity!==undefined)document.querySelector('body').innerHTML='<h1>Your browser contains Google DRM</h1>"Web Environment Integrity" is a Google euphemism for a DRM that is designed to prevent ad-blocking. In support of an open web, this website does not function with this DRM. Please install a browser such as <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> that respects your freedom and supports ad blockers.';</script>
 
 
 </body></html>

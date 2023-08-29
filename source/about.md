@@ -24,6 +24,7 @@ I use a variety of misc short codes and abbriviations when refering to things.
 - **ch** = childhood (as in, ch trauma)
 - **mbd** (or simillar) = mental breakdown (could be literal, or a psychotic episode, etc)
 - **oh** = overheard
+- **ec** = eye contact (probably will never happen)
 
 Most other things I spell out fully, these are the main abbriviations I use!
 

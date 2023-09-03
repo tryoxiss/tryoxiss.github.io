@@ -26,7 +26,6 @@ I use a variety of misc short codes and abbriviations when refering to things.
 - **oh** = overheard
 - **ec** = eye contact (probably will never happen)
 - **dp**, **dr** = depersonalisation, derealisation.
-- **dis**
 
 Most other things I spell out fully, these are the main abbriviations I use!
 

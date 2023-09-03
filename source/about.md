@@ -25,6 +25,8 @@ I use a variety of misc short codes and abbriviations when refering to things.
 - **mbd** (or simillar) = mental breakdown (could be literal, or a psychotic episode, etc)
 - **oh** = overheard
 - **ec** = eye contact (probably will never happen)
+- **dp**, **dr** = depersonalisation, derealisation.
+- **dis**
 
 Most other things I spell out fully, these are the main abbriviations I use!
 

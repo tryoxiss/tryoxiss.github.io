@@ -25,7 +25,7 @@
     <header>
         <h1 id="beautiful-codestyle">Beautiful Codestyle</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">21 minute read </text>
+        <text class="subtitle">20 minute read </text>
     </header>
     
 
@@ -63,7 +63,8 @@
 <p>Not very breathable, is it? Let's clean that up a bit.</p>
 <pre><code class="language-py">def main(): 
     proceed = input("Proceed (y/n)?")
-    # We add a space here, since this is now a new section
+    
+    # ^ We add a space here, since this is now a new section
     match proceed: 
         case "y": proceed = True # Since we are only setting one thing, this is fine.
         case "n": proceed = False
@@ -72,12 +73,12 @@
             raise TypeError
             return
 </code></pre>
-<p>But not all languages are like python, in fact most brace things. To enforce breathability, we do next line bracing for <strong>major blocks</strong>, but since <strong>control blocks</strong> are very common, we do inline for those.</p>
+<p>We (almost) always use next line bracing. The exceptions are when we have one instruction that dosen't justify taking up 3/4 lines (e.g., a return), and in rarely JavaScript that will not be minified as some parser issues exist in certain browsers (cough cough, SAFARI).</p>
 <p><strong>major blocks</strong> include but are not limited to:</p>
 <ul>
 <li><code>enum</code></li>
 <li><code>struct</code></li>
-<li><code>function</code> / <code>def</code>/ <code>/func</code> / <code>fn</code> / etc</li>
+<li><code>function</code> / <code>def</code>/ <code>func</code> / <code>fn</code> / etc</li>
 <li><code>impl</code></li>
 <li><code>trait</code></li>
 </ul>
@@ -89,20 +90,15 @@
 <li><code>for</code></li>
 <li>Etc</li>
 </ul>
-<p>Some people may argue this is inconsistant and well, yes. But it is the best middle ground in short code and easily readable blocks.</p>
 <pre><code class="language-rust">// Since this is a tuple struct of rgb values, and its short,
 // we should keep this on one line. 
 struct Color (u8, u8, u8) 
 
 impl Color 
 { 
-    return teal(r, g, b) { return Color(0, 127, 127); }
+    function teal() { return Color(0, 127, 127); }
 }
 </code></pre>
-<!-- Khaim: Fixxbuzz times
-inline: 7:33 (~4m accounting for diffrence)
-newline:  4:10 ish -->
-<!-- There are two exceptions to the next line bracing. One is that a simple return -->
 <pre><code class="language-rust">fn main() 
 {
     let cuddles = "yes";
@@ -112,38 +108,6 @@ newline:  4:10 ish -->
     } else if cuddles = "no" { 
         println!("awww...")
     } else { 
-        println!("Confusion??")
-    }
-}
-</code></pre>
-<!-- 2. 
-```rust
-fn main() {
-    let cuddles = "yes";
-
-    if cuddles = "yes" { 
-        println!("Yay!")
-    } 
-    else if cuddles = "no" { 
-        println!("awww...")
-    } 
-    else { 
-        println!("Confusion??")
-    }
-}
-```
--->
-<!-- 3.  -->
-<pre><code class="language-rust">fn main() {
-    let cuddles = "yes";
-
-    if cuddles = "yes" { 
-        println!("Yay!")
-    } 
-    else if cuddles = "no" { 
-        println!("awww...")
-    } 
-    else { 
         println!("Confusion??")
     }
 }
@@ -315,6 +279,12 @@ def power(n, power):
 </li>
 </ul>
 <p>We don't abbreivate (most of the time). <code>let temperary_buffer</code> not <code>tmp</code> or <code>temp_buffer</code>, etc. If it is an abbriviation so common it can be used as a word, you can abbreviate. (<code>guid</code> instead of <code>globally_unique_identifier</code>).</p>
+<h4 id="make-your-code-sweet">make your code sweet...</h4>
+<p>... but not too sweet.</p>
+<p>Syntactic sugar is great for some things but if over-used it can lead to hard to read code.</p>
+<hr>
+<p>NOTITIES:</p>
+<p>Implicit vs. explicit return types. Diffrence between "I return () because print() returns unit" and "I return () regaurdless of what print() returns"</p>
 
         
     </main>

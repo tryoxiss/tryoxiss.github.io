@@ -21,6 +21,8 @@ My block policy is **extremely aggressive** to keep my feed clean. I deal with e
 
 I use a variety of misc short codes and abbriviations when refering to things.
 
+I may add the pos (+) or neg (-) modifiers, I tend to try and do them in the ratio they are in, so if something is like 2/3rds posative but a bit negative it may be like "thing ++-".
+
 ### Content Warnings
 
 - **tw** = trigger warning

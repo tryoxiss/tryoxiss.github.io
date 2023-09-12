@@ -4,6 +4,17 @@ layout: "base.njk"
 subtitle: "Unhinged lesbian rambles about things"
 ---
 
+## Block Policy
+
+My block policy is **extremely aggressive** to keep my feed clean. I deal with enough shit as it is, and I don't my fedi to make me deal with more. Common block reasons include:
+
+I have an **extremely aggressive** block policy to keep my feed clean. If I have blocked you, its probably nothing personal you just touched a subject I keep away from. Block reasons include but are not limited to:
+-  *posting common trigers or repeatedly posting long notes without a content warning, or my triggers without a content warning* (not listing them here, I have too many bad actors trying to get a rise out of me, sorry. Feel free to dm for them).
+- Federating with a large number of bad actors
+- Having people who are witch hunting me and not taking action within ~16 hours of my report (I don't care if thats one bad apple, because that is one *really bad* apple), or having people who endorse people who are doing it.
+- Being un/lowly moderated
+- Anarcho Anything (`An*`). Its not a system that works, because it is not even a system. Its doomed to evolve into another system. Like "Anarcho Communism", do you even REALISE how insaine you sound? "Anarchy (no govenment or ruling bodies) Communism (Wealth distributed via a ruling body)". 
+
 ## Abbriviations / Terms
 
 **TRIGGER WARNING** for *everything*, I don't go into any detail, but I do list the meaning of many trigger related abbriviations. You should be able to easily skip over them, though.

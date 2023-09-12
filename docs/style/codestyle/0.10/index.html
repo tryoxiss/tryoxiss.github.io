@@ -61,8 +61,9 @@
 <li>A coordinate handler which only deals with one set of coordinates, which may use <code>x</code>, <code>y</code>, and <code>z</code>.
 <ul>
 <li><code>x</code> is the east (+x)/west (-x) axis.</li>
-<li><code>z</code> is the north (+z)/south (-z) axis.</li>
-<li><code>y</code> is the up (+y)/down (-y) axis.</li>
+<li><code>y</code> is the north (+y)/south (-y) axis.</li>
+<li><code>z</code> is the up (+z)/down (-z) axis.</li>
+<li>NOTE: This is done because in minecraft for example, moving across the terrain is like a 2d graph: X and Y! The depth then becomes Z. It is worth nothing however this cannot be changed in godot, so there y is up/down and z is north/south, and +y is actually down! We should always add a altnertae version for player-facing coordinates using our system, and add a dev mode toggle to view in engine coordinates.</li>
 <li>NOTE: This does not apply to <code>mx</code>, <code>my</code>, etc. use things like <code>yaw</code>, <code>roll</code>, and <code>pitch</code>! They have names, after all!</li>
 </ul>
 </li>
@@ -153,7 +154,7 @@
 
     fn is_warm(self)
     {
-        return self.is_warm();
+        return self.is_warm;
     }
 
     fn nom(&amp;self)

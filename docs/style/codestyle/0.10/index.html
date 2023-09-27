@@ -25,7 +25,7 @@
     <header>
         <h1 id="beautiful-codestyle">Beautiful Codestyle</h1>
         <text class="subtitle"></text>
-        <text class="subtitle">11 minute read </text>
+        <text class="subtitle">32 minute read </text>
     </header>
     
 
@@ -37,25 +37,26 @@
 
     <main>
         
-        <p>This code style is written keeping in mind some core concepts of what we believe "good code" looks like. This code style is written with Python, GDScript, Rust, CSS, HTML, and JavaScript (ew) in mind. It should, however, be applicable to almost any programming language.</p>
+        <p>This code style is written keeping in mind some core concepts of what we believe "good code" looks like. This code style is written with Python, GDScript, Rust, CSS, HTML, and JavaScript in mind. It should, however, be applicable to almost any programming language.</p>
 <h2 id="pillars">Pillars</h2>
 <ol>
-<li><strong>B</strong>reatheable - space between blocks, and spread out.</li>
-<li><strong>e</strong>xplicit - Names should be clear, and types should be explictly set when possible and reasonable.</li>
-<li><strong>a</strong>tomic - a function should be the smallest useable amount of code</li>
-<li><strong>u</strong>seful - the code should serve a purpose or solve a problem. Dead code should be removed and redundant code should be its own function (where reasonable)</li>
+<li><strong>B</strong>reatheable - Space between blocks, and spread out.</li>
+<li><strong>e</strong>xplicit - Names should be clear, and types should be explicitly set when possible and reasonable.</li>
+<li><strong>a</strong>tomic - A function should be the smallest useable amount of code.</li>
+<li><strong>u</strong>seful - The code should serve a purpose or solve a problem. Dead code should be removed and redundant code should be its own function (where reasonable).</li>
 <li>main<strong>t</strong>ainable](#maintainable) - Code should be future-proof to the extent it can survive the expected lifespan of the project, and be clear for future maintainers.</li>
-<li><strong>i</strong>ntentional - code should never be there "just because", it should always have a purpose.</li>
-<li><strong>f</strong>lat] - nested code is harder to read and maintain, minimise nesting where possible and more than 5 layers is explictly banned (with exceptions).</li>
-<li><strong>u</strong>nanimous - All code should feel as though it was written as a whole and feel cohesive. That is the problem this code style adresses.</li>
-<li><strong>l</strong>egible - code should be designed and written in such a way that it is easy to read.</li>
+<li><strong>i</strong>ntentional - Code should never be there "just because", it should always have a purpose.</li>
+<li><strong>f</strong>lat] - Nested code is harder to read and maintain, minimise nesting where possible and more than 5 layers is explicitly banned (with exceptions).</li>
+<li><strong>u</strong>nanimous - All code should feel as though it was written as a whole and feel cohesive. That is the problem this code style addresses.</li>
+<li><strong>l</strong>egible - Code should be designed and written in such a way that it is easy to read.</li>
 </ol>
 <p>Or all together: <strong>Beautiful</strong>. We will address these principals one by one, and then provide some examples.</p>
 <h2 id="naming">Naming</h2>
 <p>All variables, functions, and document titles are written in <code>snake_case</code>, with the exception of constant variables which use <code>SCREAMING_SNAKE_CASE</code> instead.</p>
-<p>All classes (with the exception of purely organisational classes in languages like python), structures, nodes, components, and types (unless built-in) should be in <code>PascalCase</code>.</p>
+<p>All classes (with the exception of purely organizational classes in languages like python), structures, nodes, components, and types (unless built-in) should be in <code>PascalCase</code>. It is worth clarifying that to us <code>PascalCase</code> means capitalizing only the first letter of every word or abbreviation, so its <code>HtmlParser</code> NOT <code>HTMLParser</code>. This helps with clarity.</p>
 <p><strong>NOTE:</strong> What should be pascal case differs based on language! In godot, <code>enum</code>s are a variable, and therefore get <code>snake_case</code>, but in rust they are a sort of structure and get <code>PascalCase</code>.</p>
-<p>Don't specify type in a variable name, thats what the type is for. Variable names should be clear and avoid all but very common abbriviations for long phrases. Its <code>total_cost</code> not <code>tcost</code> or whatever. But with long things with near universally understood accronyms and such, like Globally Unique Identifiers being <code>GUID</code>'s, thats fine.</p>
+<p>Don't specify type in a variable name, thats what the type is for. Variable names should be clear and avoid all but very common abbriviations for long phrases. Its <code>total_cost</code> not <code>tcost</code>. But with long things with near universally understood acronyms and such, like Globally Unique Identifiers being <code>GUID</code>'s, thats fine.</p>
+<p>Use mostly nouns for variable names, reserve verbs for methods and bools.</p>
 <p>One letter names are prohibited with a few exceptions, we have auto fill and wide screens now, this isn't the 90's. Exceptions are:</p>
 <ul>
 <li>A coordinate handler which only deals with one set of coordinates, which may use <code>x</code>, <code>y</code>, and <code>z</code>.
@@ -63,113 +64,298 @@
 <li><code>x</code> is the east (+x)/west (-x) axis.</li>
 <li><code>y</code> is the north (+y)/south (-y) axis.</li>
 <li><code>z</code> is the up (+z)/down (-z) axis.</li>
-<li>NOTE: This is done because in minecraft for example, moving across the terrain is like a 2d graph: X and Y! The depth then becomes Z. It is worth nothing however this cannot be changed in godot, so there y is up/down and z is north/south, and +y is actually down! We should always add a altnertae version for player-facing coordinates using our system, and add a dev mode toggle to view in engine coordinates.</li>
+<li>NOTE: This is done because in minecraft for example, moving across the terrain is like a 2d graph: X and Y! The depth then becomes Z. It is worth nothing however this cannot be changed in godot, so there y is up/down and z is north/south, and +y is actually down! We should always add a alternate version for player-facing coordinates using our system, and add a dev mode toggle to view in engine coordinates.</li>
 <li>NOTE: This does not apply to <code>mx</code>, <code>my</code>, etc. use things like <code>yaw</code>, <code>roll</code>, and <code>pitch</code>! They have names, after all!</li>
 </ul>
 </li>
-<li>A mathmatical functions which unambigusly takes a number may take <code>n</code>, if only for that it is a standard.</li>
+<li>A mathmatical functions which unambiguously takes a number may take <code>n</code>.</li>
+<li>If you have a simillar function that requires multiple values where each is functionally identicial, you may use the letters <code>a</code> through <code>z</code>. These may also be used where there is no meaningful name, but order matters: such as an IP address which may look like <code>ip_v4_address(a: u8, b: u8, c: u8, d: u8)</code>, or <code>average(a: Color, b: Color)</code>.</li>
 </ul>
-<p>Iterators should have a name, try <code>for post in posts</code> instead of <code>for i in posts</code>, since one clearly says what it is, while the other does not. If you really have nothing else, you may use <code>index</code> or <code>iterations</code> (more commonly known as the "Iterator of shame"), but <strong>never just <code>i</code>!</strong></p>
+<p>Iterators should have a name, try <code>for post in posts</code> instead of <code>for i in posts</code>, since one clearly says what it is, while the other does not. If you really have nothing else, you may use <code>index</code> or <code>iterations</code>, but <strong>never just <code>i</code>!</strong>.</p>
 <p>All functions that return a bool should ask one question, and all functions should do one thing. (Don't worry, this is covered in more detail in the functions section!)</p>
-<h2 id="spaceing-and-bracing">Spaceing and Bracing</h2>
-<p>add a space after keywords, and ensure all operators have a space before and after. All bracing should be next-line, with the exception of some cases which don't warrent taking up so much space (such as a single return) which can be inline.</p>
+<p>Also we of course only use US-ASCII characters in names.</p>
+<h3 id="terminology">Terminology</h3>
+<p>This section contains common names and patterns, as well as some terminology to help you name a variable if your stuck. This is not just for variable names, but most terminology that is used in this style guide.</p>
+<ul>
+<li><strong>Fractional</strong> could be either a value such as 17/4 that has no useful intiger representation, but most commonly its a value clamped between 0 and 1. This is most commonly down by doing <code>1/n</code> where n is the value you want to clamp. This method has the added benefit of behaving 1:1 with percentages: 0.01 is 1/100, both of which are 1%!</li>
+<li><strong>Alpha</strong> %% What are these here for? vvvv %%</li>
+<li><strong>Beta</strong></li>
+<li><strong>Delta</strong></li>
+<li><strong>Omega</strong></li>
+</ul>
+<h2 id="spacing-and-bracing">Spacing and Bracing</h2>
+<p>Add a space after keywords, and ensure all operators have a space before and after. All bracing should be next-line, no matter how short the statement. Two exceptions are: (1) rust match statements that don't require bracing, and (b) guard clauses that just return. All other returns need to be next line, even if its just the return. This is to help keep code consistent, as what is short enough to put on one line for someone may not be for everyone. There is one exception however: empty braces (<code>{}</code>) such as for a yet-to-be-implemented function or implementing a trait with all its defalts, you keep them on the same line. <code>impl Flamable for Wood {}</code>.</p>
+<p>If you need more than one method (<code>.</code>) on a function outside of a string, its best to split it on to multiple lines, with each method being indented one tab from the initial space. If it is inside a string, you should bring it out to be its own variable.</p>
+<p>If the arguments passed in to a function or checks in an if statement go past the %% Split between 70 and 80 for this -&gt; %% 75 character mark, split them on to multiple lines with the same rules and methods. Include a trailing comma for enums and dictionaries.</p>
+<p>In indent-based languages, leave two blank lines after a class or function definition. In braced languages, leave one blank line.</p>
+<pre><code class="language-rust">struct Cat
+{
+    name: String,
+}
+
+trait Speak
+{
+    fn speak(&amp;self) -&gt; ()
+    {
+        println!("{}", "Meow");
+    }
+}
+
+impl Cat
+{
+    fn new() -&gt; Cat
+    {
+        return Cat { name: "kitteh".to_string() }
+    }
+}
+
+impl Snuggle for Cat {};
+impl Speak for Cat {};
+impl Eat for Cat {};
+impl Repeat for Cat {};
+
+fn main() {
+    println!("Hello, world!");
+    
+    cat::new()
+        .speak()
+        .snuggle()
+        .eat()
+        .repeat();
+}
+
+fn logic_example(a, b, c) -&gt; bool
+{
+    if (a &amp;&amp; b) || !c
+    {
+        return true;
+    }
+    
+    return false;
+</code></pre>
+<pre><code class="language-py">def logic_example(a, b, c) -&gt; bool:
+    if (a and b) or not c:
+        return True
+
+    return False
+
+
+def next_function():
+    ...
+</code></pre>
+<p>Some languages allow you to define Traits, Functions, Structures, etc inside of each other. Don't do this. The one exception is python, in which that is required for decorators.</p>
+<p>We always indent with tabs, never spaces. Since we don't align code by column there is no downside to tabs, as they are always a multiple of characters. It also lets people customize their environment, sane people can use 1 tab = 4 spaces, %% Not sure "neck beard" is appropriate here %% some JS users can use 2, and Sebastian League can use 3. (This is a joke but also, watch their videos, its always 3 spaces. The madlad.)</p>
 <pre><code class="language-rust">fn can_drink(person: Person)
 {
-    if person.age == Option::None { return; }
+	if person.age == Option::None
+	{
+	    return;
+	}
 
-    if person.age &lt;= 18
-    {
-        println!("Nope, sorry!");
-        return;
-    }
-    if person.age &lt;= 21
-    {
-        println!("Not in the US, but elsewhere");
-        return;
-    }
+	if person.age &lt;= 18
+	{
+		println!("Nope, sorry!");
+		return;
+	}
+	if person.age &lt;= 21
+	{
+		println!("Not in the US, but elsewhere");
+		return;
+	}
 
-    println!("Yup!");
+	println!("Yup!");
 }
 </code></pre>
-<p>We never leave whitespace at the end of lines or files.</p>
+<p>We never leave blank space at the end of lines or files.</p>
+<p>Import files, modules, classes, etc as granularly as you can in general. It makes it easier to see when you have unused imports.</p>
 <h2 id="control-flow">Control flow</h2>
-<p>As with the previous example, you probably noticed we didn't use an else case, we just got out of the way by returning, and reserved the rest for an else. This is a (bad) example of <strong>gaurd clauses</strong>: conditions that get checked first, because they can be resolved first. Take this example:</p>
+<p>Control flow is anything that makes your code take a branch. Here we also touch briefly on operators too.</p>
+<h3 id="if-statements">If Statements</h3>
+<p>As with the previous example, you probably noticed we didn't use an else case. We just got out of the way by returning, and reserved the rest for an else. This is a (bad) example of <strong>guard clauses</strong>: conditions that get checked first, because they can be resolved first. Take this example:</p>
 <pre><code class="language-rust">fn ban_user(actor: User, user: User, reason: &amp;str) -&gt; ActionStatus
 {
-    if actor.is_authenticated() == true
-    {
-        if actor.is_admin() == true
-        {
-            if actor.has_ban_rights() == true
-            {
-                user.ban("{}", reason.to_string());
-                return ActionStatus::Done;
-            }
-            return ActionStatus::MissingPermission(Permissions::Ban);
-        }
-        return ActioNStatus::MustBeAdmin;
-    }
-    return ActionStatus::AuthenticationRequired;
+	if actor.is_authenticated() == true
+	{
+		if actor.is_admin() == true
+		{
+			if actor.has_ban_rights() == true
+			{
+				user.ban("{}", reason.to_string());
+				return ActionStatus::Done;
+			}
+			return ActionStatus::MissingPermission(Permissions::Ban);
+		}
+		return ActioNStatus::MustBeAdmin;
+	}
+	return ActionStatus::AuthenticationRequired;
 }
 </code></pre>
-<p>Not very readable, right? Its heavily nested and you need to scan deep to see what we actually return. Whenever you have an if condition wrapping a large part of your function, its a perfect time (though there are many others) to use <em>gaurd clauses</em>. Take a look at this:</p>
+<p>Not very readable, right? Its heavily nested and you need to scan deep to see what we actually return. Whenever you have an if condition wrapping a large part of your function, its a perfect time (though there are many others) to use <em>guard clauses</em>. Take a look at this:</p>
 <pre><code class="language-rust">fn ban_user(actor: User, user: User, reason: &amp;str) -&gt; ActionStatus
 {
-    if actor.is_authenticated() == false
-    {
-        return ActionStatus::AuthenticationRequired;
-    }
+	if actor.is_authenticated() == false
+	{
+		return ActionStatus::AuthenticationRequired;
+	}
 
-    if actor.is_admin() == false
-    {
-        return ActionStatus::MustBeAdmin;
-    }
+	if actor.is_admin() == false
+	{
+		return ActionStatus::MustBeAdmin;
+	}
 
-    if actor.has_ban_rights() == false
-    {
-        return ActionStatus::MissingPermission(Permissions::Ban);
-    }
+	if actor.has_ban_rights() != true
+	{
+		return ActionStatus::MissingPermission(Permissions::Ban);
+	}
 
-    user.ban("{}", reason.to_string());
-    return ActionStatus::Done;
+	user.ban("{}", reason.to_string());
+	return ActionStatus::Done;
 }
 </code></pre>
 <p>Now notice what we did: we flipped the conditions and switched to returning early. This lets the body of the function remain lowly nested, and makes the code more readable because you don't need to think about the previous conditions.</p>
 <p>This is important because we have a <strong>maximum nest policy:</strong> you may <strong>NEVER</strong> have code more than 5 layers deep, and more than 3 is very heavily frowned upon and will be taken with great scrutiny.</p>
-<p>And that takes us to our next important rule: We match all patterns explictly and don't use else for most cases, <a rel="noreferrer" target="_blank" href="https://youtu.be/s7GTiBs3hRw?si=wRXHzjnKz7W6gPKm&amp;t=63">otherwise weird things start to happen</a>. If else is used, it should do nothing but throw an error! If you have something like the <code>can_drink</code> example from before, you got all other cases out of the way with gaurd clauses, so you don't need an else block!</p>
-<h2 id="functions-classes-structures-nodes-and-beyond">Functions, Classes, Structures, Nodes, and beyond</h2>
-<p>These re-useable components of code are at the heart of our style. We want each function, object, what be it, to do <em>exactly</em> one thing.</p>
-<p>Heres a tip for that: if you describe it, what does it do? Does your <code>player</code> class play sound effects <strong>and</strong> handle controls <strong>and</strong> save data <strong>and</strong> load the world? Or do you have a Player class which contains modules that play sound effects, handle controls, save data, and load the world, all indevidually?</p>
-<p>Thats the diffrence with atomic design.</p>
+<p>And that takes us to our next important rule: We match all patterns explicitly and don't use else for most cases, <a rel="noreferrer" target="_blank" href="https://youtu.be/s7GTiBs3hRw?si=wRXHzjnKz7W6gPKm&amp;t=63">otherwise weird things start to happen</a>. If else is used, it should do nothing but throw an error! If you have something like the <code>can_drink</code> example from before, you got all other cases out of the way with guard clauses, so you don't need an else block!</p>
+<h3 id="operators">Operators</h3>
+<p>One big question is always what operators to use. Do you do flip <code>variable == true</code> to <code>variable == false</code> or <code>variable != true</code>? Is it <code>n &gt; 0</code> or <code>n &gt;= 1</code>?</p>
+<p>As a general rule avoid "or equal to" cases, as they add an additional thing to think about. I don't know about everyone, but to me "greater than 0" is easier to think about than "greater than or equal to 0". If you have a situation where "[...] or equal to" makes more sense, such as a mathematical formula that is commonly denoted that way, go for it.</p>
+<p>With flipping conditions we currently don't much care: just pick whatever you think is more readable for that.</p>
+<p>When using more complex logic, always surround what operates first with brackets. Even if it would happen anyway, it makes your code more readable. Prefer the plain English types of logic gates if they exist. For example, <code>or</code> instead of <code>||</code>.</p>
+<p>NOTE TO SELF: Floats use &gt;= generally.</p>
+<h2 id="functions-classes-structures-nodes-and-beyond">Functions, Classes, Structures, Nodes, and Beyond</h2>
+<p>These re-usable components of code are at the heart of our style. We want each function, object, what be it, to do <em>exactly</em> one thing.</p>
+<p>Here's a tip for that: if you describe it, what does it do? Does your <code>player</code> class play sound effects <strong>and</strong> handle controls <strong>and</strong> save data <strong>and</strong> load the world? Or do you have a Player class which contains modules that play sound effects, handle controls, save data, and load the world, all individually?</p>
+<p>That's the difference with atomic design. Also composition over inheritance.</p>
 <h3 id="functions">Functions</h3>
 <p>A function is a callable block of code that does one thing.</p>
+<p>Functions do one thing, well. But what is one thing? Well the things in a function should in general be on the same level of abstraction.</p>
+<p>A function also generally either does an action ("Compute functions") or performs a query ("Query functions"). Query functions generally start with <code>get</code>, such as <code>get_action_strength()</code>.</p>
+<p>A function also only gets information it actually needs. Theres no sense in passing an entire <code>customer</code> when all you need is the card number. The number of arguments a function needs is a good metric to determine how much it does. A function should use <em>every</em> value it gets and no more. If you have more than 4 or so arguments, it may be time to start abstracting them into more atomic structures.</p>
+<p>A parameter is part of the functions definition, and an argument is what you pass in when calling the function.</p>
+<p>Something should also not be defined in the same place its used, this allows for dependency injection. Dependency injection lets us change things easily, for example if we wanted to change to a diffrent database we just change its api and since its dependency injection, we only need to change it in one place: <code>create_database_api()</code> or whatever its called. This also helps if you have a base class/etc, <code>Database</code> and then <code>SqlDatabase</code> that derives and extends database. This is the core of dependency injection.</p>
+<p>%% Clarify %%
+If a function ever takes a boolean flag for one case or another: it MUST be a query function, whos only purpose is to call another function based on the flag.</p>
+<p>If a function has "and" in its name, it should probably be abstracted farther. <code>find_and_build_files()</code> for example. There should be a <code>find_files()</code> and a <code>build_files()</code>. Need them to run in series? Cool, make another function that deals with that.</p>
+<p>Sometimes good argument names can help you reduce function names. For example <code>database.write_to_key(key: str)</code> can just be <code>database.write_to(key: str)</code>.</p>
+<p>Function names should be actions, and arguments should be nouns. <code>greet(name)</code> not <code>greeting(say_hi_to)</code>. Functions that return a bool should ask one question: <code>is_on_ground()</code>. Functions that return a property from a struct should be <code>get_&lt;property&gt;()</code>. Make sure function names are grammatically correct and have correct spelling. <code>is_on_ground()</code>, NEVER <code>are_on_ground()</code>.</p>
+<p>Do we explicitly return None? What about in rust where its unit <code>()</code>?</p>
 <h3 id="next-thing">(Next Thing)</h3>
 <p>This isn't finished yet :c. But I would still love your feedback thus far!</p>
 <pre><code class="language-rust">impl Eat for Cookie
 {
-    fn eat(self, eater)
-    {
-        eater.add_energy(self.calories);
-    }
+	fn eat(self, eater)
+	{
+		eater.add_energy(self.calories);
+	}
 
-    fn is_warm(self)
-    {
-        return self.is_warm;
-    }
+	fn is_warm(self)
+	{
+		return self.is_warm;
+	}
 
-    fn nom(&amp;self)
-    {
-        if self.cookies_amount &lt;= 0
-        {
-            return ""
-        }
+	fn nom(&amp;self)
+	{
+		if self.cookies_amount &lt;= 0
+		{
+			return ""
+		}
 
-        self.cookies_amount -= 1
-    }
+		self.cookies_amount -= 1
+	}
 }
 </code></pre>
 <h2 id="objects">Objects</h2>
+<h3 id="constants">Constants</h3>
+<p>Constants help make your code more readable by making it read like a comment. Never use constants if it has its value in the name: don't have <code>THREE_HALVES</code>, just use <code>1.5</code>.</p>
+<p>Here are a few constants that show up often enough to be noted here.</p>
+<ul>
+<li><code>0xFEE1DEAD</code> or <code>4,276,215,469</code> is the code to terminate a process without any additional checks.</li>
+</ul>
+<h3 id="variables">Variables</h3>
+<p>%% Add about ` in languages like JS %%
+Strings should use double quotes, unless they represent only one character. For languages that do not differentiate between <code>''</code> strings and <code>""</code> strings, you may use <code>'</code> strings if lets you escape less characters.</p>
+<p>Always include a leading or trailing zero in floating point numbers. This helps distinguish from integers quickly. If the language allows it then for long numbers place an underscore every 3 numbers from the decimal point for decimal numbers, or every 4 for hex numbers. If a hex number spells something, you can either place underscores between "words" or omit them, or color codes.</p>
+<pre><code class="language-py">fraction = 0.5
+zoom = 13.0
+
+# both are fine
+force_exit_1 = 0xFEE1_DEAD
+force_exit_2 = 0xFEE1DEAD
+
+u64_max = 0xffff_ffff_ffff_ffff
+its_over_nine_thousand = 9_001
+nine_million = 90_212_412
+
+# example:
+
+# Because memory is tight, we pack pieces into a u8. Here are constants for thier offsets.
+# We can OR them together to get one full piece, because "PAWN" dosen't exist, only "BLACK PAWN"
+# and "WHITE PAWN". So we OR the team and piece ID together to get a full piece.
+
+PAWN = 0b0000_0001
+BISHOP = 0b0000_0010
+KNIGHT = 0b0000_0011
+ROOK = 0b0000_0100
+QUEEN = 0b0000_0101
+KING = 0b0000_0110
+
+WHITE = 0b0000_0000
+BLACK = 0b0001_0000
+</code></pre>
+<p>Hex numbers use lowercase letters, as this makes it easier to read by distinguishing letters like "B" from "8".</p>
+<h2 id="comments">Comments</h2>
+<p>Comments are generally to be avoided: make your <em>code</em> read like a comment instead by abstraction code into functions and using constants. Comments should start with a space. Code you comment out should not.</p>
+<p>However, there are still three main reasons you should comment.</p>
+<ol>
+<li><strong>Optimization.</strong> If your code does something non-obvious for optimization purposes you should leave a comment explaining it. A few examples are
+<ol>
+<li>Packing the data of a chess move into a 16 bit value. This is an obvious optimisation that should be done, but you should still write a comment (and docs article!) to document how you store data in there.</li>
+<li>Skipping steps for speed.</li>
+</ol>
+</li>
+<li><strong>Non-Common algorithms and Formulas.</strong> If you use an algorithm that is not common or well known, consider linking to its source. Of course you should put it in its own function as well. DO NOT use this as a substitute for abstraction: its <code>a_star()</code>, not <code>// the following code is the a* pathfinding algorithum</code>.</li>
+<li><strong>Weird bugs + Dev Notes.</strong> If you are currently working collaboratively with a team, feel free to leave comments to help clarify what needs doing next. This <strong>IS NOT</strong> a substitute for proper communication and issue management! The most common of these is having a file header, which briefly explains the licence.</li>
+</ol>
+<p>You should <strong>not</strong> comment because...</p>
+<ol>
+<li><strong>You want to leave a paper trail.</strong> Code is not a place for your personal development diary, thats handled by version control. If you want to keep something like that code is not the place to do it.</li>
+<li><strong>There is unused code.</strong> Commenting out code while you are working is fine. In fact is common practice! What you should not do however is keep it after you are done with the related portion. Be bold and delete it! If it was complex and you don't want to forget it, then it probably needed a rewrite anyway.</li>
+</ol>
+<h2 id="optimization-performance-and-fixes">Optimization, Performance, and Fixes</h2>
+<p>It is always better to fix the underlying issue than apply band-aid fixes.</p>
+<p>TODO: No premature optimisation, but like do the obvious.</p>
+<p>Latency Numbers give us an idea of how long something takes. Knowing the exact numbers isn't important as they are completely hardware specific, but knowing the rough orders of magnitude is instrumentally helpful.</p>
+<p>1 Nanosecond is 1 billionth of a second (<code>1 / 1,000,000,000</code> seconds) or <strong>ns</strong>. A microsecond is 1 millionth of a second (<code>1 / 1,000,000</code> seconds) and is <strong>μs</strong>. A milisecond 1/1000th and is <strong>ms</strong>, and so on.</p>
+<blockquote>
+<p>[!note] All of these latency numbers are from one source!
+All latency numbers are from <a rel="noreferrer" target="_blank" href="https://www.youtube.com/watch?v=FqR5vESuKe0">Latency Numbers for the 2020s</a> and have no additional sources.</p>
+</blockquote>
+<ul>
+<li>&lt; 1ns. Accessing CPU registers and the clock cycle of almost all CPUs.</li>
+<li>1--10ns. Accessing L1 and L2 caches, and very expensive CPU operations. This is also about the cost of branching code if the CPU is not able to predict the path beforehand.</li>
+<li>10--100ns. L3 Cache access at the low end, to accessing main memory (like what?) is on the high end. HDD drives have much slower main memory (RAM) access times.</li>
+<li>100-1000ns. This is mostly things such as system calls (syscalls). Linux syscalls take between 100 and 300 nanoseconds, but may take longer on other platforms. This is <strong>just</strong> the time to and back, and does not include the calls cost itself.</li>
+<li>1--10μs. Context switching and handing data off between threads. Such as going from a syscall to user code and back. It could take much longer if you need to transfer more data. Handing about 64kb of memory generally takes between 1 and 4 microseconds.</li>
+<li>10--100μs. An nginx proxy or reading about 1MB of sequential data is about 50 microseconds. Reading an 8K page from an SSD takes about 100 microseconds.</li>
+<li>100--1000μs. SSD Write latency, which is about ten times slower than the read latency. It takes about 1ms to write an 8K page.</li>
+<li>1--10ms. A cross-country/zone jump for networks, and the read speed for a HDD drive.</li>
+<li>10--100ms. A large data leap such as US-East to US-West or US-East to Britan.</li>
+<li>100-1000ms. Most password hash functions, which take about 300ms. A TLS handshake is generally 250 to 500 milliseconds. It is also about the speed of reading 1GB sequentially from an SSD.</li>
+<li>
+<blockquote>
+<p>1s. Transferring 1GB of data over the network.</p>
+</blockquote>
+</li>
+</ul>
+<p>(approximate cost of diffrent operations)</p>
+<p>(approximate efficentcy of diffrent types of data structures)</p>
 <h2 id="language-specific">Language-Specific</h2>
+<h2 id="farther-reading">Farther Reading</h2>
+<p>This is the resources and such that I used to create this code style.</p>
+<p><a rel="noreferrer" target="_blank" href="https://www.youtube.com/watch?v=yatgY4NpZXE">The Ultimate Guide to writing Functions</a>
+<a rel="noreferrer" target="_blank" href="https://www.youtube.com/watch?v=FqR5vESuKe0">Latency Numbers for the 2020's</a></p>
+<p>-- note to self:
+-- gdscript organises it by "Formatting", then "naming", then "code order".
+-- If you edit a file, try and leave it better off than it was before!</p>
 
         
     </main>
@@ -213,7 +399,7 @@
 
     <ul class="badges">
         <li><a rel="noreferrer" target="_blank" href="https://genderdysphoria.fyi/en/#introduction"><img src="https://erkin.party/images/cheesy/trans_rights.gif" alt="A trans flag followed by the text 'trans rights NOW!, with a nonbinary flag in the bottom right corner."></a></li>
-        <li><a href="/known-chrome-bugs/"><img src="/res/img/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
+        <li><a href="/known-chrome-bugs/"><img src="/resources/images/png/anything-but-chrome.png" alt="Best Experinced with ANYTHING but chrome."></a></li>
     </ul>
 
     <br>
@@ -221,7 +407,8 @@
 </footer>
 
 
-    <script>if(navigator.getEnvironmentIntegrity!==undefined)document.querySelector('body').innerHTML='<h1>Your browser contains Google DRM</h1>"Web Environment Integrity" is a Google euphemism for a DRM that is designed to prevent ad-blocking. In support of an open web, this website does not function with this DRM. Please install a browser such as <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> that respects your freedom and supports ad blockers.';</script>
+
+    <script>if(navigator.getEnvironmentIntegrity!==undefined)document.querySelector('body').innerHTML='<h1>Your browser contains Google DRM</h1>"Web Environment Integrity" is a Google euphemism for a DRM that is designed to prevent ad and tracker blocking. In support of an open web, this website does not function with this DRM. Please install a browser such as <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a> that respects your freedom and supports ad blockers.';</script>
 
 
 </body></html>
